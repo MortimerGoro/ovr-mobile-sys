@@ -1,0 +1,14 @@
+[package]
+name = "ovr-mobile-sys"
+description = "Rust bindings for Oculus VR Mobile SDK"
+version = "0.1.0"
+authors = ["Imanol Fernandez <mortimergoro@gmail.com>", "Oculus Team"]
+build = "build.rs"
+
+homepage = "https://github.com/MortimerGoro/ovr-mobile-sys"
+repository = "https://github.com/MortimerGoro/ovr-mobile-sys"
+keywords = ["vr", "oculus", "mobile", "sdk", "gear"]
+license = "Apache-2.0"
+
+[build-dependencies]
+bindgen = "0.25"
