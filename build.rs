@@ -12,13 +12,10 @@ fn main() {
     let mut bindings = Builder::default()
                 .no_unstable_rust()
                 .header("VrApi/Include/VrApi.h")
-                .header("VrApi/Include/VrApi.h")
-                .clang_arg("-std=c99")
-                .opaque_type("std.*")
-                .whitelisted_type("ovr.*")
-                .whitelisted_type("vrapi.*")
-                .whitelisted_function("ovr.*")
-                .whitelisted_function("vrapi.*");
+                .header("VrApi/Include/VrApi_Input.h")
+                .header("VrApi/Include/VrApi_Version.h")
+                .header("VrApi/Include/VrApi_Helpers.h")
+                .clang_arg("-std=c99");
 
     if android {
         // Add Android macros and sysroot to generate correct JNI methods in the API
