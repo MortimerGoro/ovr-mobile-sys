@@ -30,6 +30,7 @@ fn main() {
         };
         let sys_root = ndk_path.join("platforms").join(platform).join(arch).join("usr").join("include");
         bindings = bindings.clang_arg("-D__ANDROID__")
+                           .clang_arg("-DANDROID") // VRApi_Types.h uses "#if defined( ANDROID )"
                            .clang_arg(format!("-I{}", sys_root.to_str().unwrap()));
     }
             
