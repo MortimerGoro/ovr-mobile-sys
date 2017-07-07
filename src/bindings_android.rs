@@ -4304,6 +4304,100 @@ fn bindgen_test_layout_ovrHeadModelParms() {
 impl Clone for ovrHeadModelParms {
     fn clone(&self) -> Self { *self }
 }
+extern "C" {
+    pub fn vrapi_GetTimeInSeconds() -> f64;
+}
+extern "C" {
+    pub fn vrapi_GetVersionString() -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn vrapi_Initialize(initParms: *const ovrInitParms)
+     -> ovrInitializeStatus;
+}
+extern "C" {
+    pub fn vrapi_Shutdown();
+}
+extern "C" {
+    pub fn vrapi_GetSystemPropertyInt(java: *const ovrJava,
+                                      propType: ovrSystemProperty)
+     -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn vrapi_GetSystemPropertyFloat(java: *const ovrJava,
+                                        propType: ovrSystemProperty) -> f32;
+}
+extern "C" {
+    pub fn vrapi_GetSystemPropertyString(java: *const ovrJava,
+                                         propType: ovrSystemProperty)
+     -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn vrapi_GetSystemStatusInt(java: *const ovrJava,
+                                    statusType: ovrSystemStatus)
+     -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn vrapi_GetSystemStatusFloat(java: *const ovrJava,
+                                      statusType: ovrSystemStatus) -> f32;
+}
+extern "C" {
+    pub fn vrapi_EnterVrMode(parms: *const ovrModeParms) -> *mut ovrMobile;
+}
+extern "C" {
+    pub fn vrapi_LeaveVrMode(ovr: *mut ovrMobile);
+}
+extern "C" {
+    pub fn vrapi_GetPredictedDisplayTime(ovr: *mut ovrMobile,
+                                         frameIndex:
+                                             ::std::os::raw::c_longlong)
+     -> f64;
+}
+extern "C" {
+    pub fn vrapi_GetPredictedTracking(ovr: *mut ovrMobile,
+                                      absTimeInSeconds: f64) -> ovrTracking;
+}
+extern "C" {
+    pub fn vrapi_RecenterPose(ovr: *mut ovrMobile);
+}
+extern "C" {
+    pub fn vrapi_CreateTextureSwapChain2(type_: ovrTextureType,
+                                         format: ovrTextureFormat,
+                                         width: ::std::os::raw::c_int,
+                                         height: ::std::os::raw::c_int,
+                                         levels: ::std::os::raw::c_int,
+                                         bufferCount: ::std::os::raw::c_int)
+     -> *mut ovrTextureSwapChain;
+}
+extern "C" {
+    pub fn vrapi_CreateTextureSwapChain(type_: ovrTextureType,
+                                        format: ovrTextureFormat,
+                                        width: ::std::os::raw::c_int,
+                                        height: ::std::os::raw::c_int,
+                                        levels: ::std::os::raw::c_int,
+                                        buffered: bool)
+     -> *mut ovrTextureSwapChain;
+}
+extern "C" {
+    pub fn vrapi_DestroyTextureSwapChain(chain: *mut ovrTextureSwapChain);
+}
+extern "C" {
+    pub fn vrapi_GetTextureSwapChainLength(chain: *mut ovrTextureSwapChain)
+     -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn vrapi_GetTextureSwapChainHandle(chain: *mut ovrTextureSwapChain,
+                                           index: ::std::os::raw::c_int)
+     -> ::std::os::raw::c_uint;
+}
+extern "C" {
+    pub fn vrapi_SetTextureSwapChainHandle(chain: *mut ovrTextureSwapChain,
+                                           index: ::std::os::raw::c_int,
+                                           handle: ::std::os::raw::c_uint);
+}
+extern "C" {
+    pub fn vrapi_SubmitFrame(ovr: *mut ovrMobile,
+                             parms: *const ovrFrameParms);
+}
 pub type __uint8_t = ::std::os::raw::c_uchar;
 pub type __uint16_t = ::std::os::raw::c_ushort;
 pub type __uint32_t = ::std::os::raw::c_uint;
@@ -4665,6 +4759,39 @@ impl Clone for ovrInputStateHeadset_ {
     fn clone(&self) -> Self { *self }
 }
 pub type ovrInputStateHeadset = ovrInputStateHeadset_;
+extern "C" {
+    pub fn vrapi_EnumerateInputDevices(ovr: *mut ovrMobile, index: u32,
+                                       capsHeader:
+                                           *mut ovrInputCapabilityHeader)
+     -> ovrResult;
+}
+extern "C" {
+    pub fn vrapi_GetInputDeviceCapabilities(ovr: *mut ovrMobile,
+                                            capsHeader:
+                                                *mut ovrInputCapabilityHeader)
+     -> ovrResult;
+}
+extern "C" {
+    pub fn vrapi_GetCurrentInputState(ovr: *mut ovrMobile,
+                                      deviceID: ovrDeviceID,
+                                      inputState: *mut ovrInputStateHeader)
+     -> ovrResult;
+}
+extern "C" {
+    pub fn vrapi_GetInputTrackingState(ovr: *mut ovrMobile,
+                                       deviceID: ovrDeviceID,
+                                       absTimeInSeconds: f64,
+                                       tracking: *mut ovrTracking)
+     -> ovrResult;
+}
+extern "C" {
+    pub fn vrapi_RecenterInputPose(ovr: *mut ovrMobile,
+                                   deviceID: ovrDeviceID);
+}
+extern "C" {
+    pub fn vrapi_SetRemoteEmulation(ovr: *mut ovrMobile, emulationOn: bool)
+     -> ovrResult;
+}
 #[repr(u32)]
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum ovrFrameInit {
