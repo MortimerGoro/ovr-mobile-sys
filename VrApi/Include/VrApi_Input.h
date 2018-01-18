@@ -1,9 +1,10 @@
 /************************************************************************************
 
 Filename    :   VrApi_Input.h
-Content     :   
+Content     :   Input API
 Created     :   Feb 9, 2016
-Authors     : 
+Authors     :   Jonathan E. Wright
+Language    :   C99
 
 Copyright   :   Copyright 2015 Oculus VR, LLC. All Rights reserved.
 
@@ -18,13 +19,20 @@ Copyright   :   Copyright 2015 Oculus VR, LLC. All Rights reserved.
 #include "VrApi_Types.h"
 
 // Describes button input types.
-// Only the following Button types are reported to the application in this release,
+// For the Gear VR Controller and headset, only the following ovrButton types are reported to the application:
 //
-// ovrButton_Back, ovrButton_Home, ovrButton_A, ovrButton_Enter, ovrButton_VolUp, ovrButton_VolDown
+// ovrButton_Back, ovrButton_A, ovrButton_Enter
 //
+// ovrButton_Home, ovrButton_VolUp, ovrButtonVolDown and ovrButton_Back are system buttons that are never
+// reported to applications.
+// ovrButton_Back button has system-level handling for long presses, but application-level handling for 
+// short-presses. Since a short-press is determined by the time interval between down and up events, the
+// ovrButton_Back flag is only set when the back button comes up in less than the short-press time (0.25
+// seconds). The ovrButton_Back flag always signals a short press and will only remain set for a single frame.
+
 typedef enum ovrButton_
 {
-	ovrButton_A         = 0x00000001,
+	ovrButton_A         = 0x00000001,	// Set for trigger pulled on the Gear VR Controller
 	ovrButton_B         = 0x00000002,
 	ovrButton_RThumb    = 0x00000004,
 	ovrButton_RShoulder = 0x00000008,
@@ -38,8 +46,9 @@ typedef enum ovrButton_
 	ovrButton_Down      = 0x00020000,
 	ovrButton_Left      = 0x00040000,
 	ovrButton_Right     = 0x00080000,
-	ovrButton_Enter     = 0x00100000,
-	ovrButton_Back      = 0x00200000,
+	ovrButton_Enter     = 0x00100000,	// Set for touchpad click on the Gear VR Controller
+	ovrButton_Back      = 0x00200000,	// Back button on the headset or Gear VR Controller (only set when a short press comes up)
+
 
 	ovrButton_EnumSize  = 0x7fffffff
 } ovrButton;
@@ -82,6 +91,7 @@ typedef enum ovrControllerCapabilities_
 	ovrControllerCaps_HasPositionTracking 		= 0x00000002,
 	ovrControllerCaps_LeftHand					= 0x00000004,	// controller is configured for left hand
 	ovrControllerCaps_RightHand					= 0x00000008,	// controller is configured for right hand
+
 
 	ovrControllerCaps_EnumSize 					= 0x7fffffff
 } ovrControllerCapabilties;
@@ -173,6 +183,7 @@ typedef struct ovrInputStateTrackedRemote_
 	uint16_t			Reserved;
 } ovrInputStateTrackedRemote;
 
+
 // ovrInputStateHeadset describes the complete input state for the 
 // GearVR headset. The TrackpadPosition coordinates return for the
 // headset are relative coordinates, centered at (1280,720). See the
@@ -236,6 +247,7 @@ OVR_VRAPI_EXPORT ovrResult vrapi_GetInputDeviceCapabilities( ovrMobile * ovr, ov
 //     if ( vrapi_GetCurrentInputState( ovr, remoteDeviceID, &state.Header ) >= 0 ) {
 OVR_VRAPI_EXPORT ovrResult vrapi_GetCurrentInputState( ovrMobile * ovr, const ovrDeviceID deviceID, ovrInputStateHeader * inputState );
 
+
 // Returns the predicted input state based on the specified absolute system time
 // in seconds. Pass absTime value of 0.0 to request the most recent sensor reading.
 // Input: ovr, device ID, prediction time
@@ -246,7 +258,7 @@ OVR_VRAPI_EXPORT ovrResult vrapi_GetInputTrackingState( ovrMobile * ovr, const o
 // Can be called from any thread while in VR mode. Recenters the tracked remote to the current yaw of the headset.
 // Input: ovr, device ID
 // Output: None
-OVR_VRAPI_EXPORT void vrapi_RecenterInputPose( ovrMobile * ovr, const ovrDeviceID deviceID );
+OVR_VRAPI_DEPRECATED( OVR_VRAPI_EXPORT void vrapi_RecenterInputPose( ovrMobile * ovr, const ovrDeviceID deviceID ) );
 
 // Enable or disable emulation for the GearVR Controller. 
 // Emulation is on by default.
