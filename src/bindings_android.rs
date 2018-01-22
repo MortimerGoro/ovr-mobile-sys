@@ -39,2617 +39,4718 @@ pub type jfloatArray = jarray;
 pub type jdoubleArray = jarray;
 pub type jthrowable = jobject;
 pub type jweak = jobject;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct _jfieldID {
     _unused: [u8; 0],
 }
 pub type jfieldID = *mut _jfieldID;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct _jmethodID {
     _unused: [u8; 0],
 }
 pub type jmethodID = *mut _jmethodID;
-# [ repr ( C ) ]
-# [ derive ( Copy , Clone ) ] pub union jvalue { pub z : jboolean , pub b : jbyte , pub c : jchar , pub s : jshort , pub i : jint , pub j : jlong , pub f : jfloat , pub d : jdouble , pub l : jobject , _bindgen_union_align : u64 , }
-# [ test ]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union jvalue {
+    pub z: jboolean,
+    pub b: jbyte,
+    pub c: jchar,
+    pub s: jshort,
+    pub i: jint,
+    pub j: jlong,
+    pub f: jfloat,
+    pub d: jdouble,
+    pub l: jobject,
+    _bindgen_union_align: u64,
+}
+#[test]
 fn bindgen_test_layout_jvalue() {
-    assert_eq!(::std::mem::size_of::<jvalue>(),
-               8usize,
-               concat!("Size of: ", stringify!(jvalue)));
-    assert_eq!(::std::mem::align_of::<jvalue>(),
-               8usize,
-               concat!("Alignment of ", stringify!(jvalue)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<jvalue>())).z as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(z)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<jvalue>())).b as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(b)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<jvalue>())).c as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(c)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<jvalue>())).s as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(s)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<jvalue>())).i as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(i)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<jvalue>())).j as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(j)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<jvalue>())).f as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(f)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<jvalue>())).d as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(d)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<jvalue>())).l as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(l)));
+    assert_eq!(
+        ::std::mem::size_of::<jvalue>(),
+        8usize,
+        concat!("Size of: ", stringify!(jvalue))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<jvalue>(),
+        8usize,
+        concat!("Alignment of ", stringify!(jvalue))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<jvalue>())).z as *const _ as usize },
+        0usize,
+        concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(z))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<jvalue>())).b as *const _ as usize },
+        0usize,
+        concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(b))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<jvalue>())).c as *const _ as usize },
+        0usize,
+        concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(c))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<jvalue>())).s as *const _ as usize },
+        0usize,
+        concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(s))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<jvalue>())).i as *const _ as usize },
+        0usize,
+        concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<jvalue>())).j as *const _ as usize },
+        0usize,
+        concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(j))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<jvalue>())).f as *const _ as usize },
+        0usize,
+        concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(f))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<jvalue>())).d as *const _ as usize },
+        0usize,
+        concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(d))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<jvalue>())).l as *const _ as usize },
+        0usize,
+        concat!("Offset of field: ", stringify!(jvalue), "::", stringify!(l))
+    );
 }
 pub const jobjectRefType_JNIInvalidRefType: jobjectRefType = 0;
 pub const jobjectRefType_JNILocalRefType: jobjectRefType = 1;
 pub const jobjectRefType_JNIGlobalRefType: jobjectRefType = 2;
 pub const jobjectRefType_JNIWeakGlobalRefType: jobjectRefType = 3;
 pub type jobjectRefType = ::std::os::raw::c_uint;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct JNINativeMethod {
     pub name: *const ::std::os::raw::c_char,
     pub signature: *const ::std::os::raw::c_char,
     pub fnPtr: *mut ::std::os::raw::c_void,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_JNINativeMethod() {
-    assert_eq!(::std::mem::size_of::<JNINativeMethod>(),
-               24usize,
-               concat!("Size of: ", stringify!(JNINativeMethod)));
-    assert_eq!(::std::mem::align_of::<JNINativeMethod>(),
-               8usize,
-               concat!("Alignment of ", stringify!(JNINativeMethod)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<JNINativeMethod>())).name as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeMethod),
-                       "::",
-                       stringify!(name)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeMethod>())).signature as *const _ as usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeMethod),
-                       "::",
-                       stringify!(signature)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<JNINativeMethod>())).fnPtr as *const _ as usize },
-               16usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeMethod),
-                       "::",
-                       stringify!(fnPtr)));
+    assert_eq!(
+        ::std::mem::size_of::<JNINativeMethod>(),
+        24usize,
+        concat!("Size of: ", stringify!(JNINativeMethod))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<JNINativeMethod>(),
+        8usize,
+        concat!("Alignment of ", stringify!(JNINativeMethod))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeMethod>())).name as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeMethod),
+            "::",
+            stringify!(name)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeMethod>())).signature as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeMethod),
+            "::",
+            stringify!(signature)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeMethod>())).fnPtr as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeMethod),
+            "::",
+            stringify!(fnPtr)
+        )
+    );
 }
 pub type JNIEnv = *const JNINativeInterface;
 pub type JavaVM = *const JNIInvokeInterface;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
-pub struct JNINativeInterface { pub reserved0 : * mut :: std :: os :: raw :: c_void , pub reserved1 : * mut :: std :: os :: raw :: c_void , pub reserved2 : * mut :: std :: os :: raw :: c_void , pub reserved3 : * mut :: std :: os :: raw :: c_void , pub GetVersion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv ) -> jint > , pub DefineClass : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : * const :: std :: os :: raw :: c_char , arg3 : jobject , arg4 : * const jbyte , arg5 : jsize ) -> jclass > , pub FindClass : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : * const :: std :: os :: raw :: c_char ) -> jclass > , pub FromReflectedMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject ) -> jmethodID > , pub FromReflectedField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject ) -> jfieldID > , pub ToReflectedMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : jboolean ) -> jobject > , pub GetSuperclass : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass ) -> jclass > , pub IsAssignableFrom : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jclass ) -> jboolean > , pub ToReflectedField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID , arg4 : jboolean ) -> jobject > , pub Throw : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jthrowable ) -> jint > , pub ThrowNew : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : * const :: std :: os :: raw :: c_char ) -> jint > , pub ExceptionOccurred : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv ) -> jthrowable > , pub ExceptionDescribe : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv ) > , pub ExceptionClear : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv ) > , pub FatalError : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : * const :: std :: os :: raw :: c_char ) > , pub PushLocalFrame : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jint ) -> jint > , pub PopLocalFrame : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject ) -> jobject > , pub NewGlobalRef : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject ) -> jobject > , pub DeleteGlobalRef : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject ) > , pub DeleteLocalRef : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject ) > , pub IsSameObject : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jobject ) -> jboolean > , pub NewLocalRef : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject ) -> jobject > , pub EnsureLocalCapacity : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jint ) -> jint > , pub AllocObject : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass ) -> jobject > , pub NewObject : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID ) -> jobject > , pub NewObjectV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jobject > , pub NewObjectA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut jvalue ) -> jobject > , pub GetObjectClass : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject ) -> jclass > , pub IsInstanceOf : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass ) -> jboolean > , pub GetMethodID : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : * const :: std :: os :: raw :: c_char , arg4 : * const :: std :: os :: raw :: c_char ) -> jmethodID > , pub CallObjectMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID ) -> jobject > , pub CallObjectMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jobject > , pub CallObjectMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut jvalue ) -> jobject > , pub CallBooleanMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID ) -> jboolean > , pub CallBooleanMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jboolean > , pub CallBooleanMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut jvalue ) -> jboolean > , pub CallByteMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID ) -> jbyte > , pub CallByteMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jbyte > , pub CallByteMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut jvalue ) -> jbyte > , pub CallCharMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID ) -> jchar > , pub CallCharMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jchar > , pub CallCharMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut jvalue ) -> jchar > , pub CallShortMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID ) -> jshort > , pub CallShortMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jshort > , pub CallShortMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut jvalue ) -> jshort > , pub CallIntMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID ) -> jint > , pub CallIntMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jint > , pub CallIntMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut jvalue ) -> jint > , pub CallLongMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID ) -> jlong > , pub CallLongMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jlong > , pub CallLongMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut jvalue ) -> jlong > , pub CallFloatMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID ) -> jfloat > , pub CallFloatMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jfloat > , pub CallFloatMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut jvalue ) -> jfloat > , pub CallDoubleMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID ) -> jdouble > , pub CallDoubleMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jdouble > , pub CallDoubleMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut jvalue ) -> jdouble > , pub CallVoidMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID ) > , pub CallVoidMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut __va_list_tag ) > , pub CallVoidMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jmethodID , arg4 : * mut jvalue ) > , pub CallNonvirtualObjectMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID ) -> jobject > , pub CallNonvirtualObjectMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut __va_list_tag ) -> jobject > , pub CallNonvirtualObjectMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut jvalue ) -> jobject > , pub CallNonvirtualBooleanMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID ) -> jboolean > , pub CallNonvirtualBooleanMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut __va_list_tag ) -> jboolean > , pub CallNonvirtualBooleanMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut jvalue ) -> jboolean > , pub CallNonvirtualByteMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID ) -> jbyte > , pub CallNonvirtualByteMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut __va_list_tag ) -> jbyte > , pub CallNonvirtualByteMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut jvalue ) -> jbyte > , pub CallNonvirtualCharMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID ) -> jchar > , pub CallNonvirtualCharMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut __va_list_tag ) -> jchar > , pub CallNonvirtualCharMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut jvalue ) -> jchar > , pub CallNonvirtualShortMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID ) -> jshort > , pub CallNonvirtualShortMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut __va_list_tag ) -> jshort > , pub CallNonvirtualShortMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut jvalue ) -> jshort > , pub CallNonvirtualIntMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID ) -> jint > , pub CallNonvirtualIntMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut __va_list_tag ) -> jint > , pub CallNonvirtualIntMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut jvalue ) -> jint > , pub CallNonvirtualLongMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID ) -> jlong > , pub CallNonvirtualLongMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut __va_list_tag ) -> jlong > , pub CallNonvirtualLongMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut jvalue ) -> jlong > , pub CallNonvirtualFloatMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID ) -> jfloat > , pub CallNonvirtualFloatMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut __va_list_tag ) -> jfloat > , pub CallNonvirtualFloatMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut jvalue ) -> jfloat > , pub CallNonvirtualDoubleMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID ) -> jdouble > , pub CallNonvirtualDoubleMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut __va_list_tag ) -> jdouble > , pub CallNonvirtualDoubleMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut jvalue ) -> jdouble > , pub CallNonvirtualVoidMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID ) > , pub CallNonvirtualVoidMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut __va_list_tag ) > , pub CallNonvirtualVoidMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jclass , arg4 : jmethodID , arg5 : * mut jvalue ) > , pub GetFieldID : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : * const :: std :: os :: raw :: c_char , arg4 : * const :: std :: os :: raw :: c_char ) -> jfieldID > , pub GetObjectField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID ) -> jobject > , pub GetBooleanField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID ) -> jboolean > , pub GetByteField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID ) -> jbyte > , pub GetCharField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID ) -> jchar > , pub GetShortField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID ) -> jshort > , pub GetIntField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID ) -> jint > , pub GetLongField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID ) -> jlong > , pub GetFloatField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID ) -> jfloat > , pub GetDoubleField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID ) -> jdouble > , pub SetObjectField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID , arg4 : jobject ) > , pub SetBooleanField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID , arg4 : jboolean ) > , pub SetByteField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID , arg4 : jbyte ) > , pub SetCharField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID , arg4 : jchar ) > , pub SetShortField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID , arg4 : jshort ) > , pub SetIntField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID , arg4 : jint ) > , pub SetLongField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID , arg4 : jlong ) > , pub SetFloatField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID , arg4 : jfloat ) > , pub SetDoubleField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject , arg3 : jfieldID , arg4 : jdouble ) > , pub GetStaticMethodID : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : * const :: std :: os :: raw :: c_char , arg4 : * const :: std :: os :: raw :: c_char ) -> jmethodID > , pub CallStaticObjectMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID ) -> jobject > , pub CallStaticObjectMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jobject > , pub CallStaticObjectMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut jvalue ) -> jobject > , pub CallStaticBooleanMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID ) -> jboolean > , pub CallStaticBooleanMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jboolean > , pub CallStaticBooleanMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut jvalue ) -> jboolean > , pub CallStaticByteMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID ) -> jbyte > , pub CallStaticByteMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jbyte > , pub CallStaticByteMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut jvalue ) -> jbyte > , pub CallStaticCharMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID ) -> jchar > , pub CallStaticCharMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jchar > , pub CallStaticCharMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut jvalue ) -> jchar > , pub CallStaticShortMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID ) -> jshort > , pub CallStaticShortMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jshort > , pub CallStaticShortMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut jvalue ) -> jshort > , pub CallStaticIntMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID ) -> jint > , pub CallStaticIntMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jint > , pub CallStaticIntMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut jvalue ) -> jint > , pub CallStaticLongMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID ) -> jlong > , pub CallStaticLongMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jlong > , pub CallStaticLongMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut jvalue ) -> jlong > , pub CallStaticFloatMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID ) -> jfloat > , pub CallStaticFloatMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jfloat > , pub CallStaticFloatMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut jvalue ) -> jfloat > , pub CallStaticDoubleMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID ) -> jdouble > , pub CallStaticDoubleMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut __va_list_tag ) -> jdouble > , pub CallStaticDoubleMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut jvalue ) -> jdouble > , pub CallStaticVoidMethod : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID ) > , pub CallStaticVoidMethodV : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut __va_list_tag ) > , pub CallStaticVoidMethodA : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jmethodID , arg4 : * mut jvalue ) > , pub GetStaticFieldID : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : * const :: std :: os :: raw :: c_char , arg4 : * const :: std :: os :: raw :: c_char ) -> jfieldID > , pub GetStaticObjectField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID ) -> jobject > , pub GetStaticBooleanField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID ) -> jboolean > , pub GetStaticByteField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID ) -> jbyte > , pub GetStaticCharField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID ) -> jchar > , pub GetStaticShortField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID ) -> jshort > , pub GetStaticIntField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID ) -> jint > , pub GetStaticLongField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID ) -> jlong > , pub GetStaticFloatField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID ) -> jfloat > , pub GetStaticDoubleField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID ) -> jdouble > , pub SetStaticObjectField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID , arg4 : jobject ) > , pub SetStaticBooleanField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID , arg4 : jboolean ) > , pub SetStaticByteField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID , arg4 : jbyte ) > , pub SetStaticCharField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID , arg4 : jchar ) > , pub SetStaticShortField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID , arg4 : jshort ) > , pub SetStaticIntField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID , arg4 : jint ) > , pub SetStaticLongField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID , arg4 : jlong ) > , pub SetStaticFloatField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID , arg4 : jfloat ) > , pub SetStaticDoubleField : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : jfieldID , arg4 : jdouble ) > , pub NewString : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : * const jchar , arg3 : jsize ) -> jstring > , pub GetStringLength : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jstring ) -> jsize > , pub GetStringChars : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jstring , arg3 : * mut jboolean ) -> * const jchar > , pub ReleaseStringChars : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jstring , arg3 : * const jchar ) > , pub NewStringUTF : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : * const :: std :: os :: raw :: c_char ) -> jstring > , pub GetStringUTFLength : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jstring ) -> jsize > , pub GetStringUTFChars : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jstring , arg3 : * mut jboolean ) -> * const :: std :: os :: raw :: c_char > , pub ReleaseStringUTFChars : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jstring , arg3 : * const :: std :: os :: raw :: c_char ) > , pub GetArrayLength : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jarray ) -> jsize > , pub NewObjectArray : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jsize , arg3 : jclass , arg4 : jobject ) -> jobjectArray > , pub GetObjectArrayElement : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobjectArray , arg3 : jsize ) -> jobject > , pub SetObjectArrayElement : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobjectArray , arg3 : jsize , arg4 : jobject ) > , pub NewBooleanArray : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jsize ) -> jbooleanArray > , pub NewByteArray : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jsize ) -> jbyteArray > , pub NewCharArray : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jsize ) -> jcharArray > , pub NewShortArray : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jsize ) -> jshortArray > , pub NewIntArray : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jsize ) -> jintArray > , pub NewLongArray : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jsize ) -> jlongArray > , pub NewFloatArray : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jsize ) -> jfloatArray > , pub NewDoubleArray : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jsize ) -> jdoubleArray > , pub GetBooleanArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jbooleanArray , arg3 : * mut jboolean ) -> * mut jboolean > , pub GetByteArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jbyteArray , arg3 : * mut jboolean ) -> * mut jbyte > , pub GetCharArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jcharArray , arg3 : * mut jboolean ) -> * mut jchar > , pub GetShortArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jshortArray , arg3 : * mut jboolean ) -> * mut jshort > , pub GetIntArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jintArray , arg3 : * mut jboolean ) -> * mut jint > , pub GetLongArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jlongArray , arg3 : * mut jboolean ) -> * mut jlong > , pub GetFloatArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jfloatArray , arg3 : * mut jboolean ) -> * mut jfloat > , pub GetDoubleArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jdoubleArray , arg3 : * mut jboolean ) -> * mut jdouble > , pub ReleaseBooleanArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jbooleanArray , arg3 : * mut jboolean , arg4 : jint ) > , pub ReleaseByteArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jbyteArray , arg3 : * mut jbyte , arg4 : jint ) > , pub ReleaseCharArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jcharArray , arg3 : * mut jchar , arg4 : jint ) > , pub ReleaseShortArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jshortArray , arg3 : * mut jshort , arg4 : jint ) > , pub ReleaseIntArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jintArray , arg3 : * mut jint , arg4 : jint ) > , pub ReleaseLongArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jlongArray , arg3 : * mut jlong , arg4 : jint ) > , pub ReleaseFloatArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jfloatArray , arg3 : * mut jfloat , arg4 : jint ) > , pub ReleaseDoubleArrayElements : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jdoubleArray , arg3 : * mut jdouble , arg4 : jint ) > , pub GetBooleanArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jbooleanArray , arg3 : jsize , arg4 : jsize , arg5 : * mut jboolean ) > , pub GetByteArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jbyteArray , arg3 : jsize , arg4 : jsize , arg5 : * mut jbyte ) > , pub GetCharArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jcharArray , arg3 : jsize , arg4 : jsize , arg5 : * mut jchar ) > , pub GetShortArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jshortArray , arg3 : jsize , arg4 : jsize , arg5 : * mut jshort ) > , pub GetIntArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jintArray , arg3 : jsize , arg4 : jsize , arg5 : * mut jint ) > , pub GetLongArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jlongArray , arg3 : jsize , arg4 : jsize , arg5 : * mut jlong ) > , pub GetFloatArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jfloatArray , arg3 : jsize , arg4 : jsize , arg5 : * mut jfloat ) > , pub GetDoubleArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jdoubleArray , arg3 : jsize , arg4 : jsize , arg5 : * mut jdouble ) > , pub SetBooleanArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jbooleanArray , arg3 : jsize , arg4 : jsize , arg5 : * const jboolean ) > , pub SetByteArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jbyteArray , arg3 : jsize , arg4 : jsize , arg5 : * const jbyte ) > , pub SetCharArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jcharArray , arg3 : jsize , arg4 : jsize , arg5 : * const jchar ) > , pub SetShortArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jshortArray , arg3 : jsize , arg4 : jsize , arg5 : * const jshort ) > , pub SetIntArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jintArray , arg3 : jsize , arg4 : jsize , arg5 : * const jint ) > , pub SetLongArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jlongArray , arg3 : jsize , arg4 : jsize , arg5 : * const jlong ) > , pub SetFloatArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jfloatArray , arg3 : jsize , arg4 : jsize , arg5 : * const jfloat ) > , pub SetDoubleArrayRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jdoubleArray , arg3 : jsize , arg4 : jsize , arg5 : * const jdouble ) > , pub RegisterNatives : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass , arg3 : * const JNINativeMethod , arg4 : jint ) -> jint > , pub UnregisterNatives : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jclass ) -> jint > , pub MonitorEnter : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject ) -> jint > , pub MonitorExit : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject ) -> jint > , pub GetJavaVM : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : * mut * mut JavaVM ) -> jint > , pub GetStringRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jstring , arg3 : jsize , arg4 : jsize , arg5 : * mut jchar ) > , pub GetStringUTFRegion : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jstring , arg3 : jsize , arg4 : jsize , arg5 : * mut :: std :: os :: raw :: c_char ) > , pub GetPrimitiveArrayCritical : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jarray , arg3 : * mut jboolean ) -> * mut :: std :: os :: raw :: c_void > , pub ReleasePrimitiveArrayCritical : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jarray , arg3 : * mut :: std :: os :: raw :: c_void , arg4 : jint ) > , pub GetStringCritical : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jstring , arg3 : * mut jboolean ) -> * const jchar > , pub ReleaseStringCritical : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jstring , arg3 : * const jchar ) > , pub NewWeakGlobalRef : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject ) -> jweak > , pub DeleteWeakGlobalRef : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jweak ) > , pub ExceptionCheck : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv ) -> jboolean > , pub NewDirectByteBuffer : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : * mut :: std :: os :: raw :: c_void , arg3 : jlong ) -> jobject > , pub GetDirectBufferAddress : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject ) -> * mut :: std :: os :: raw :: c_void > , pub GetDirectBufferCapacity : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject ) -> jlong > , pub GetObjectRefType : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JNIEnv , arg2 : jobject ) -> jobjectRefType > , }
-# [ test ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct JNINativeInterface {
+    pub reserved0: *mut ::std::os::raw::c_void,
+    pub reserved1: *mut ::std::os::raw::c_void,
+    pub reserved2: *mut ::std::os::raw::c_void,
+    pub reserved3: *mut ::std::os::raw::c_void,
+    pub GetVersion: ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv) -> jint>,
+    pub DefineClass: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: *const ::std::os::raw::c_char,
+            arg3: jobject,
+            arg4: *const jbyte,
+            arg5: jsize,
+        ) -> jclass,
+    >,
+    pub FindClass: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: *const ::std::os::raw::c_char) -> jclass,
+    >,
+    pub FromReflectedMethod:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject) -> jmethodID>,
+    pub FromReflectedField:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject) -> jfieldID>,
+    pub ToReflectedMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID, arg4: jboolean)
+            -> jobject,
+    >,
+    pub GetSuperclass:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass) -> jclass>,
+    pub IsAssignableFrom: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jclass) -> jboolean,
+    >,
+    pub ToReflectedField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID, arg4: jboolean)
+            -> jobject,
+    >,
+    pub Throw:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jthrowable) -> jint>,
+    pub ThrowNew: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: *const ::std::os::raw::c_char)
+            -> jint,
+    >,
+    pub ExceptionOccurred:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv) -> jthrowable>,
+    pub ExceptionDescribe: ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv)>,
+    pub ExceptionClear: ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv)>,
+    pub FatalError: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: *const ::std::os::raw::c_char),
+    >,
+    pub PushLocalFrame:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jint) -> jint>,
+    pub PopLocalFrame:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject) -> jobject>,
+    pub NewGlobalRef:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject) -> jobject>,
+    pub DeleteGlobalRef:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject)>,
+    pub DeleteLocalRef:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject)>,
+    pub IsSameObject: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jobject) -> jboolean,
+    >,
+    pub NewLocalRef:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject) -> jobject>,
+    pub EnsureLocalCapacity:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jint) -> jint>,
+    pub AllocObject:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass) -> jobject>,
+    pub NewObject: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID) -> jobject,
+    >,
+    pub NewObjectV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jobject,
+    >,
+    pub NewObjectA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID, arg4: *mut jvalue)
+            -> jobject,
+    >,
+    pub GetObjectClass:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject) -> jclass>,
+    pub IsInstanceOf: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jclass) -> jboolean,
+    >,
+    pub GetMethodID: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: *const ::std::os::raw::c_char,
+            arg4: *const ::std::os::raw::c_char,
+        ) -> jmethodID,
+    >,
+    pub CallObjectMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID) -> jobject,
+    >,
+    pub CallObjectMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jobject,
+    >,
+    pub CallObjectMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID, arg4: *mut jvalue)
+            -> jobject,
+    >,
+    pub CallBooleanMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID) -> jboolean,
+    >,
+    pub CallBooleanMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jboolean,
+    >,
+    pub CallBooleanMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID, arg4: *mut jvalue)
+            -> jboolean,
+    >,
+    pub CallByteMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID) -> jbyte,
+    >,
+    pub CallByteMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jbyte,
+    >,
+    pub CallByteMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID, arg4: *mut jvalue)
+            -> jbyte,
+    >,
+    pub CallCharMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID) -> jchar,
+    >,
+    pub CallCharMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jchar,
+    >,
+    pub CallCharMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID, arg4: *mut jvalue)
+            -> jchar,
+    >,
+    pub CallShortMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID) -> jshort,
+    >,
+    pub CallShortMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jshort,
+    >,
+    pub CallShortMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID, arg4: *mut jvalue)
+            -> jshort,
+    >,
+    pub CallIntMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID) -> jint,
+    >,
+    pub CallIntMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jint,
+    >,
+    pub CallIntMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID, arg4: *mut jvalue)
+            -> jint,
+    >,
+    pub CallLongMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID) -> jlong,
+    >,
+    pub CallLongMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jlong,
+    >,
+    pub CallLongMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID, arg4: *mut jvalue)
+            -> jlong,
+    >,
+    pub CallFloatMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID) -> jfloat,
+    >,
+    pub CallFloatMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jfloat,
+    >,
+    pub CallFloatMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID, arg4: *mut jvalue)
+            -> jfloat,
+    >,
+    pub CallDoubleMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID) -> jdouble,
+    >,
+    pub CallDoubleMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jdouble,
+    >,
+    pub CallDoubleMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID, arg4: *mut jvalue)
+            -> jdouble,
+    >,
+    pub CallVoidMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID),
+    >,
+    pub CallVoidMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ),
+    >,
+    pub CallVoidMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jmethodID, arg4: *mut jvalue),
+    >,
+    pub CallNonvirtualObjectMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jclass, arg4: jmethodID)
+            -> jobject,
+    >,
+    pub CallNonvirtualObjectMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut __va_list_tag,
+        ) -> jobject,
+    >,
+    pub CallNonvirtualObjectMethodA: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut jvalue,
+        ) -> jobject,
+    >,
+    pub CallNonvirtualBooleanMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jclass, arg4: jmethodID)
+            -> jboolean,
+    >,
+    pub CallNonvirtualBooleanMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut __va_list_tag,
+        ) -> jboolean,
+    >,
+    pub CallNonvirtualBooleanMethodA: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut jvalue,
+        ) -> jboolean,
+    >,
+    pub CallNonvirtualByteMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jclass, arg4: jmethodID)
+            -> jbyte,
+    >,
+    pub CallNonvirtualByteMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut __va_list_tag,
+        ) -> jbyte,
+    >,
+    pub CallNonvirtualByteMethodA: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut jvalue,
+        ) -> jbyte,
+    >,
+    pub CallNonvirtualCharMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jclass, arg4: jmethodID)
+            -> jchar,
+    >,
+    pub CallNonvirtualCharMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut __va_list_tag,
+        ) -> jchar,
+    >,
+    pub CallNonvirtualCharMethodA: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut jvalue,
+        ) -> jchar,
+    >,
+    pub CallNonvirtualShortMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jclass, arg4: jmethodID)
+            -> jshort,
+    >,
+    pub CallNonvirtualShortMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut __va_list_tag,
+        ) -> jshort,
+    >,
+    pub CallNonvirtualShortMethodA: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut jvalue,
+        ) -> jshort,
+    >,
+    pub CallNonvirtualIntMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jclass, arg4: jmethodID)
+            -> jint,
+    >,
+    pub CallNonvirtualIntMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut __va_list_tag,
+        ) -> jint,
+    >,
+    pub CallNonvirtualIntMethodA: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut jvalue,
+        ) -> jint,
+    >,
+    pub CallNonvirtualLongMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jclass, arg4: jmethodID)
+            -> jlong,
+    >,
+    pub CallNonvirtualLongMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut __va_list_tag,
+        ) -> jlong,
+    >,
+    pub CallNonvirtualLongMethodA: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut jvalue,
+        ) -> jlong,
+    >,
+    pub CallNonvirtualFloatMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jclass, arg4: jmethodID)
+            -> jfloat,
+    >,
+    pub CallNonvirtualFloatMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut __va_list_tag,
+        ) -> jfloat,
+    >,
+    pub CallNonvirtualFloatMethodA: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut jvalue,
+        ) -> jfloat,
+    >,
+    pub CallNonvirtualDoubleMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jclass, arg4: jmethodID)
+            -> jdouble,
+    >,
+    pub CallNonvirtualDoubleMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut __va_list_tag,
+        ) -> jdouble,
+    >,
+    pub CallNonvirtualDoubleMethodA: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut jvalue,
+        ) -> jdouble,
+    >,
+    pub CallNonvirtualVoidMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jclass, arg4: jmethodID),
+    >,
+    pub CallNonvirtualVoidMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut __va_list_tag,
+        ),
+    >,
+    pub CallNonvirtualVoidMethodA: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jobject,
+            arg3: jclass,
+            arg4: jmethodID,
+            arg5: *mut jvalue,
+        ),
+    >,
+    pub GetFieldID: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: *const ::std::os::raw::c_char,
+            arg4: *const ::std::os::raw::c_char,
+        ) -> jfieldID,
+    >,
+    pub GetObjectField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID) -> jobject,
+    >,
+    pub GetBooleanField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID) -> jboolean,
+    >,
+    pub GetByteField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID) -> jbyte,
+    >,
+    pub GetCharField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID) -> jchar,
+    >,
+    pub GetShortField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID) -> jshort,
+    >,
+    pub GetIntField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID) -> jint,
+    >,
+    pub GetLongField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID) -> jlong,
+    >,
+    pub GetFloatField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID) -> jfloat,
+    >,
+    pub GetDoubleField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID) -> jdouble,
+    >,
+    pub SetObjectField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID, arg4: jobject),
+    >,
+    pub SetBooleanField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID, arg4: jboolean),
+    >,
+    pub SetByteField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID, arg4: jbyte),
+    >,
+    pub SetCharField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID, arg4: jchar),
+    >,
+    pub SetShortField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID, arg4: jshort),
+    >,
+    pub SetIntField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID, arg4: jint),
+    >,
+    pub SetLongField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID, arg4: jlong),
+    >,
+    pub SetFloatField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID, arg4: jfloat),
+    >,
+    pub SetDoubleField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject, arg3: jfieldID, arg4: jdouble),
+    >,
+    pub GetStaticMethodID: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: *const ::std::os::raw::c_char,
+            arg4: *const ::std::os::raw::c_char,
+        ) -> jmethodID,
+    >,
+    pub CallStaticObjectMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID) -> jobject,
+    >,
+    pub CallStaticObjectMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jobject,
+    >,
+    pub CallStaticObjectMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID, arg4: *mut jvalue)
+            -> jobject,
+    >,
+    pub CallStaticBooleanMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID) -> jboolean,
+    >,
+    pub CallStaticBooleanMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jboolean,
+    >,
+    pub CallStaticBooleanMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID, arg4: *mut jvalue)
+            -> jboolean,
+    >,
+    pub CallStaticByteMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID) -> jbyte,
+    >,
+    pub CallStaticByteMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jbyte,
+    >,
+    pub CallStaticByteMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID, arg4: *mut jvalue)
+            -> jbyte,
+    >,
+    pub CallStaticCharMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID) -> jchar,
+    >,
+    pub CallStaticCharMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jchar,
+    >,
+    pub CallStaticCharMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID, arg4: *mut jvalue)
+            -> jchar,
+    >,
+    pub CallStaticShortMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID) -> jshort,
+    >,
+    pub CallStaticShortMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jshort,
+    >,
+    pub CallStaticShortMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID, arg4: *mut jvalue)
+            -> jshort,
+    >,
+    pub CallStaticIntMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID) -> jint,
+    >,
+    pub CallStaticIntMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jint,
+    >,
+    pub CallStaticIntMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID, arg4: *mut jvalue)
+            -> jint,
+    >,
+    pub CallStaticLongMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID) -> jlong,
+    >,
+    pub CallStaticLongMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jlong,
+    >,
+    pub CallStaticLongMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID, arg4: *mut jvalue)
+            -> jlong,
+    >,
+    pub CallStaticFloatMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID) -> jfloat,
+    >,
+    pub CallStaticFloatMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jfloat,
+    >,
+    pub CallStaticFloatMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID, arg4: *mut jvalue)
+            -> jfloat,
+    >,
+    pub CallStaticDoubleMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID) -> jdouble,
+    >,
+    pub CallStaticDoubleMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ) -> jdouble,
+    >,
+    pub CallStaticDoubleMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID, arg4: *mut jvalue)
+            -> jdouble,
+    >,
+    pub CallStaticVoidMethod: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID),
+    >,
+    pub CallStaticVoidMethodV: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: jmethodID,
+            arg4: *mut __va_list_tag,
+        ),
+    >,
+    pub CallStaticVoidMethodA: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jmethodID, arg4: *mut jvalue),
+    >,
+    pub GetStaticFieldID: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: *const ::std::os::raw::c_char,
+            arg4: *const ::std::os::raw::c_char,
+        ) -> jfieldID,
+    >,
+    pub GetStaticObjectField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID) -> jobject,
+    >,
+    pub GetStaticBooleanField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID) -> jboolean,
+    >,
+    pub GetStaticByteField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID) -> jbyte,
+    >,
+    pub GetStaticCharField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID) -> jchar,
+    >,
+    pub GetStaticShortField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID) -> jshort,
+    >,
+    pub GetStaticIntField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID) -> jint,
+    >,
+    pub GetStaticLongField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID) -> jlong,
+    >,
+    pub GetStaticFloatField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID) -> jfloat,
+    >,
+    pub GetStaticDoubleField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID) -> jdouble,
+    >,
+    pub SetStaticObjectField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID, arg4: jobject),
+    >,
+    pub SetStaticBooleanField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID, arg4: jboolean),
+    >,
+    pub SetStaticByteField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID, arg4: jbyte),
+    >,
+    pub SetStaticCharField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID, arg4: jchar),
+    >,
+    pub SetStaticShortField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID, arg4: jshort),
+    >,
+    pub SetStaticIntField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID, arg4: jint),
+    >,
+    pub SetStaticLongField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID, arg4: jlong),
+    >,
+    pub SetStaticFloatField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID, arg4: jfloat),
+    >,
+    pub SetStaticDoubleField: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass, arg3: jfieldID, arg4: jdouble),
+    >,
+    pub NewString: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: *const jchar, arg3: jsize) -> jstring,
+    >,
+    pub GetStringLength:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jstring) -> jsize>,
+    pub GetStringChars: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jstring, arg3: *mut jboolean) -> *const jchar,
+    >,
+    pub ReleaseStringChars: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jstring, arg3: *const jchar),
+    >,
+    pub NewStringUTF: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: *const ::std::os::raw::c_char) -> jstring,
+    >,
+    pub GetStringUTFLength:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jstring) -> jsize>,
+    pub GetStringUTFChars: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jstring, arg3: *mut jboolean)
+            -> *const ::std::os::raw::c_char,
+    >,
+    pub ReleaseStringUTFChars: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jstring, arg3: *const ::std::os::raw::c_char),
+    >,
+    pub GetArrayLength:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jarray) -> jsize>,
+    pub NewObjectArray: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jsize, arg3: jclass, arg4: jobject)
+            -> jobjectArray,
+    >,
+    pub GetObjectArrayElement: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobjectArray, arg3: jsize) -> jobject,
+    >,
+    pub SetObjectArrayElement: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobjectArray, arg3: jsize, arg4: jobject),
+    >,
+    pub NewBooleanArray: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jsize) -> jbooleanArray,
+    >,
+    pub NewByteArray:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jsize) -> jbyteArray>,
+    pub NewCharArray:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jsize) -> jcharArray>,
+    pub NewShortArray:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jsize) -> jshortArray>,
+    pub NewIntArray:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jsize) -> jintArray>,
+    pub NewLongArray:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jsize) -> jlongArray>,
+    pub NewFloatArray:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jsize) -> jfloatArray>,
+    pub NewDoubleArray:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jsize) -> jdoubleArray>,
+    pub GetBooleanArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jbooleanArray, arg3: *mut jboolean)
+            -> *mut jboolean,
+    >,
+    pub GetByteArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jbyteArray, arg3: *mut jboolean)
+            -> *mut jbyte,
+    >,
+    pub GetCharArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jcharArray, arg3: *mut jboolean)
+            -> *mut jchar,
+    >,
+    pub GetShortArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jshortArray, arg3: *mut jboolean)
+            -> *mut jshort,
+    >,
+    pub GetIntArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jintArray, arg3: *mut jboolean) -> *mut jint,
+    >,
+    pub GetLongArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jlongArray, arg3: *mut jboolean)
+            -> *mut jlong,
+    >,
+    pub GetFloatArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jfloatArray, arg3: *mut jboolean)
+            -> *mut jfloat,
+    >,
+    pub GetDoubleArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jdoubleArray, arg3: *mut jboolean)
+            -> *mut jdouble,
+    >,
+    pub ReleaseBooleanArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jbooleanArray,
+            arg3: *mut jboolean,
+            arg4: jint,
+        ),
+    >,
+    pub ReleaseByteArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jbyteArray, arg3: *mut jbyte, arg4: jint),
+    >,
+    pub ReleaseCharArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jcharArray, arg3: *mut jchar, arg4: jint),
+    >,
+    pub ReleaseShortArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jshortArray, arg3: *mut jshort, arg4: jint),
+    >,
+    pub ReleaseIntArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jintArray, arg3: *mut jint, arg4: jint),
+    >,
+    pub ReleaseLongArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jlongArray, arg3: *mut jlong, arg4: jint),
+    >,
+    pub ReleaseFloatArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jfloatArray, arg3: *mut jfloat, arg4: jint),
+    >,
+    pub ReleaseDoubleArrayElements: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jdoubleArray, arg3: *mut jdouble, arg4: jint),
+    >,
+    pub GetBooleanArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jbooleanArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *mut jboolean,
+        ),
+    >,
+    pub GetByteArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jbyteArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *mut jbyte,
+        ),
+    >,
+    pub GetCharArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jcharArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *mut jchar,
+        ),
+    >,
+    pub GetShortArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jshortArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *mut jshort,
+        ),
+    >,
+    pub GetIntArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jintArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *mut jint,
+        ),
+    >,
+    pub GetLongArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jlongArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *mut jlong,
+        ),
+    >,
+    pub GetFloatArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jfloatArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *mut jfloat,
+        ),
+    >,
+    pub GetDoubleArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jdoubleArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *mut jdouble,
+        ),
+    >,
+    pub SetBooleanArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jbooleanArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *const jboolean,
+        ),
+    >,
+    pub SetByteArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jbyteArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *const jbyte,
+        ),
+    >,
+    pub SetCharArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jcharArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *const jchar,
+        ),
+    >,
+    pub SetShortArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jshortArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *const jshort,
+        ),
+    >,
+    pub SetIntArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jintArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *const jint,
+        ),
+    >,
+    pub SetLongArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jlongArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *const jlong,
+        ),
+    >,
+    pub SetFloatArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jfloatArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *const jfloat,
+        ),
+    >,
+    pub SetDoubleArrayRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jdoubleArray,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *const jdouble,
+        ),
+    >,
+    pub RegisterNatives: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jclass,
+            arg3: *const JNINativeMethod,
+            arg4: jint,
+        ) -> jint,
+    >,
+    pub UnregisterNatives:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jclass) -> jint>,
+    pub MonitorEnter:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject) -> jint>,
+    pub MonitorExit:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject) -> jint>,
+    pub GetJavaVM: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: *mut *mut JavaVM) -> jint,
+    >,
+    pub GetStringRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jstring,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *mut jchar,
+        ),
+    >,
+    pub GetStringUTFRegion: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jstring,
+            arg3: jsize,
+            arg4: jsize,
+            arg5: *mut ::std::os::raw::c_char,
+        ),
+    >,
+    pub GetPrimitiveArrayCritical: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jarray, arg3: *mut jboolean)
+            -> *mut ::std::os::raw::c_void,
+    >,
+    pub ReleasePrimitiveArrayCritical: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JNIEnv,
+            arg2: jarray,
+            arg3: *mut ::std::os::raw::c_void,
+            arg4: jint,
+        ),
+    >,
+    pub GetStringCritical: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jstring, arg3: *mut jboolean) -> *const jchar,
+    >,
+    pub ReleaseStringCritical: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jstring, arg3: *const jchar),
+    >,
+    pub NewWeakGlobalRef:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject) -> jweak>,
+    pub DeleteWeakGlobalRef:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jweak)>,
+    pub ExceptionCheck: ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv) -> jboolean>,
+    pub NewDirectByteBuffer: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: *mut ::std::os::raw::c_void, arg3: jlong)
+            -> jobject,
+    >,
+    pub GetDirectBufferAddress: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject) -> *mut ::std::os::raw::c_void,
+    >,
+    pub GetDirectBufferCapacity:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject) -> jlong>,
+    pub GetObjectRefType: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JNIEnv, arg2: jobject) -> jobjectRefType,
+    >,
+}
+#[test]
 fn bindgen_test_layout_JNINativeInterface() {
-    assert_eq!(::std::mem::size_of::<JNINativeInterface>(),
-               1864usize,
-               concat!("Size of: ", stringify!(JNINativeInterface)));
-    assert_eq!(::std::mem::align_of::<JNINativeInterface>(),
-               8usize,
-               concat!("Alignment of ", stringify!(JNINativeInterface)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).reserved0 as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(reserved0)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).reserved1 as *const _ as usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(reserved1)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).reserved2 as *const _ as usize
-               },
-               16usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(reserved2)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).reserved3 as *const _ as usize
-               },
-               24usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(reserved3)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetVersion as *const _ as usize
-               },
-               32usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetVersion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).DefineClass as *const _ as usize
-               },
-               40usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(DefineClass)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).FindClass as *const _ as usize
-               },
-               48usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(FindClass)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).FromReflectedMethod as
-                   *const _ as usize
-               },
-               56usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(FromReflectedMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).FromReflectedField as *const _ as
-                   usize
-               },
-               64usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(FromReflectedField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ToReflectedMethod as *const _ as
-                   usize
-               },
-               72usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ToReflectedMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetSuperclass as *const _ as usize
-               },
-               80usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetSuperclass)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).IsAssignableFrom as *const _ as
-                   usize
-               },
-               88usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(IsAssignableFrom)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ToReflectedField as *const _ as
-                   usize
-               },
-               96usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ToReflectedField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).Throw as *const _ as usize
-               },
-               104usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(Throw)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ThrowNew as *const _ as usize
-               },
-               112usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ThrowNew)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ExceptionOccurred as *const _ as
-                   usize
-               },
-               120usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ExceptionOccurred)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ExceptionDescribe as *const _ as
-                   usize
-               },
-               128usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ExceptionDescribe)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ExceptionClear as *const _ as
-                   usize
-               },
-               136usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ExceptionClear)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).FatalError as *const _ as usize
-               },
-               144usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(FatalError)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).PushLocalFrame as *const _ as
-                   usize
-               },
-               152usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(PushLocalFrame)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).PopLocalFrame as *const _ as usize
-               },
-               160usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(PopLocalFrame)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewGlobalRef as *const _ as usize
-               },
-               168usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewGlobalRef)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).DeleteGlobalRef as *const _ as
-                   usize
-               },
-               176usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(DeleteGlobalRef)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).DeleteLocalRef as *const _ as
-                   usize
-               },
-               184usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(DeleteLocalRef)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).IsSameObject as *const _ as usize
-               },
-               192usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(IsSameObject)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewLocalRef as *const _ as usize
-               },
-               200usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewLocalRef)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).EnsureLocalCapacity as
-                   *const _ as usize
-               },
-               208usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(EnsureLocalCapacity)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).AllocObject as *const _ as usize
-               },
-               216usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(AllocObject)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewObject as *const _ as usize
-               },
-               224usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewObject)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewObjectV as *const _ as usize
-               },
-               232usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewObjectV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewObjectA as *const _ as usize
-               },
-               240usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewObjectA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetObjectClass as *const _ as
-                   usize
-               },
-               248usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetObjectClass)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).IsInstanceOf as *const _ as usize
-               },
-               256usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(IsInstanceOf)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetMethodID as *const _ as usize
-               },
-               264usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetMethodID)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallObjectMethod as *const _ as
-                   usize
-               },
-               272usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallObjectMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallObjectMethodV as *const _ as
-                   usize
-               },
-               280usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallObjectMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallObjectMethodA as *const _ as
-                   usize
-               },
-               288usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallObjectMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallBooleanMethod as *const _ as
-                   usize
-               },
-               296usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallBooleanMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallBooleanMethodV as *const _ as
-                   usize
-               },
-               304usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallBooleanMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallBooleanMethodA as *const _ as
-                   usize
-               },
-               312usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallBooleanMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallByteMethod as *const _ as
-                   usize
-               },
-               320usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallByteMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallByteMethodV as *const _ as
-                   usize
-               },
-               328usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallByteMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallByteMethodA as *const _ as
-                   usize
-               },
-               336usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallByteMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallCharMethod as *const _ as
-                   usize
-               },
-               344usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallCharMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallCharMethodV as *const _ as
-                   usize
-               },
-               352usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallCharMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallCharMethodA as *const _ as
-                   usize
-               },
-               360usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallCharMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallShortMethod as *const _ as
-                   usize
-               },
-               368usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallShortMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallShortMethodV as *const _ as
-                   usize
-               },
-               376usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallShortMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallShortMethodA as *const _ as
-                   usize
-               },
-               384usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallShortMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallIntMethod as *const _ as usize
-               },
-               392usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallIntMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallIntMethodV as *const _ as
-                   usize
-               },
-               400usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallIntMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallIntMethodA as *const _ as
-                   usize
-               },
-               408usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallIntMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallLongMethod as *const _ as
-                   usize
-               },
-               416usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallLongMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallLongMethodV as *const _ as
-                   usize
-               },
-               424usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallLongMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallLongMethodA as *const _ as
-                   usize
-               },
-               432usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallLongMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallFloatMethod as *const _ as
-                   usize
-               },
-               440usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallFloatMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallFloatMethodV as *const _ as
-                   usize
-               },
-               448usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallFloatMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallFloatMethodA as *const _ as
-                   usize
-               },
-               456usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallFloatMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallDoubleMethod as *const _ as
-                   usize
-               },
-               464usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallDoubleMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallDoubleMethodV as *const _ as
-                   usize
-               },
-               472usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallDoubleMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallDoubleMethodA as *const _ as
-                   usize
-               },
-               480usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallDoubleMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallVoidMethod as *const _ as
-                   usize
-               },
-               488usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallVoidMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallVoidMethodV as *const _ as
-                   usize
-               },
-               496usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallVoidMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallVoidMethodA as *const _ as
-                   usize
-               },
-               504usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallVoidMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualObjectMethod as
-                   *const _ as usize
-               },
-               512usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualObjectMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>()))
-                       .CallNonvirtualObjectMethodV as *const _ as usize
-               },
-               520usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualObjectMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>()))
-                       .CallNonvirtualObjectMethodA as *const _ as usize
-               },
-               528usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualObjectMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>()))
-                       .CallNonvirtualBooleanMethod as *const _ as usize
-               },
-               536usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualBooleanMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>()))
-                       .CallNonvirtualBooleanMethodV as *const _ as usize
-               },
-               544usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualBooleanMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>()))
-                       .CallNonvirtualBooleanMethodA as *const _ as usize
-               },
-               552usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualBooleanMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualByteMethod as
-                   *const _ as usize
-               },
-               560usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualByteMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualByteMethodV as
-                   *const _ as usize
-               },
-               568usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualByteMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualByteMethodA as
-                   *const _ as usize
-               },
-               576usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualByteMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualCharMethod as
-                   *const _ as usize
-               },
-               584usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualCharMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualCharMethodV as
-                   *const _ as usize
-               },
-               592usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualCharMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualCharMethodA as
-                   *const _ as usize
-               },
-               600usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualCharMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualShortMethod as
-                   *const _ as usize
-               },
-               608usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualShortMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualShortMethodV as
-                   *const _ as usize
-               },
-               616usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualShortMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualShortMethodA as
-                   *const _ as usize
-               },
-               624usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualShortMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualIntMethod as
-                   *const _ as usize
-               },
-               632usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualIntMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualIntMethodV as
-                   *const _ as usize
-               },
-               640usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualIntMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualIntMethodA as
-                   *const _ as usize
-               },
-               648usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualIntMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualLongMethod as
-                   *const _ as usize
-               },
-               656usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualLongMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualLongMethodV as
-                   *const _ as usize
-               },
-               664usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualLongMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualLongMethodA as
-                   *const _ as usize
-               },
-               672usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualLongMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualFloatMethod as
-                   *const _ as usize
-               },
-               680usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualFloatMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualFloatMethodV as
-                   *const _ as usize
-               },
-               688usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualFloatMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualFloatMethodA as
-                   *const _ as usize
-               },
-               696usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualFloatMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualDoubleMethod as
-                   *const _ as usize
-               },
-               704usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualDoubleMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>()))
-                       .CallNonvirtualDoubleMethodV as *const _ as usize
-               },
-               712usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualDoubleMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>()))
-                       .CallNonvirtualDoubleMethodA as *const _ as usize
-               },
-               720usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualDoubleMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualVoidMethod as
-                   *const _ as usize
-               },
-               728usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualVoidMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualVoidMethodV as
-                   *const _ as usize
-               },
-               736usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualVoidMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualVoidMethodA as
-                   *const _ as usize
-               },
-               744usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallNonvirtualVoidMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetFieldID as *const _ as usize
-               },
-               752usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetFieldID)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetObjectField as *const _ as
-                   usize
-               },
-               760usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetObjectField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetBooleanField as *const _ as
-                   usize
-               },
-               768usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetBooleanField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetByteField as *const _ as usize
-               },
-               776usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetByteField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetCharField as *const _ as usize
-               },
-               784usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetCharField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetShortField as *const _ as usize
-               },
-               792usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetShortField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetIntField as *const _ as usize
-               },
-               800usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetIntField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetLongField as *const _ as usize
-               },
-               808usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetLongField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetFloatField as *const _ as usize
-               },
-               816usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetFloatField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetDoubleField as *const _ as
-                   usize
-               },
-               824usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetDoubleField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetObjectField as *const _ as
-                   usize
-               },
-               832usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetObjectField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetBooleanField as *const _ as
-                   usize
-               },
-               840usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetBooleanField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetByteField as *const _ as usize
-               },
-               848usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetByteField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetCharField as *const _ as usize
-               },
-               856usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetCharField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetShortField as *const _ as usize
-               },
-               864usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetShortField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetIntField as *const _ as usize
-               },
-               872usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetIntField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetLongField as *const _ as usize
-               },
-               880usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetLongField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetFloatField as *const _ as usize
-               },
-               888usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetFloatField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetDoubleField as *const _ as
-                   usize
-               },
-               896usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetDoubleField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticMethodID as *const _ as
-                   usize
-               },
-               904usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStaticMethodID)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticObjectMethod as
-                   *const _ as usize
-               },
-               912usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticObjectMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticObjectMethodV as
-                   *const _ as usize
-               },
-               920usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticObjectMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticObjectMethodA as
-                   *const _ as usize
-               },
-               928usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticObjectMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticBooleanMethod as
-                   *const _ as usize
-               },
-               936usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticBooleanMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticBooleanMethodV as
-                   *const _ as usize
-               },
-               944usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticBooleanMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticBooleanMethodA as
-                   *const _ as usize
-               },
-               952usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticBooleanMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticByteMethod as
-                   *const _ as usize
-               },
-               960usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticByteMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticByteMethodV as
-                   *const _ as usize
-               },
-               968usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticByteMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticByteMethodA as
-                   *const _ as usize
-               },
-               976usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticByteMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticCharMethod as
-                   *const _ as usize
-               },
-               984usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticCharMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticCharMethodV as
-                   *const _ as usize
-               },
-               992usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticCharMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticCharMethodA as
-                   *const _ as usize
-               },
-               1000usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticCharMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticShortMethod as
-                   *const _ as usize
-               },
-               1008usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticShortMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticShortMethodV as
-                   *const _ as usize
-               },
-               1016usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticShortMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticShortMethodA as
-                   *const _ as usize
-               },
-               1024usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticShortMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticIntMethod as
-                   *const _ as usize
-               },
-               1032usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticIntMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticIntMethodV as
-                   *const _ as usize
-               },
-               1040usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticIntMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticIntMethodA as
-                   *const _ as usize
-               },
-               1048usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticIntMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticLongMethod as
-                   *const _ as usize
-               },
-               1056usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticLongMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticLongMethodV as
-                   *const _ as usize
-               },
-               1064usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticLongMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticLongMethodA as
-                   *const _ as usize
-               },
-               1072usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticLongMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticFloatMethod as
-                   *const _ as usize
-               },
-               1080usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticFloatMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticFloatMethodV as
-                   *const _ as usize
-               },
-               1088usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticFloatMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticFloatMethodA as
-                   *const _ as usize
-               },
-               1096usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticFloatMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticDoubleMethod as
-                   *const _ as usize
-               },
-               1104usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticDoubleMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticDoubleMethodV as
-                   *const _ as usize
-               },
-               1112usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticDoubleMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticDoubleMethodA as
-                   *const _ as usize
-               },
-               1120usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticDoubleMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticVoidMethod as
-                   *const _ as usize
-               },
-               1128usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticVoidMethod)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticVoidMethodV as
-                   *const _ as usize
-               },
-               1136usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticVoidMethodV)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticVoidMethodA as
-                   *const _ as usize
-               },
-               1144usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(CallStaticVoidMethodA)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticFieldID as *const _ as
-                   usize
-               },
-               1152usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStaticFieldID)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticObjectField as
-                   *const _ as usize
-               },
-               1160usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStaticObjectField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticBooleanField as
-                   *const _ as usize
-               },
-               1168usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStaticBooleanField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticByteField as *const _ as
-                   usize
-               },
-               1176usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStaticByteField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticCharField as *const _ as
-                   usize
-               },
-               1184usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStaticCharField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticShortField as
-                   *const _ as usize
-               },
-               1192usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStaticShortField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticIntField as *const _ as
-                   usize
-               },
-               1200usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStaticIntField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticLongField as *const _ as
-                   usize
-               },
-               1208usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStaticLongField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticFloatField as
-                   *const _ as usize
-               },
-               1216usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStaticFloatField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticDoubleField as
-                   *const _ as usize
-               },
-               1224usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStaticDoubleField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticObjectField as
-                   *const _ as usize
-               },
-               1232usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetStaticObjectField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticBooleanField as
-                   *const _ as usize
-               },
-               1240usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetStaticBooleanField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticByteField as *const _ as
-                   usize
-               },
-               1248usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetStaticByteField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticCharField as *const _ as
-                   usize
-               },
-               1256usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetStaticCharField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticShortField as
-                   *const _ as usize
-               },
-               1264usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetStaticShortField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticIntField as *const _ as
-                   usize
-               },
-               1272usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetStaticIntField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticLongField as *const _ as
-                   usize
-               },
-               1280usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetStaticLongField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticFloatField as
-                   *const _ as usize
-               },
-               1288usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetStaticFloatField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticDoubleField as
-                   *const _ as usize
-               },
-               1296usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetStaticDoubleField)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewString as *const _ as usize
-               },
-               1304usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewString)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStringLength as *const _ as
-                   usize
-               },
-               1312usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStringLength)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStringChars as *const _ as
-                   usize
-               },
-               1320usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStringChars)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseStringChars as *const _ as
-                   usize
-               },
-               1328usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ReleaseStringChars)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewStringUTF as *const _ as usize
-               },
-               1336usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewStringUTF)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStringUTFLength as *const _ as
-                   usize
-               },
-               1344usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStringUTFLength)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStringUTFChars as *const _ as
-                   usize
-               },
-               1352usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStringUTFChars)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseStringUTFChars as
-                   *const _ as usize
-               },
-               1360usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ReleaseStringUTFChars)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetArrayLength as *const _ as
-                   usize
-               },
-               1368usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetArrayLength)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewObjectArray as *const _ as
-                   usize
-               },
-               1376usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewObjectArray)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetObjectArrayElement as
-                   *const _ as usize
-               },
-               1384usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetObjectArrayElement)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetObjectArrayElement as
-                   *const _ as usize
-               },
-               1392usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetObjectArrayElement)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewBooleanArray as *const _ as
-                   usize
-               },
-               1400usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewBooleanArray)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewByteArray as *const _ as usize
-               },
-               1408usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewByteArray)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewCharArray as *const _ as usize
-               },
-               1416usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewCharArray)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewShortArray as *const _ as usize
-               },
-               1424usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewShortArray)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewIntArray as *const _ as usize
-               },
-               1432usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewIntArray)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewLongArray as *const _ as usize
-               },
-               1440usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewLongArray)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewFloatArray as *const _ as usize
-               },
-               1448usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewFloatArray)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewDoubleArray as *const _ as
-                   usize
-               },
-               1456usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewDoubleArray)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetBooleanArrayElements as
-                   *const _ as usize
-               },
-               1464usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetBooleanArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetByteArrayElements as
-                   *const _ as usize
-               },
-               1472usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetByteArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetCharArrayElements as
-                   *const _ as usize
-               },
-               1480usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetCharArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetShortArrayElements as
-                   *const _ as usize
-               },
-               1488usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetShortArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetIntArrayElements as
-                   *const _ as usize
-               },
-               1496usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetIntArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetLongArrayElements as
-                   *const _ as usize
-               },
-               1504usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetLongArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetFloatArrayElements as
-                   *const _ as usize
-               },
-               1512usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetFloatArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetDoubleArrayElements as
-                   *const _ as usize
-               },
-               1520usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetDoubleArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>()))
-                       .ReleaseBooleanArrayElements as *const _ as usize
-               },
-               1528usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ReleaseBooleanArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseByteArrayElements as
-                   *const _ as usize
-               },
-               1536usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ReleaseByteArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseCharArrayElements as
-                   *const _ as usize
-               },
-               1544usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ReleaseCharArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseShortArrayElements as
-                   *const _ as usize
-               },
-               1552usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ReleaseShortArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseIntArrayElements as
-                   *const _ as usize
-               },
-               1560usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ReleaseIntArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseLongArrayElements as
-                   *const _ as usize
-               },
-               1568usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ReleaseLongArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseFloatArrayElements as
-                   *const _ as usize
-               },
-               1576usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ReleaseFloatArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseDoubleArrayElements as
-                   *const _ as usize
-               },
-               1584usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ReleaseDoubleArrayElements)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetBooleanArrayRegion as
-                   *const _ as usize
-               },
-               1592usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetBooleanArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetByteArrayRegion as *const _ as
-                   usize
-               },
-               1600usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetByteArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetCharArrayRegion as *const _ as
-                   usize
-               },
-               1608usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetCharArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetShortArrayRegion as
-                   *const _ as usize
-               },
-               1616usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetShortArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetIntArrayRegion as *const _ as
-                   usize
-               },
-               1624usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetIntArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetLongArrayRegion as *const _ as
-                   usize
-               },
-               1632usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetLongArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetFloatArrayRegion as
-                   *const _ as usize
-               },
-               1640usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetFloatArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetDoubleArrayRegion as
-                   *const _ as usize
-               },
-               1648usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetDoubleArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetBooleanArrayRegion as
-                   *const _ as usize
-               },
-               1656usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetBooleanArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetByteArrayRegion as *const _ as
-                   usize
-               },
-               1664usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetByteArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetCharArrayRegion as *const _ as
-                   usize
-               },
-               1672usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetCharArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetShortArrayRegion as
-                   *const _ as usize
-               },
-               1680usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetShortArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetIntArrayRegion as *const _ as
-                   usize
-               },
-               1688usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetIntArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetLongArrayRegion as *const _ as
-                   usize
-               },
-               1696usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetLongArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetFloatArrayRegion as
-                   *const _ as usize
-               },
-               1704usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetFloatArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).SetDoubleArrayRegion as
-                   *const _ as usize
-               },
-               1712usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(SetDoubleArrayRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).RegisterNatives as *const _ as
-                   usize
-               },
-               1720usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(RegisterNatives)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).UnregisterNatives as *const _ as
-                   usize
-               },
-               1728usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(UnregisterNatives)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).MonitorEnter as *const _ as usize
-               },
-               1736usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(MonitorEnter)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).MonitorExit as *const _ as usize
-               },
-               1744usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(MonitorExit)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetJavaVM as *const _ as usize
-               },
-               1752usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetJavaVM)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStringRegion as *const _ as
-                   usize
-               },
-               1760usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStringRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStringUTFRegion as *const _ as
-                   usize
-               },
-               1768usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStringUTFRegion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetPrimitiveArrayCritical as
-                   *const _ as usize
-               },
-               1776usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetPrimitiveArrayCritical)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>()))
-                       .ReleasePrimitiveArrayCritical as *const _ as usize
-               },
-               1784usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ReleasePrimitiveArrayCritical)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetStringCritical as *const _ as
-                   usize
-               },
-               1792usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetStringCritical)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseStringCritical as
-                   *const _ as usize
-               },
-               1800usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ReleaseStringCritical)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewWeakGlobalRef as *const _ as
-                   usize
-               },
-               1808usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewWeakGlobalRef)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).DeleteWeakGlobalRef as
-                   *const _ as usize
-               },
-               1816usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(DeleteWeakGlobalRef)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).ExceptionCheck as *const _ as
-                   usize
-               },
-               1824usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(ExceptionCheck)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).NewDirectByteBuffer as
-                   *const _ as usize
-               },
-               1832usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(NewDirectByteBuffer)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetDirectBufferAddress as
-                   *const _ as usize
-               },
-               1840usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetDirectBufferAddress)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetDirectBufferCapacity as
-                   *const _ as usize
-               },
-               1848usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetDirectBufferCapacity)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNINativeInterface>())).GetObjectRefType as *const _ as
-                   usize
-               },
-               1856usize,
-               concat!("Offset of field: ",
-                       stringify!(JNINativeInterface),
-                       "::",
-                       stringify!(GetObjectRefType)));
+    assert_eq!(
+        ::std::mem::size_of::<JNINativeInterface>(),
+        1864usize,
+        concat!("Size of: ", stringify!(JNINativeInterface))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<JNINativeInterface>(),
+        8usize,
+        concat!("Alignment of ", stringify!(JNINativeInterface))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).reserved0 as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(reserved0)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).reserved1 as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(reserved1)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).reserved2 as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(reserved2)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).reserved3 as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(reserved3)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).GetVersion as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetVersion)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).DefineClass as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(DefineClass)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).FindClass as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(FindClass)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).FromReflectedMethod as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(FromReflectedMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).FromReflectedField as *const _ as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(FromReflectedField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ToReflectedMethod as *const _ as usize
+        },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ToReflectedMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetSuperclass as *const _ as usize
+        },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetSuperclass)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).IsAssignableFrom as *const _ as usize
+        },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(IsAssignableFrom)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ToReflectedField as *const _ as usize
+        },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ToReflectedField)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).Throw as *const _ as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(Throw)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).ThrowNew as *const _ as usize },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ThrowNew)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ExceptionOccurred as *const _ as usize
+        },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ExceptionOccurred)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ExceptionDescribe as *const _ as usize
+        },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ExceptionDescribe)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ExceptionClear as *const _ as usize
+        },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ExceptionClear)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).FatalError as *const _ as usize },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(FatalError)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).PushLocalFrame as *const _ as usize
+        },
+        152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(PushLocalFrame)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).PopLocalFrame as *const _ as usize
+        },
+        160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(PopLocalFrame)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).NewGlobalRef as *const _ as usize },
+        168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewGlobalRef)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).DeleteGlobalRef as *const _ as usize
+        },
+        176usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(DeleteGlobalRef)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).DeleteLocalRef as *const _ as usize
+        },
+        184usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(DeleteLocalRef)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).IsSameObject as *const _ as usize },
+        192usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(IsSameObject)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).NewLocalRef as *const _ as usize },
+        200usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewLocalRef)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).EnsureLocalCapacity as *const _ as usize
+        },
+        208usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(EnsureLocalCapacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).AllocObject as *const _ as usize },
+        216usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(AllocObject)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).NewObject as *const _ as usize },
+        224usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewObject)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).NewObjectV as *const _ as usize },
+        232usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewObjectV)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).NewObjectA as *const _ as usize },
+        240usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewObjectA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetObjectClass as *const _ as usize
+        },
+        248usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetObjectClass)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).IsInstanceOf as *const _ as usize },
+        256usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(IsInstanceOf)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).GetMethodID as *const _ as usize },
+        264usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetMethodID)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallObjectMethod as *const _ as usize
+        },
+        272usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallObjectMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallObjectMethodV as *const _ as usize
+        },
+        280usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallObjectMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallObjectMethodA as *const _ as usize
+        },
+        288usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallObjectMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallBooleanMethod as *const _ as usize
+        },
+        296usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallBooleanMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallBooleanMethodV as *const _ as usize
+        },
+        304usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallBooleanMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallBooleanMethodA as *const _ as usize
+        },
+        312usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallBooleanMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallByteMethod as *const _ as usize
+        },
+        320usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallByteMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallByteMethodV as *const _ as usize
+        },
+        328usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallByteMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallByteMethodA as *const _ as usize
+        },
+        336usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallByteMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallCharMethod as *const _ as usize
+        },
+        344usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallCharMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallCharMethodV as *const _ as usize
+        },
+        352usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallCharMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallCharMethodA as *const _ as usize
+        },
+        360usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallCharMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallShortMethod as *const _ as usize
+        },
+        368usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallShortMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallShortMethodV as *const _ as usize
+        },
+        376usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallShortMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallShortMethodA as *const _ as usize
+        },
+        384usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallShortMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallIntMethod as *const _ as usize
+        },
+        392usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallIntMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallIntMethodV as *const _ as usize
+        },
+        400usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallIntMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallIntMethodA as *const _ as usize
+        },
+        408usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallIntMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallLongMethod as *const _ as usize
+        },
+        416usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallLongMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallLongMethodV as *const _ as usize
+        },
+        424usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallLongMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallLongMethodA as *const _ as usize
+        },
+        432usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallLongMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallFloatMethod as *const _ as usize
+        },
+        440usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallFloatMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallFloatMethodV as *const _ as usize
+        },
+        448usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallFloatMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallFloatMethodA as *const _ as usize
+        },
+        456usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallFloatMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallDoubleMethod as *const _ as usize
+        },
+        464usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallDoubleMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallDoubleMethodV as *const _ as usize
+        },
+        472usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallDoubleMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallDoubleMethodA as *const _ as usize
+        },
+        480usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallDoubleMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallVoidMethod as *const _ as usize
+        },
+        488usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallVoidMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallVoidMethodV as *const _ as usize
+        },
+        496usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallVoidMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallVoidMethodA as *const _ as usize
+        },
+        504usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallVoidMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualObjectMethod as *const _
+                as usize
+        },
+        512usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualObjectMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualObjectMethodV as *const _
+                as usize
+        },
+        520usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualObjectMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualObjectMethodA as *const _
+                as usize
+        },
+        528usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualObjectMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualBooleanMethod as *const _
+                as usize
+        },
+        536usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualBooleanMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualBooleanMethodV as *const _
+                as usize
+        },
+        544usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualBooleanMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualBooleanMethodA as *const _
+                as usize
+        },
+        552usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualBooleanMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualByteMethod as *const _
+                as usize
+        },
+        560usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualByteMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualByteMethodV as *const _
+                as usize
+        },
+        568usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualByteMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualByteMethodA as *const _
+                as usize
+        },
+        576usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualByteMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualCharMethod as *const _
+                as usize
+        },
+        584usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualCharMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualCharMethodV as *const _
+                as usize
+        },
+        592usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualCharMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualCharMethodA as *const _
+                as usize
+        },
+        600usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualCharMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualShortMethod as *const _
+                as usize
+        },
+        608usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualShortMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualShortMethodV as *const _
+                as usize
+        },
+        616usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualShortMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualShortMethodA as *const _
+                as usize
+        },
+        624usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualShortMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualIntMethod as *const _
+                as usize
+        },
+        632usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualIntMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualIntMethodV as *const _
+                as usize
+        },
+        640usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualIntMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualIntMethodA as *const _
+                as usize
+        },
+        648usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualIntMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualLongMethod as *const _
+                as usize
+        },
+        656usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualLongMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualLongMethodV as *const _
+                as usize
+        },
+        664usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualLongMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualLongMethodA as *const _
+                as usize
+        },
+        672usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualLongMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualFloatMethod as *const _
+                as usize
+        },
+        680usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualFloatMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualFloatMethodV as *const _
+                as usize
+        },
+        688usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualFloatMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualFloatMethodA as *const _
+                as usize
+        },
+        696usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualFloatMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualDoubleMethod as *const _
+                as usize
+        },
+        704usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualDoubleMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualDoubleMethodV as *const _
+                as usize
+        },
+        712usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualDoubleMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualDoubleMethodA as *const _
+                as usize
+        },
+        720usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualDoubleMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualVoidMethod as *const _
+                as usize
+        },
+        728usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualVoidMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualVoidMethodV as *const _
+                as usize
+        },
+        736usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualVoidMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallNonvirtualVoidMethodA as *const _
+                as usize
+        },
+        744usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallNonvirtualVoidMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).GetFieldID as *const _ as usize },
+        752usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetFieldID)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetObjectField as *const _ as usize
+        },
+        760usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetObjectField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetBooleanField as *const _ as usize
+        },
+        768usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetBooleanField)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).GetByteField as *const _ as usize },
+        776usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetByteField)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).GetCharField as *const _ as usize },
+        784usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetCharField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetShortField as *const _ as usize
+        },
+        792usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetShortField)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).GetIntField as *const _ as usize },
+        800usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetIntField)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).GetLongField as *const _ as usize },
+        808usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetLongField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetFloatField as *const _ as usize
+        },
+        816usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetFloatField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetDoubleField as *const _ as usize
+        },
+        824usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetDoubleField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetObjectField as *const _ as usize
+        },
+        832usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetObjectField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetBooleanField as *const _ as usize
+        },
+        840usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetBooleanField)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).SetByteField as *const _ as usize },
+        848usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetByteField)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).SetCharField as *const _ as usize },
+        856usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetCharField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetShortField as *const _ as usize
+        },
+        864usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetShortField)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).SetIntField as *const _ as usize },
+        872usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetIntField)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).SetLongField as *const _ as usize },
+        880usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetLongField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetFloatField as *const _ as usize
+        },
+        888usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetFloatField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetDoubleField as *const _ as usize
+        },
+        896usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetDoubleField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticMethodID as *const _ as usize
+        },
+        904usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStaticMethodID)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticObjectMethod as *const _
+                as usize
+        },
+        912usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticObjectMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticObjectMethodV as *const _
+                as usize
+        },
+        920usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticObjectMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticObjectMethodA as *const _
+                as usize
+        },
+        928usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticObjectMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticBooleanMethod as *const _
+                as usize
+        },
+        936usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticBooleanMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticBooleanMethodV as *const _
+                as usize
+        },
+        944usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticBooleanMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticBooleanMethodA as *const _
+                as usize
+        },
+        952usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticBooleanMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticByteMethod as *const _ as usize
+        },
+        960usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticByteMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticByteMethodV as *const _
+                as usize
+        },
+        968usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticByteMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticByteMethodA as *const _
+                as usize
+        },
+        976usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticByteMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticCharMethod as *const _ as usize
+        },
+        984usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticCharMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticCharMethodV as *const _
+                as usize
+        },
+        992usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticCharMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticCharMethodA as *const _
+                as usize
+        },
+        1000usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticCharMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticShortMethod as *const _
+                as usize
+        },
+        1008usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticShortMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticShortMethodV as *const _
+                as usize
+        },
+        1016usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticShortMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticShortMethodA as *const _
+                as usize
+        },
+        1024usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticShortMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticIntMethod as *const _ as usize
+        },
+        1032usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticIntMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticIntMethodV as *const _ as usize
+        },
+        1040usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticIntMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticIntMethodA as *const _ as usize
+        },
+        1048usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticIntMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticLongMethod as *const _ as usize
+        },
+        1056usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticLongMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticLongMethodV as *const _
+                as usize
+        },
+        1064usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticLongMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticLongMethodA as *const _
+                as usize
+        },
+        1072usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticLongMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticFloatMethod as *const _
+                as usize
+        },
+        1080usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticFloatMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticFloatMethodV as *const _
+                as usize
+        },
+        1088usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticFloatMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticFloatMethodA as *const _
+                as usize
+        },
+        1096usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticFloatMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticDoubleMethod as *const _
+                as usize
+        },
+        1104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticDoubleMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticDoubleMethodV as *const _
+                as usize
+        },
+        1112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticDoubleMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticDoubleMethodA as *const _
+                as usize
+        },
+        1120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticDoubleMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticVoidMethod as *const _ as usize
+        },
+        1128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticVoidMethod)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticVoidMethodV as *const _
+                as usize
+        },
+        1136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticVoidMethodV)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).CallStaticVoidMethodA as *const _
+                as usize
+        },
+        1144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(CallStaticVoidMethodA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticFieldID as *const _ as usize
+        },
+        1152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStaticFieldID)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticObjectField as *const _ as usize
+        },
+        1160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStaticObjectField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticBooleanField as *const _
+                as usize
+        },
+        1168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStaticBooleanField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticByteField as *const _ as usize
+        },
+        1176usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStaticByteField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticCharField as *const _ as usize
+        },
+        1184usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStaticCharField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticShortField as *const _ as usize
+        },
+        1192usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStaticShortField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticIntField as *const _ as usize
+        },
+        1200usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStaticIntField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticLongField as *const _ as usize
+        },
+        1208usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStaticLongField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticFloatField as *const _ as usize
+        },
+        1216usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStaticFloatField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStaticDoubleField as *const _ as usize
+        },
+        1224usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStaticDoubleField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticObjectField as *const _ as usize
+        },
+        1232usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetStaticObjectField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticBooleanField as *const _
+                as usize
+        },
+        1240usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetStaticBooleanField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticByteField as *const _ as usize
+        },
+        1248usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetStaticByteField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticCharField as *const _ as usize
+        },
+        1256usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetStaticCharField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticShortField as *const _ as usize
+        },
+        1264usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetStaticShortField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticIntField as *const _ as usize
+        },
+        1272usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetStaticIntField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticLongField as *const _ as usize
+        },
+        1280usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetStaticLongField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticFloatField as *const _ as usize
+        },
+        1288usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetStaticFloatField)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetStaticDoubleField as *const _ as usize
+        },
+        1296usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetStaticDoubleField)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).NewString as *const _ as usize },
+        1304usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewString)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStringLength as *const _ as usize
+        },
+        1312usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStringLength)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStringChars as *const _ as usize
+        },
+        1320usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStringChars)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseStringChars as *const _ as usize
+        },
+        1328usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ReleaseStringChars)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).NewStringUTF as *const _ as usize },
+        1336usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewStringUTF)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStringUTFLength as *const _ as usize
+        },
+        1344usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStringUTFLength)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStringUTFChars as *const _ as usize
+        },
+        1352usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStringUTFChars)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseStringUTFChars as *const _
+                as usize
+        },
+        1360usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ReleaseStringUTFChars)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetArrayLength as *const _ as usize
+        },
+        1368usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetArrayLength)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).NewObjectArray as *const _ as usize
+        },
+        1376usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewObjectArray)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetObjectArrayElement as *const _
+                as usize
+        },
+        1384usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetObjectArrayElement)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetObjectArrayElement as *const _
+                as usize
+        },
+        1392usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetObjectArrayElement)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).NewBooleanArray as *const _ as usize
+        },
+        1400usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewBooleanArray)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).NewByteArray as *const _ as usize },
+        1408usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewByteArray)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).NewCharArray as *const _ as usize },
+        1416usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewCharArray)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).NewShortArray as *const _ as usize
+        },
+        1424usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewShortArray)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).NewIntArray as *const _ as usize },
+        1432usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewIntArray)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).NewLongArray as *const _ as usize },
+        1440usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewLongArray)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).NewFloatArray as *const _ as usize
+        },
+        1448usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewFloatArray)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).NewDoubleArray as *const _ as usize
+        },
+        1456usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewDoubleArray)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetBooleanArrayElements as *const _
+                as usize
+        },
+        1464usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetBooleanArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetByteArrayElements as *const _ as usize
+        },
+        1472usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetByteArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetCharArrayElements as *const _ as usize
+        },
+        1480usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetCharArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetShortArrayElements as *const _
+                as usize
+        },
+        1488usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetShortArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetIntArrayElements as *const _ as usize
+        },
+        1496usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetIntArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetLongArrayElements as *const _ as usize
+        },
+        1504usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetLongArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetFloatArrayElements as *const _
+                as usize
+        },
+        1512usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetFloatArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetDoubleArrayElements as *const _
+                as usize
+        },
+        1520usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetDoubleArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseBooleanArrayElements as *const _
+                as usize
+        },
+        1528usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ReleaseBooleanArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseByteArrayElements as *const _
+                as usize
+        },
+        1536usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ReleaseByteArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseCharArrayElements as *const _
+                as usize
+        },
+        1544usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ReleaseCharArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseShortArrayElements as *const _
+                as usize
+        },
+        1552usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ReleaseShortArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseIntArrayElements as *const _
+                as usize
+        },
+        1560usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ReleaseIntArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseLongArrayElements as *const _
+                as usize
+        },
+        1568usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ReleaseLongArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseFloatArrayElements as *const _
+                as usize
+        },
+        1576usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ReleaseFloatArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseDoubleArrayElements as *const _
+                as usize
+        },
+        1584usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ReleaseDoubleArrayElements)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetBooleanArrayRegion as *const _
+                as usize
+        },
+        1592usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetBooleanArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetByteArrayRegion as *const _ as usize
+        },
+        1600usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetByteArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetCharArrayRegion as *const _ as usize
+        },
+        1608usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetCharArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetShortArrayRegion as *const _ as usize
+        },
+        1616usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetShortArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetIntArrayRegion as *const _ as usize
+        },
+        1624usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetIntArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetLongArrayRegion as *const _ as usize
+        },
+        1632usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetLongArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetFloatArrayRegion as *const _ as usize
+        },
+        1640usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetFloatArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetDoubleArrayRegion as *const _ as usize
+        },
+        1648usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetDoubleArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetBooleanArrayRegion as *const _
+                as usize
+        },
+        1656usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetBooleanArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetByteArrayRegion as *const _ as usize
+        },
+        1664usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetByteArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetCharArrayRegion as *const _ as usize
+        },
+        1672usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetCharArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetShortArrayRegion as *const _ as usize
+        },
+        1680usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetShortArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetIntArrayRegion as *const _ as usize
+        },
+        1688usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetIntArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetLongArrayRegion as *const _ as usize
+        },
+        1696usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetLongArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetFloatArrayRegion as *const _ as usize
+        },
+        1704usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetFloatArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).SetDoubleArrayRegion as *const _ as usize
+        },
+        1712usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(SetDoubleArrayRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).RegisterNatives as *const _ as usize
+        },
+        1720usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(RegisterNatives)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).UnregisterNatives as *const _ as usize
+        },
+        1728usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(UnregisterNatives)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).MonitorEnter as *const _ as usize },
+        1736usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(MonitorEnter)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).MonitorExit as *const _ as usize },
+        1744usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(MonitorExit)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNINativeInterface>())).GetJavaVM as *const _ as usize },
+        1752usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetJavaVM)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStringRegion as *const _ as usize
+        },
+        1760usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStringRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStringUTFRegion as *const _ as usize
+        },
+        1768usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStringUTFRegion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetPrimitiveArrayCritical as *const _
+                as usize
+        },
+        1776usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetPrimitiveArrayCritical)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ReleasePrimitiveArrayCritical as *const _
+                as usize
+        },
+        1784usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ReleasePrimitiveArrayCritical)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetStringCritical as *const _ as usize
+        },
+        1792usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetStringCritical)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ReleaseStringCritical as *const _
+                as usize
+        },
+        1800usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ReleaseStringCritical)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).NewWeakGlobalRef as *const _ as usize
+        },
+        1808usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewWeakGlobalRef)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).DeleteWeakGlobalRef as *const _ as usize
+        },
+        1816usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(DeleteWeakGlobalRef)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).ExceptionCheck as *const _ as usize
+        },
+        1824usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(ExceptionCheck)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).NewDirectByteBuffer as *const _ as usize
+        },
+        1832usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(NewDirectByteBuffer)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetDirectBufferAddress as *const _
+                as usize
+        },
+        1840usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetDirectBufferAddress)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetDirectBufferCapacity as *const _
+                as usize
+        },
+        1848usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetDirectBufferCapacity)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNINativeInterface>())).GetObjectRefType as *const _ as usize
+        },
+        1856usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNINativeInterface),
+            "::",
+            stringify!(GetObjectRefType)
+        )
+    );
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
-pub struct JNIInvokeInterface { pub reserved0 : * mut :: std :: os :: raw :: c_void , pub reserved1 : * mut :: std :: os :: raw :: c_void , pub reserved2 : * mut :: std :: os :: raw :: c_void , pub DestroyJavaVM : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JavaVM ) -> jint > , pub AttachCurrentThread : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JavaVM , arg2 : * mut * mut JNIEnv , arg3 : * mut :: std :: os :: raw :: c_void ) -> jint > , pub DetachCurrentThread : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JavaVM ) -> jint > , pub GetEnv : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JavaVM , arg2 : * mut * mut :: std :: os :: raw :: c_void , arg3 : jint ) -> jint > , pub AttachCurrentThreadAsDaemon : :: std :: option :: Option < unsafe extern "C" fn ( arg1 : * mut JavaVM , arg2 : * mut * mut JNIEnv , arg3 : * mut :: std :: os :: raw :: c_void ) -> jint > , }
-# [ test ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct JNIInvokeInterface {
+    pub reserved0: *mut ::std::os::raw::c_void,
+    pub reserved1: *mut ::std::os::raw::c_void,
+    pub reserved2: *mut ::std::os::raw::c_void,
+    pub DestroyJavaVM: ::std::option::Option<unsafe extern "C" fn(arg1: *mut JavaVM) -> jint>,
+    pub AttachCurrentThread: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JavaVM,
+            arg2: *mut *mut JNIEnv,
+            arg3: *mut ::std::os::raw::c_void,
+        ) -> jint,
+    >,
+    pub DetachCurrentThread: ::std::option::Option<unsafe extern "C" fn(arg1: *mut JavaVM) -> jint>,
+    pub GetEnv: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut JavaVM, arg2: *mut *mut ::std::os::raw::c_void, arg3: jint)
+            -> jint,
+    >,
+    pub AttachCurrentThreadAsDaemon: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut JavaVM,
+            arg2: *mut *mut JNIEnv,
+            arg3: *mut ::std::os::raw::c_void,
+        ) -> jint,
+    >,
+}
+#[test]
 fn bindgen_test_layout_JNIInvokeInterface() {
-    assert_eq!(::std::mem::size_of::<JNIInvokeInterface>(),
-               64usize,
-               concat!("Size of: ", stringify!(JNIInvokeInterface)));
-    assert_eq!(::std::mem::align_of::<JNIInvokeInterface>(),
-               8usize,
-               concat!("Alignment of ", stringify!(JNIInvokeInterface)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNIInvokeInterface>())).reserved0 as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(JNIInvokeInterface),
-                       "::",
-                       stringify!(reserved0)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNIInvokeInterface>())).reserved1 as *const _ as usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(JNIInvokeInterface),
-                       "::",
-                       stringify!(reserved1)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNIInvokeInterface>())).reserved2 as *const _ as usize
-               },
-               16usize,
-               concat!("Offset of field: ",
-                       stringify!(JNIInvokeInterface),
-                       "::",
-                       stringify!(reserved2)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNIInvokeInterface>())).DestroyJavaVM as *const _ as usize
-               },
-               24usize,
-               concat!("Offset of field: ",
-                       stringify!(JNIInvokeInterface),
-                       "::",
-                       stringify!(DestroyJavaVM)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNIInvokeInterface>())).AttachCurrentThread as
-                   *const _ as usize
-               },
-               32usize,
-               concat!("Offset of field: ",
-                       stringify!(JNIInvokeInterface),
-                       "::",
-                       stringify!(AttachCurrentThread)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNIInvokeInterface>())).DetachCurrentThread as
-                   *const _ as usize
-               },
-               40usize,
-               concat!("Offset of field: ",
-                       stringify!(JNIInvokeInterface),
-                       "::",
-                       stringify!(DetachCurrentThread)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNIInvokeInterface>())).GetEnv as *const _ as usize
-               },
-               48usize,
-               concat!("Offset of field: ",
-                       stringify!(JNIInvokeInterface),
-                       "::",
-                       stringify!(GetEnv)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<JNIInvokeInterface>()))
-                       .AttachCurrentThreadAsDaemon as *const _ as usize
-               },
-               56usize,
-               concat!("Offset of field: ",
-                       stringify!(JNIInvokeInterface),
-                       "::",
-                       stringify!(AttachCurrentThreadAsDaemon)));
+    assert_eq!(
+        ::std::mem::size_of::<JNIInvokeInterface>(),
+        64usize,
+        concat!("Size of: ", stringify!(JNIInvokeInterface))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<JNIInvokeInterface>(),
+        8usize,
+        concat!("Alignment of ", stringify!(JNIInvokeInterface))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNIInvokeInterface>())).reserved0 as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNIInvokeInterface),
+            "::",
+            stringify!(reserved0)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNIInvokeInterface>())).reserved1 as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNIInvokeInterface),
+            "::",
+            stringify!(reserved1)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNIInvokeInterface>())).reserved2 as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNIInvokeInterface),
+            "::",
+            stringify!(reserved2)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNIInvokeInterface>())).DestroyJavaVM as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNIInvokeInterface),
+            "::",
+            stringify!(DestroyJavaVM)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNIInvokeInterface>())).AttachCurrentThread as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNIInvokeInterface),
+            "::",
+            stringify!(AttachCurrentThread)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNIInvokeInterface>())).DetachCurrentThread as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNIInvokeInterface),
+            "::",
+            stringify!(DetachCurrentThread)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<JNIInvokeInterface>())).GetEnv as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNIInvokeInterface),
+            "::",
+            stringify!(GetEnv)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<JNIInvokeInterface>())).AttachCurrentThreadAsDaemon as *const _
+                as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(JNIInvokeInterface),
+            "::",
+            stringify!(AttachCurrentThreadAsDaemon)
+        )
+    );
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrJava {
     pub Vm: *mut JavaVM,
     pub Env: *mut JNIEnv,
     pub ActivityObject: jobject,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrJava() {
-    assert_eq!(::std::mem::size_of::<ovrJava>(),
-               24usize,
-               concat!("Size of: ", stringify!(ovrJava)));
-    assert_eq!(::std::mem::align_of::<ovrJava>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrJava)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrJava>())).Vm as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrJava),
-                       "::",
-                       stringify!(Vm)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrJava>())).Env as *const _ as usize },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrJava),
-                       "::",
-                       stringify!(Env)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrJava>())).ActivityObject as *const _ as usize },
-               16usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrJava),
-                       "::",
-                       stringify!(ActivityObject)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrJava>(),
+        24usize,
+        concat!("Size of: ", stringify!(ovrJava))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrJava>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrJava))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrJava>())).Vm as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrJava),
+            "::",
+            stringify!(Vm)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrJava>())).Env as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrJava),
+            "::",
+            stringify!(Env)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrJava>())).ActivityObject as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrJava),
+            "::",
+            stringify!(ActivityObject)
+        )
+    );
 }
 pub type ovrResult = ::std::os::raw::c_int;
-pub const ovrSuccessResult__ovrSuccess: ovrSuccessResult_ = 0;
-pub type ovrSuccessResult_ = ::std::os::raw::c_uint;
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrSuccessResult_ {
+    ovrSuccess = 0,
+}
 pub use self::ovrSuccessResult_ as ovrSuccessResult;
-pub const ovrErrorResult__ovrError_MemoryAllocationFailure: ovrErrorResult_ = -1000;
-pub const ovrErrorResult__ovrError_NotInitialized: ovrErrorResult_ = -1004;
-pub const ovrErrorResult__ovrError_InvalidParameter: ovrErrorResult_ = -1005;
-pub const ovrErrorResult__ovrError_DeviceUnavailable: ovrErrorResult_ = -1010;
-pub const ovrErrorResult__ovrError_InvalidOperation: ovrErrorResult_ = -1015;
-pub const ovrErrorResult__ovrError_UnsupportedDeviceType: ovrErrorResult_ = -1050;
-pub const ovrErrorResult__ovrError_NoDevice: ovrErrorResult_ = -1051;
-pub const ovrErrorResult__ovrError_NotImplemented: ovrErrorResult_ = -1052;
-pub const ovrErrorResult__ovrResult_EnumSize: ovrErrorResult_ = 2147483647;
-pub type ovrErrorResult_ = ::std::os::raw::c_int;
+#[repr(i32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrErrorResult_ {
+    ovrError_MemoryAllocationFailure = -1000,
+    ovrError_NotInitialized = -1004,
+    ovrError_InvalidParameter = -1005,
+    ovrError_DeviceUnavailable = -1010,
+    ovrError_InvalidOperation = -1015,
+    ovrError_UnsupportedDeviceType = -1050,
+    ovrError_NoDevice = -1051,
+    ovrError_NotImplemented = -1052,
+    ovrResult_EnumSize = 2147483647,
+}
 pub use self::ovrErrorResult_ as ovrErrorResult;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrVector2f_ {
     pub x: f32,
     pub y: f32,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrVector2f_() {
-    assert_eq!(::std::mem::size_of::<ovrVector2f_>(),
-               8usize,
-               concat!("Size of: ", stringify!(ovrVector2f_)));
-    assert_eq!(::std::mem::align_of::<ovrVector2f_>(),
-               4usize,
-               concat!("Alignment of ", stringify!(ovrVector2f_)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrVector2f_>())).x as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrVector2f_),
-                       "::",
-                       stringify!(x)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrVector2f_>())).y as *const _ as usize },
-               4usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrVector2f_),
-                       "::",
-                       stringify!(y)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrVector2f_>(),
+        8usize,
+        concat!("Size of: ", stringify!(ovrVector2f_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrVector2f_>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ovrVector2f_))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrVector2f_>())).x as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrVector2f_),
+            "::",
+            stringify!(x)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrVector2f_>())).y as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrVector2f_),
+            "::",
+            stringify!(y)
+        )
+    );
 }
 pub type ovrVector2f = ovrVector2f_;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrVector3f_ {
     pub x: f32,
     pub y: f32,
     pub z: f32,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrVector3f_() {
-    assert_eq!(::std::mem::size_of::<ovrVector3f_>(),
-               12usize,
-               concat!("Size of: ", stringify!(ovrVector3f_)));
-    assert_eq!(::std::mem::align_of::<ovrVector3f_>(),
-               4usize,
-               concat!("Alignment of ", stringify!(ovrVector3f_)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrVector3f_>())).x as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrVector3f_),
-                       "::",
-                       stringify!(x)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrVector3f_>())).y as *const _ as usize },
-               4usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrVector3f_),
-                       "::",
-                       stringify!(y)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrVector3f_>())).z as *const _ as usize },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrVector3f_),
-                       "::",
-                       stringify!(z)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrVector3f_>(),
+        12usize,
+        concat!("Size of: ", stringify!(ovrVector3f_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrVector3f_>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ovrVector3f_))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrVector3f_>())).x as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrVector3f_),
+            "::",
+            stringify!(x)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrVector3f_>())).y as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrVector3f_),
+            "::",
+            stringify!(y)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrVector3f_>())).z as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrVector3f_),
+            "::",
+            stringify!(z)
+        )
+    );
 }
 pub type ovrVector3f = ovrVector3f_;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrVector4f_ {
     pub x: f32,
     pub y: f32,
     pub z: f32,
     pub w: f32,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrVector4f_() {
-    assert_eq!(::std::mem::size_of::<ovrVector4f_>(),
-               16usize,
-               concat!("Size of: ", stringify!(ovrVector4f_)));
-    assert_eq!(::std::mem::align_of::<ovrVector4f_>(),
-               4usize,
-               concat!("Alignment of ", stringify!(ovrVector4f_)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrVector4f_>())).x as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrVector4f_),
-                       "::",
-                       stringify!(x)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrVector4f_>())).y as *const _ as usize },
-               4usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrVector4f_),
-                       "::",
-                       stringify!(y)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrVector4f_>())).z as *const _ as usize },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrVector4f_),
-                       "::",
-                       stringify!(z)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrVector4f_>())).w as *const _ as usize },
-               12usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrVector4f_),
-                       "::",
-                       stringify!(w)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrVector4f_>(),
+        16usize,
+        concat!("Size of: ", stringify!(ovrVector4f_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrVector4f_>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ovrVector4f_))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrVector4f_>())).x as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrVector4f_),
+            "::",
+            stringify!(x)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrVector4f_>())).y as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrVector4f_),
+            "::",
+            stringify!(y)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrVector4f_>())).z as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrVector4f_),
+            "::",
+            stringify!(z)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrVector4f_>())).w as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrVector4f_),
+            "::",
+            stringify!(w)
+        )
+    );
 }
 pub type ovrVector4f = ovrVector4f_;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrQuatf_ {
     pub x: f32,
     pub y: f32,
     pub z: f32,
     pub w: f32,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrQuatf_() {
-    assert_eq!(::std::mem::size_of::<ovrQuatf_>(),
-               16usize,
-               concat!("Size of: ", stringify!(ovrQuatf_)));
-    assert_eq!(::std::mem::align_of::<ovrQuatf_>(),
-               4usize,
-               concat!("Alignment of ", stringify!(ovrQuatf_)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrQuatf_>())).x as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrQuatf_),
-                       "::",
-                       stringify!(x)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrQuatf_>())).y as *const _ as usize },
-               4usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrQuatf_),
-                       "::",
-                       stringify!(y)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrQuatf_>())).z as *const _ as usize },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrQuatf_),
-                       "::",
-                       stringify!(z)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrQuatf_>())).w as *const _ as usize },
-               12usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrQuatf_),
-                       "::",
-                       stringify!(w)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrQuatf_>(),
+        16usize,
+        concat!("Size of: ", stringify!(ovrQuatf_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrQuatf_>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ovrQuatf_))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrQuatf_>())).x as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrQuatf_),
+            "::",
+            stringify!(x)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrQuatf_>())).y as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrQuatf_),
+            "::",
+            stringify!(y)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrQuatf_>())).z as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrQuatf_),
+            "::",
+            stringify!(z)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrQuatf_>())).w as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrQuatf_),
+            "::",
+            stringify!(w)
+        )
+    );
 }
 pub type ovrQuatf = ovrQuatf_;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrMatrix4f_ {
     pub M: [[f32; 4usize]; 4usize],
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrMatrix4f_() {
-    assert_eq!(::std::mem::size_of::<ovrMatrix4f_>(),
-               64usize,
-               concat!("Size of: ", stringify!(ovrMatrix4f_)));
-    assert_eq!(::std::mem::align_of::<ovrMatrix4f_>(),
-               4usize,
-               concat!("Alignment of ", stringify!(ovrMatrix4f_)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrMatrix4f_>())).M as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrMatrix4f_),
-                       "::",
-                       stringify!(M)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrMatrix4f_>(),
+        64usize,
+        concat!("Size of: ", stringify!(ovrMatrix4f_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrMatrix4f_>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ovrMatrix4f_))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrMatrix4f_>())).M as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrMatrix4f_),
+            "::",
+            stringify!(M)
+        )
+    );
 }
 pub type ovrMatrix4f = ovrMatrix4f_;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrPosef_ {
     pub Orientation: ovrQuatf,
     pub Position: ovrVector3f,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrPosef_() {
-    assert_eq!(::std::mem::size_of::<ovrPosef_>(),
-               28usize,
-               concat!("Size of: ", stringify!(ovrPosef_)));
-    assert_eq!(::std::mem::align_of::<ovrPosef_>(),
-               4usize,
-               concat!("Alignment of ", stringify!(ovrPosef_)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrPosef_>())).Orientation as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrPosef_),
-                       "::",
-                       stringify!(Orientation)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrPosef_>())).Position as *const _ as usize },
-               16usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrPosef_),
-                       "::",
-                       stringify!(Position)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrPosef_>(),
+        28usize,
+        concat!("Size of: ", stringify!(ovrPosef_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrPosef_>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ovrPosef_))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrPosef_>())).Orientation as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrPosef_),
+            "::",
+            stringify!(Orientation)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrPosef_>())).Position as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrPosef_),
+            "::",
+            stringify!(Position)
+        )
+    );
 }
 pub type ovrPosef = ovrPosef_;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrRectf_ {
     pub x: f32,
     pub y: f32,
     pub width: f32,
     pub height: f32,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrRectf_() {
-    assert_eq!(::std::mem::size_of::<ovrRectf_>(),
-               16usize,
-               concat!("Size of: ", stringify!(ovrRectf_)));
-    assert_eq!(::std::mem::align_of::<ovrRectf_>(),
-               4usize,
-               concat!("Alignment of ", stringify!(ovrRectf_)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrRectf_>())).x as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrRectf_),
-                       "::",
-                       stringify!(x)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrRectf_>())).y as *const _ as usize },
-               4usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrRectf_),
-                       "::",
-                       stringify!(y)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrRectf_>())).width as *const _ as usize },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrRectf_),
-                       "::",
-                       stringify!(width)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrRectf_>())).height as *const _ as usize },
-               12usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrRectf_),
-                       "::",
-                       stringify!(height)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrRectf_>(),
+        16usize,
+        concat!("Size of: ", stringify!(ovrRectf_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrRectf_>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ovrRectf_))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrRectf_>())).x as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrRectf_),
+            "::",
+            stringify!(x)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrRectf_>())).y as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrRectf_),
+            "::",
+            stringify!(y)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrRectf_>())).width as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrRectf_),
+            "::",
+            stringify!(width)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrRectf_>())).height as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrRectf_),
+            "::",
+            stringify!(height)
+        )
+    );
 }
 pub type ovrRectf = ovrRectf_;
-pub const ovrBooleanResult_VRAPI_FALSE: ovrBooleanResult = 0;
-pub const ovrBooleanResult_VRAPI_TRUE: ovrBooleanResult = 1;
-pub type ovrBooleanResult = ::std::os::raw::c_uint;
-pub const ovrEye_VRAPI_EYE_LEFT: ovrEye = 0;
-pub const ovrEye_VRAPI_EYE_RIGHT: ovrEye = 1;
-pub const ovrEye_VRAPI_EYE_COUNT: ovrEye = 2;
-pub type ovrEye = ::std::os::raw::c_uint;
-pub const ovrStructureType_VRAPI_STRUCTURE_TYPE_INIT_PARMS: ovrStructureType = 1;
-pub const ovrStructureType_VRAPI_STRUCTURE_TYPE_MODE_PARMS: ovrStructureType = 2;
-pub const ovrStructureType_VRAPI_STRUCTURE_TYPE_FRAME_PARMS: ovrStructureType = 3;
-pub type ovrStructureType = ::std::os::raw::c_uint;
-pub const ovrDeviceType_VRAPI_DEVICE_TYPE_GEARVR_START: ovrDeviceType = 0;
-pub const ovrDeviceType_VRAPI_DEVICE_TYPE_NOTE4: ovrDeviceType = 0;
-pub const ovrDeviceType_VRAPI_DEVICE_TYPE_NOTE5: ovrDeviceType = 1;
-pub const ovrDeviceType_VRAPI_DEVICE_TYPE_S6: ovrDeviceType = 2;
-pub const ovrDeviceType_VRAPI_DEVICE_TYPE_S7: ovrDeviceType = 3;
-pub const ovrDeviceType_VRAPI_DEVICE_TYPE_NOTE7: ovrDeviceType = 4;
-pub const ovrDeviceType_VRAPI_DEVICE_TYPE_S8: ovrDeviceType = 5;
-pub const ovrDeviceType_VRAPI_DEVICE_TYPE_NOTE8: ovrDeviceType = 6;
-pub const ovrDeviceType_VRAPI_DEVICE_TYPE_NOTE7_FE: ovrDeviceType = 7;
-pub const ovrDeviceType_VRAPI_DEVICE_GEARVR_END: ovrDeviceType = 63;
-pub const ovrDeviceType_VRAPI_DEVICE_TYPE_UNKNOWN: ovrDeviceType = -1;
-pub type ovrDeviceType = ::std::os::raw::c_int;
-pub const ovrHeadsetType_VRAPI_HEADSET_TYPE_R320: ovrHeadsetType = 0;
-pub const ovrHeadsetType_VRAPI_HEADSET_TYPE_R321: ovrHeadsetType = 1;
-pub const ovrHeadsetType_VRAPI_HEADSET_TYPE_R322: ovrHeadsetType = 2;
-pub const ovrHeadsetType_VRAPI_HEADSET_TYPE_R323: ovrHeadsetType = 3;
-pub const ovrHeadsetType_VRAPI_HEADSET_TYPE_R324: ovrHeadsetType = 4;
-pub const ovrHeadsetType_VRAPI_HEADSET_TYPE_R325: ovrHeadsetType = 5;
-pub const ovrHeadsetType_VRAPI_HEADSET_TYPE_UNKNOWN: ovrHeadsetType = -1;
-pub type ovrHeadsetType = ::std::os::raw::c_int;
-pub const ovrDeviceRegion_VRAPI_DEVICE_REGION_UNSPECIFIED: ovrDeviceRegion = 0;
-pub const ovrDeviceRegion_VRAPI_DEVICE_REGION_JAPAN: ovrDeviceRegion = 1;
-pub const ovrDeviceRegion_VRAPI_DEVICE_REGION_CHINA: ovrDeviceRegion = 2;
-pub type ovrDeviceRegion = ::std::os::raw::c_uint;
-pub const ovrVideoDecoderLimit_VRAPI_VIDEO_DECODER_LIMIT_4K_30FPS: ovrVideoDecoderLimit = 0;
-pub const ovrVideoDecoderLimit_VRAPI_VIDEO_DECODER_LIMIT_4K_60FPS: ovrVideoDecoderLimit = 1;
-pub type ovrVideoDecoderLimit = ::std::os::raw::c_uint;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_DEVICE_TYPE: ovrSystemProperty = 0;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_MAX_FULLSPEED_FRAMEBUFFER_SAMPLES: ovrSystemProperty = 1;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_DISPLAY_PIXELS_WIDE: ovrSystemProperty = 2;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_DISPLAY_PIXELS_HIGH: ovrSystemProperty = 3;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_DISPLAY_REFRESH_RATE: ovrSystemProperty = 4;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_SUGGESTED_EYE_TEXTURE_WIDTH: ovrSystemProperty = 5;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_SUGGESTED_EYE_TEXTURE_HEIGHT: ovrSystemProperty = 6;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_SUGGESTED_EYE_FOV_DEGREES_X: ovrSystemProperty = 7;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_SUGGESTED_EYE_FOV_DEGREES_Y: ovrSystemProperty = 8;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_EXT_SDCARD_PATH: ovrSystemProperty = 9;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_DEVICE_REGION: ovrSystemProperty = 10;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_VIDEO_DECODER_LIMIT: ovrSystemProperty = 11;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_HEADSET_TYPE: ovrSystemProperty = 12;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_BACK_BUTTON_SHORTPRESS_TIME: ovrSystemProperty = 13;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_BACK_BUTTON_DOUBLETAP_TIME: ovrSystemProperty = 14;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_DOMINANT_HAND: ovrSystemProperty = 15;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_MULTIVIEW_AVAILABLE: ovrSystemProperty = 128;
-pub const ovrSystemProperty_VRAPI_SYS_PROP_SRGB_LAYER_SOURCE_AVAILABLE: ovrSystemProperty = 129;
-pub type ovrSystemProperty = ::std::os::raw::c_uint;
-pub const ovrHandedness_VRAPI_HAND_UNKNOWN: ovrHandedness = 0;
-pub const ovrHandedness_VRAPI_HAND_LEFT: ovrHandedness = 1;
-pub const ovrHandedness_VRAPI_HAND_RIGHT: ovrHandedness = 2;
-pub type ovrHandedness = ::std::os::raw::c_uint;
-pub const ovrSystemStatus_VRAPI_SYS_STATUS_DOCKED: ovrSystemStatus = 0;
-pub const ovrSystemStatus_VRAPI_SYS_STATUS_MOUNTED: ovrSystemStatus = 1;
-pub const ovrSystemStatus_VRAPI_SYS_STATUS_THROTTLED: ovrSystemStatus = 2;
-pub const ovrSystemStatus_VRAPI_SYS_STATUS_RENDER_LATENCY_MILLISECONDS: ovrSystemStatus = 5;
-pub const ovrSystemStatus_VRAPI_SYS_STATUS_TIMEWARP_LATENCY_MILLISECONDS: ovrSystemStatus = 6;
-pub const ovrSystemStatus_VRAPI_SYS_STATUS_SCANOUT_LATENCY_MILLISECONDS: ovrSystemStatus = 7;
-pub const ovrSystemStatus_VRAPI_SYS_STATUS_APP_FRAMES_PER_SECOND: ovrSystemStatus = 8;
-pub const ovrSystemStatus_VRAPI_SYS_STATUS_SCREEN_TEARS_PER_SECOND: ovrSystemStatus = 9;
-pub const ovrSystemStatus_VRAPI_SYS_STATUS_EARLY_FRAMES_PER_SECOND: ovrSystemStatus = 10;
-pub const ovrSystemStatus_VRAPI_SYS_STATUS_STALE_FRAMES_PER_SECOND: ovrSystemStatus = 11;
-pub const ovrSystemStatus_VRAPI_SYS_STATUS_RECENTER_COUNT: ovrSystemStatus = 13;
-pub const ovrSystemStatus_VRAPI_SYS_STATUS_SYSTEM_UX_ACTIVE: ovrSystemStatus = 14;
-pub const ovrSystemStatus_VRAPI_SYS_STATUS_FRONT_BUFFER_PROTECTED: ovrSystemStatus = 128;
-pub const ovrSystemStatus_VRAPI_SYS_STATUS_FRONT_BUFFER_565: ovrSystemStatus = 129;
-pub const ovrSystemStatus_VRAPI_SYS_STATUS_FRONT_BUFFER_SRGB: ovrSystemStatus = 130;
-pub type ovrSystemStatus = ::std::os::raw::c_uint;
-pub const ovrInitializeStatus_VRAPI_INITIALIZE_SUCCESS: ovrInitializeStatus = 0;
-pub const ovrInitializeStatus_VRAPI_INITIALIZE_UNKNOWN_ERROR: ovrInitializeStatus = -1;
-pub const ovrInitializeStatus_VRAPI_INITIALIZE_PERMISSIONS_ERROR: ovrInitializeStatus = -2;
-pub type ovrInitializeStatus = ::std::os::raw::c_int;
-pub const ovrGraphicsAPI_VRAPI_GRAPHICS_API_OPENGL_ES_2: ovrGraphicsAPI = 66048;
-pub const ovrGraphicsAPI_VRAPI_GRAPHICS_API_OPENGL_ES_3: ovrGraphicsAPI = 66304;
-pub const ovrGraphicsAPI_VRAPI_GRAPHICS_API_OPENGL_COMPAT: ovrGraphicsAPI = 131328;
-pub const ovrGraphicsAPI_VRAPI_GRAPHICS_API_OPENGL_CORE_3: ovrGraphicsAPI = 131840;
-pub const ovrGraphicsAPI_VRAPI_GRAPHICS_API_OPENGL_CORE_4: ovrGraphicsAPI = 132096;
-pub type ovrGraphicsAPI = ::std::os::raw::c_uint;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrBooleanResult {
+    VRAPI_FALSE = 0,
+    VRAPI_TRUE = 1,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrEye {
+    VRAPI_EYE_LEFT = 0,
+    VRAPI_EYE_RIGHT = 1,
+    VRAPI_EYE_COUNT = 2,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrStructureType {
+    VRAPI_STRUCTURE_TYPE_INIT_PARMS = 1,
+    VRAPI_STRUCTURE_TYPE_MODE_PARMS = 2,
+    VRAPI_STRUCTURE_TYPE_FRAME_PARMS = 3,
+}
+pub const ovrDeviceType_VRAPI_DEVICE_TYPE_NOTE4: ovrDeviceType =
+    ovrDeviceType::VRAPI_DEVICE_TYPE_GEARVR_START;
+#[repr(i32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrDeviceType {
+    VRAPI_DEVICE_TYPE_GEARVR_START = 0,
+    VRAPI_DEVICE_TYPE_NOTE5 = 1,
+    VRAPI_DEVICE_TYPE_S6 = 2,
+    VRAPI_DEVICE_TYPE_S7 = 3,
+    VRAPI_DEVICE_TYPE_NOTE7 = 4,
+    VRAPI_DEVICE_TYPE_S8 = 5,
+    VRAPI_DEVICE_TYPE_NOTE8 = 6,
+    VRAPI_DEVICE_TYPE_NOTE7_FE = 7,
+    VRAPI_DEVICE_GEARVR_END = 63,
+    VRAPI_DEVICE_TYPE_UNKNOWN = -1,
+}
+#[repr(i32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrHeadsetType {
+    VRAPI_HEADSET_TYPE_R320 = 0,
+    VRAPI_HEADSET_TYPE_R321 = 1,
+    VRAPI_HEADSET_TYPE_R322 = 2,
+    VRAPI_HEADSET_TYPE_R323 = 3,
+    VRAPI_HEADSET_TYPE_R324 = 4,
+    VRAPI_HEADSET_TYPE_R325 = 5,
+    VRAPI_HEADSET_TYPE_UNKNOWN = -1,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrDeviceRegion {
+    VRAPI_DEVICE_REGION_UNSPECIFIED = 0,
+    VRAPI_DEVICE_REGION_JAPAN = 1,
+    VRAPI_DEVICE_REGION_CHINA = 2,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrVideoDecoderLimit {
+    VRAPI_VIDEO_DECODER_LIMIT_4K_30FPS = 0,
+    VRAPI_VIDEO_DECODER_LIMIT_4K_60FPS = 1,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrSystemProperty {
+    VRAPI_SYS_PROP_DEVICE_TYPE = 0,
+    VRAPI_SYS_PROP_MAX_FULLSPEED_FRAMEBUFFER_SAMPLES = 1,
+    VRAPI_SYS_PROP_DISPLAY_PIXELS_WIDE = 2,
+    VRAPI_SYS_PROP_DISPLAY_PIXELS_HIGH = 3,
+    VRAPI_SYS_PROP_DISPLAY_REFRESH_RATE = 4,
+    VRAPI_SYS_PROP_SUGGESTED_EYE_TEXTURE_WIDTH = 5,
+    VRAPI_SYS_PROP_SUGGESTED_EYE_TEXTURE_HEIGHT = 6,
+    VRAPI_SYS_PROP_SUGGESTED_EYE_FOV_DEGREES_X = 7,
+    VRAPI_SYS_PROP_SUGGESTED_EYE_FOV_DEGREES_Y = 8,
+    VRAPI_SYS_PROP_EXT_SDCARD_PATH = 9,
+    VRAPI_SYS_PROP_DEVICE_REGION = 10,
+    VRAPI_SYS_PROP_VIDEO_DECODER_LIMIT = 11,
+    VRAPI_SYS_PROP_HEADSET_TYPE = 12,
+    VRAPI_SYS_PROP_BACK_BUTTON_SHORTPRESS_TIME = 13,
+    VRAPI_SYS_PROP_BACK_BUTTON_DOUBLETAP_TIME = 14,
+    VRAPI_SYS_PROP_DOMINANT_HAND = 15,
+    VRAPI_SYS_PROP_MULTIVIEW_AVAILABLE = 128,
+    VRAPI_SYS_PROP_SRGB_LAYER_SOURCE_AVAILABLE = 129,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrHandedness {
+    VRAPI_HAND_UNKNOWN = 0,
+    VRAPI_HAND_LEFT = 1,
+    VRAPI_HAND_RIGHT = 2,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrSystemStatus {
+    VRAPI_SYS_STATUS_DOCKED = 0,
+    VRAPI_SYS_STATUS_MOUNTED = 1,
+    VRAPI_SYS_STATUS_THROTTLED = 2,
+    VRAPI_SYS_STATUS_RENDER_LATENCY_MILLISECONDS = 5,
+    VRAPI_SYS_STATUS_TIMEWARP_LATENCY_MILLISECONDS = 6,
+    VRAPI_SYS_STATUS_SCANOUT_LATENCY_MILLISECONDS = 7,
+    VRAPI_SYS_STATUS_APP_FRAMES_PER_SECOND = 8,
+    VRAPI_SYS_STATUS_SCREEN_TEARS_PER_SECOND = 9,
+    VRAPI_SYS_STATUS_EARLY_FRAMES_PER_SECOND = 10,
+    VRAPI_SYS_STATUS_STALE_FRAMES_PER_SECOND = 11,
+    VRAPI_SYS_STATUS_RECENTER_COUNT = 13,
+    VRAPI_SYS_STATUS_SYSTEM_UX_ACTIVE = 14,
+    VRAPI_SYS_STATUS_FRONT_BUFFER_PROTECTED = 128,
+    VRAPI_SYS_STATUS_FRONT_BUFFER_565 = 129,
+    VRAPI_SYS_STATUS_FRONT_BUFFER_SRGB = 130,
+}
+#[repr(i32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrInitializeStatus {
+    VRAPI_INITIALIZE_SUCCESS = 0,
+    VRAPI_INITIALIZE_UNKNOWN_ERROR = -1,
+    VRAPI_INITIALIZE_PERMISSIONS_ERROR = -2,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrGraphicsAPI {
+    VRAPI_GRAPHICS_API_OPENGL_ES_2 = 66048,
+    VRAPI_GRAPHICS_API_OPENGL_ES_3 = 66304,
+    VRAPI_GRAPHICS_API_OPENGL_COMPAT = 131328,
+    VRAPI_GRAPHICS_API_OPENGL_CORE_3 = 131840,
+    VRAPI_GRAPHICS_API_OPENGL_CORE_4 = 132096,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrInitParms {
     pub Type: ovrStructureType,
     pub ProductVersion: ::std::os::raw::c_int,
@@ -2659,76 +4760,102 @@ pub struct ovrInitParms {
     pub GraphicsAPI: ovrGraphicsAPI,
     pub Java: ovrJava,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrInitParms() {
-    assert_eq!(::std::mem::size_of::<ovrInitParms>(),
-               48usize,
-               concat!("Size of: ", stringify!(ovrInitParms)));
-    assert_eq!(::std::mem::align_of::<ovrInitParms>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrInitParms)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrInitParms>())).Type as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInitParms),
-                       "::",
-                       stringify!(Type)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInitParms>())).ProductVersion as *const _ as usize
-               },
-               4usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInitParms),
-                       "::",
-                       stringify!(ProductVersion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInitParms>())).MajorVersion as *const _ as usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInitParms),
-                       "::",
-                       stringify!(MajorVersion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInitParms>())).MinorVersion as *const _ as usize
-               },
-               12usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInitParms),
-                       "::",
-                       stringify!(MinorVersion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInitParms>())).PatchVersion as *const _ as usize
-               },
-               16usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInitParms),
-                       "::",
-                       stringify!(PatchVersion)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInitParms>())).GraphicsAPI as *const _ as usize
-               },
-               20usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInitParms),
-                       "::",
-                       stringify!(GraphicsAPI)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrInitParms>())).Java as *const _ as usize },
-               24usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInitParms),
-                       "::",
-                       stringify!(Java)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrInitParms>(),
+        48usize,
+        concat!("Size of: ", stringify!(ovrInitParms))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrInitParms>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrInitParms))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrInitParms>())).Type as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInitParms),
+            "::",
+            stringify!(Type)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrInitParms>())).ProductVersion as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInitParms),
+            "::",
+            stringify!(ProductVersion)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrInitParms>())).MajorVersion as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInitParms),
+            "::",
+            stringify!(MajorVersion)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrInitParms>())).MinorVersion as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInitParms),
+            "::",
+            stringify!(MinorVersion)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrInitParms>())).PatchVersion as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInitParms),
+            "::",
+            stringify!(PatchVersion)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrInitParms>())).GraphicsAPI as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInitParms),
+            "::",
+            stringify!(GraphicsAPI)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrInitParms>())).Java as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInitParms),
+            "::",
+            stringify!(Java)
+        )
+    );
 }
-pub const ovrModeFlags_VRAPI_MODE_FLAG_ALLOW_POWER_SAVE: ovrModeFlags = 255;
-pub const ovrModeFlags_VRAPI_MODE_FLAG_RESET_WINDOW_FULLSCREEN: ovrModeFlags = 65280;
-pub const ovrModeFlags_VRAPI_MODE_FLAG_NATIVE_WINDOW: ovrModeFlags = 65536;
-pub const ovrModeFlags_VRAPI_MODE_FLAG_FRONT_BUFFER_PROTECTED: ovrModeFlags = 131072;
-pub const ovrModeFlags_VRAPI_MODE_FLAG_FRONT_BUFFER_565: ovrModeFlags = 262144;
-pub const ovrModeFlags_VRAPI_MODE_FLAG_FRONT_BUFFER_SRGB: ovrModeFlags = 524288;
-pub type ovrModeFlags = ::std::os::raw::c_uint;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrModeFlags {
+    VRAPI_MODE_FLAG_ALLOW_POWER_SAVE = 255,
+    VRAPI_MODE_FLAG_RESET_WINDOW_FULLSCREEN = 65280,
+    VRAPI_MODE_FLAG_NATIVE_WINDOW = 65536,
+    VRAPI_MODE_FLAG_FRONT_BUFFER_PROTECTED = 131072,
+    VRAPI_MODE_FLAG_FRONT_BUFFER_565 = 262144,
+    VRAPI_MODE_FLAG_FRONT_BUFFER_SRGB = 524288,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrModeParms {
     pub Type: ovrStructureType,
     pub Flags: ::std::os::raw::c_uint,
@@ -2737,62 +4864,86 @@ pub struct ovrModeParms {
     pub WindowSurface: ::std::os::raw::c_ulonglong,
     pub ShareContext: ::std::os::raw::c_ulonglong,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrModeParms() {
-    assert_eq!(::std::mem::size_of::<ovrModeParms>(),
-               56usize,
-               concat!("Size of: ", stringify!(ovrModeParms)));
-    assert_eq!(::std::mem::align_of::<ovrModeParms>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrModeParms)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrModeParms>())).Type as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrModeParms),
-                       "::",
-                       stringify!(Type)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrModeParms>())).Flags as *const _ as usize },
-               4usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrModeParms),
-                       "::",
-                       stringify!(Flags)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrModeParms>())).Java as *const _ as usize },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrModeParms),
-                       "::",
-                       stringify!(Java)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrModeParms>())).Display as *const _ as usize },
-               32usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrModeParms),
-                       "::",
-                       stringify!(Display)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrModeParms>())).WindowSurface as *const _ as usize
-               },
-               40usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrModeParms),
-                       "::",
-                       stringify!(WindowSurface)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrModeParms>())).ShareContext as *const _ as usize
-               },
-               48usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrModeParms),
-                       "::",
-                       stringify!(ShareContext)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrModeParms>(),
+        56usize,
+        concat!("Size of: ", stringify!(ovrModeParms))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrModeParms>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrModeParms))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrModeParms>())).Type as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrModeParms),
+            "::",
+            stringify!(Type)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrModeParms>())).Flags as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrModeParms),
+            "::",
+            stringify!(Flags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrModeParms>())).Java as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrModeParms),
+            "::",
+            stringify!(Java)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrModeParms>())).Display as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrModeParms),
+            "::",
+            stringify!(Display)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrModeParms>())).WindowSurface as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrModeParms),
+            "::",
+            stringify!(WindowSurface)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrModeParms>())).ShareContext as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrModeParms),
+            "::",
+            stringify!(ShareContext)
+        )
+    );
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrMobile {
     _unused: [u8; 0],
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrRigidBodyPosef_ {
     pub Pose: ovrPosef,
     pub AngularVelocity: ovrVector3f,
@@ -2803,260 +4954,383 @@ pub struct ovrRigidBodyPosef_ {
     pub TimeInSeconds: f64,
     pub PredictionInSeconds: f64,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrRigidBodyPosef_() {
-    assert_eq!(::std::mem::size_of::<ovrRigidBodyPosef_>(),
-               96usize,
-               concat!("Size of: ", stringify!(ovrRigidBodyPosef_)));
-    assert_eq!(::std::mem::align_of::<ovrRigidBodyPosef_>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrRigidBodyPosef_)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).Pose as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrRigidBodyPosef_),
-                       "::",
-                       stringify!(Pose)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).AngularVelocity as *const _ as
-                   usize
-               },
-               28usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrRigidBodyPosef_),
-                       "::",
-                       stringify!(AngularVelocity)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).LinearVelocity as *const _ as
-                   usize
-               },
-               40usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrRigidBodyPosef_),
-                       "::",
-                       stringify!(LinearVelocity)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).AngularAcceleration as
-                   *const _ as usize
-               },
-               52usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrRigidBodyPosef_),
-                       "::",
-                       stringify!(AngularAcceleration)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).LinearAcceleration as *const _ as
-                   usize
-               },
-               64usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrRigidBodyPosef_),
-                       "::",
-                       stringify!(LinearAcceleration)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).dead10 as *const _ as usize
-               },
-               76usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrRigidBodyPosef_),
-                       "::",
-                       stringify!(dead10)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).TimeInSeconds as *const _ as usize
-               },
-               80usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrRigidBodyPosef_),
-                       "::",
-                       stringify!(TimeInSeconds)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).PredictionInSeconds as
-                   *const _ as usize
-               },
-               88usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrRigidBodyPosef_),
-                       "::",
-                       stringify!(PredictionInSeconds)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrRigidBodyPosef_>(),
+        96usize,
+        concat!("Size of: ", stringify!(ovrRigidBodyPosef_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrRigidBodyPosef_>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrRigidBodyPosef_))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).Pose as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrRigidBodyPosef_),
+            "::",
+            stringify!(Pose)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).AngularVelocity as *const _ as usize
+        },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrRigidBodyPosef_),
+            "::",
+            stringify!(AngularVelocity)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).LinearVelocity as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrRigidBodyPosef_),
+            "::",
+            stringify!(LinearVelocity)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).AngularAcceleration as *const _ as usize
+        },
+        52usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrRigidBodyPosef_),
+            "::",
+            stringify!(AngularAcceleration)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).LinearAcceleration as *const _ as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrRigidBodyPosef_),
+            "::",
+            stringify!(LinearAcceleration)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).dead10 as *const _ as usize },
+        76usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrRigidBodyPosef_),
+            "::",
+            stringify!(dead10)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).TimeInSeconds as *const _ as usize
+        },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrRigidBodyPosef_),
+            "::",
+            stringify!(TimeInSeconds)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrRigidBodyPosef_>())).PredictionInSeconds as *const _ as usize
+        },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrRigidBodyPosef_),
+            "::",
+            stringify!(PredictionInSeconds)
+        )
+    );
 }
 pub type ovrRigidBodyPosef = ovrRigidBodyPosef_;
-pub const ovrTrackingStatus_VRAPI_TRACKING_STATUS_ORIENTATION_TRACKED: ovrTrackingStatus = 1;
-pub const ovrTrackingStatus_VRAPI_TRACKING_STATUS_POSITION_TRACKED: ovrTrackingStatus = 2;
-pub const ovrTrackingStatus_VRAPI_TRACKING_STATUS_HMD_CONNECTED: ovrTrackingStatus = 128;
-pub type ovrTrackingStatus = ::std::os::raw::c_uint;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrTrackingStatus {
+    VRAPI_TRACKING_STATUS_ORIENTATION_TRACKED = 1,
+    VRAPI_TRACKING_STATUS_POSITION_TRACKED = 2,
+    VRAPI_TRACKING_STATUS_HMD_CONNECTED = 128,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrTracking2_ {
     pub Status: ::std::os::raw::c_uint,
     pub dead12: [::std::os::raw::c_uchar; 4usize],
     pub HeadPose: ovrRigidBodyPosef,
     pub Eye: [ovrTracking2___bindgen_ty_1; 2usize],
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrTracking2___bindgen_ty_1 {
     pub ProjectionMatrix: ovrMatrix4f,
     pub ViewMatrix: ovrMatrix4f,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrTracking2___bindgen_ty_1() {
-    assert_eq!(::std::mem::size_of::<ovrTracking2___bindgen_ty_1>(),
-               128usize,
-               concat!("Size of: ", stringify!(ovrTracking2___bindgen_ty_1)));
-    assert_eq!(::std::mem::align_of::<ovrTracking2___bindgen_ty_1>(),
-               4usize,
-               concat!("Alignment of ", stringify!(ovrTracking2___bindgen_ty_1)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrTracking2___bindgen_ty_1>())).ProjectionMatrix as
-                   *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrTracking2___bindgen_ty_1),
-                       "::",
-                       stringify!(ProjectionMatrix)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrTracking2___bindgen_ty_1>())).ViewMatrix as
-                   *const _ as usize
-               },
-               64usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrTracking2___bindgen_ty_1),
-                       "::",
-                       stringify!(ViewMatrix)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrTracking2___bindgen_ty_1>(),
+        128usize,
+        concat!("Size of: ", stringify!(ovrTracking2___bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrTracking2___bindgen_ty_1>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ovrTracking2___bindgen_ty_1))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrTracking2___bindgen_ty_1>())).ProjectionMatrix as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrTracking2___bindgen_ty_1),
+            "::",
+            stringify!(ProjectionMatrix)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrTracking2___bindgen_ty_1>())).ViewMatrix as *const _ as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrTracking2___bindgen_ty_1),
+            "::",
+            stringify!(ViewMatrix)
+        )
+    );
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrTracking2_() {
-    assert_eq!(::std::mem::size_of::<ovrTracking2_>(),
-               360usize,
-               concat!("Size of: ", stringify!(ovrTracking2_)));
-    assert_eq!(::std::mem::align_of::<ovrTracking2_>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrTracking2_)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrTracking2_>())).Status as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrTracking2_),
-                       "::",
-                       stringify!(Status)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrTracking2_>())).dead12 as *const _ as usize },
-               4usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrTracking2_),
-                       "::",
-                       stringify!(dead12)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrTracking2_>())).HeadPose as *const _ as usize },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrTracking2_),
-                       "::",
-                       stringify!(HeadPose)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrTracking2_>())).Eye as *const _ as usize },
-               104usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrTracking2_),
-                       "::",
-                       stringify!(Eye)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrTracking2_>(),
+        360usize,
+        concat!("Size of: ", stringify!(ovrTracking2_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrTracking2_>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrTracking2_))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrTracking2_>())).Status as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrTracking2_),
+            "::",
+            stringify!(Status)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrTracking2_>())).dead12 as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrTracking2_),
+            "::",
+            stringify!(dead12)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrTracking2_>())).HeadPose as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrTracking2_),
+            "::",
+            stringify!(HeadPose)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrTracking2_>())).Eye as *const _ as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrTracking2_),
+            "::",
+            stringify!(Eye)
+        )
+    );
 }
 pub type ovrTracking2 = ovrTracking2_;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrTracking_ {
     pub Status: ::std::os::raw::c_uint,
     pub dead14: [::std::os::raw::c_uchar; 4usize],
     pub HeadPose: ovrRigidBodyPosef,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrTracking_() {
-    assert_eq!(::std::mem::size_of::<ovrTracking_>(),
-               104usize,
-               concat!("Size of: ", stringify!(ovrTracking_)));
-    assert_eq!(::std::mem::align_of::<ovrTracking_>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrTracking_)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrTracking_>())).Status as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrTracking_),
-                       "::",
-                       stringify!(Status)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrTracking_>())).dead14 as *const _ as usize },
-               4usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrTracking_),
-                       "::",
-                       stringify!(dead14)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrTracking_>())).HeadPose as *const _ as usize },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrTracking_),
-                       "::",
-                       stringify!(HeadPose)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrTracking_>(),
+        104usize,
+        concat!("Size of: ", stringify!(ovrTracking_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrTracking_>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrTracking_))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrTracking_>())).Status as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrTracking_),
+            "::",
+            stringify!(Status)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrTracking_>())).dead14 as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrTracking_),
+            "::",
+            stringify!(dead14)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrTracking_>())).HeadPose as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrTracking_),
+            "::",
+            stringify!(HeadPose)
+        )
+    );
 }
 pub type ovrTracking = ovrTracking_;
-pub const ovrTrackingTransform_VRAPI_TRACKING_TRANSFORM_IDENTITY: ovrTrackingTransform = 0;
-pub const ovrTrackingTransform_VRAPI_TRACKING_TRANSFORM_CURRENT: ovrTrackingTransform = 1;
-pub const ovrTrackingTransform_VRAPI_TRACKING_TRANSFORM_SYSTEM_CENTER_EYE_LEVEL : ovrTrackingTransform = 2 ;
-pub const ovrTrackingTransform_VRAPI_TRACKING_TRANSFORM_SYSTEM_CENTER_FLOOR_LEVEL : ovrTrackingTransform = 3 ;
-pub type ovrTrackingTransform = ::std::os::raw::c_uint;
-pub const ovrTextureType_VRAPI_TEXTURE_TYPE_2D: ovrTextureType = 0;
-pub const ovrTextureType_VRAPI_TEXTURE_TYPE_2D_EXTERNAL: ovrTextureType = 1;
-pub const ovrTextureType_VRAPI_TEXTURE_TYPE_2D_ARRAY: ovrTextureType = 2;
-pub const ovrTextureType_VRAPI_TEXTURE_TYPE_CUBE: ovrTextureType = 3;
-pub const ovrTextureType_VRAPI_TEXTURE_TYPE_MAX: ovrTextureType = 4;
-pub type ovrTextureType = ::std::os::raw::c_uint;
-pub const ovrTextureFormat_VRAPI_TEXTURE_FORMAT_NONE: ovrTextureFormat = 0;
-pub const ovrTextureFormat_VRAPI_TEXTURE_FORMAT_565: ovrTextureFormat = 1;
-pub const ovrTextureFormat_VRAPI_TEXTURE_FORMAT_5551: ovrTextureFormat = 2;
-pub const ovrTextureFormat_VRAPI_TEXTURE_FORMAT_4444: ovrTextureFormat = 3;
-pub const ovrTextureFormat_VRAPI_TEXTURE_FORMAT_8888: ovrTextureFormat = 4;
-pub const ovrTextureFormat_VRAPI_TEXTURE_FORMAT_8888_sRGB: ovrTextureFormat = 5;
-pub const ovrTextureFormat_VRAPI_TEXTURE_FORMAT_RGBA16F: ovrTextureFormat = 6;
-pub const ovrTextureFormat_VRAPI_TEXTURE_FORMAT_DEPTH_16: ovrTextureFormat = 7;
-pub const ovrTextureFormat_VRAPI_TEXTURE_FORMAT_DEPTH_24: ovrTextureFormat = 8;
-pub const ovrTextureFormat_VRAPI_TEXTURE_FORMAT_DEPTH_24_STENCIL_8: ovrTextureFormat = 9;
-pub type ovrTextureFormat = ::std::os::raw::c_uint;
-pub const ovrDefaultTextureSwapChain_VRAPI_DEFAULT_TEXTURE_SWAPCHAIN: ovrDefaultTextureSwapChain =
-    1;
-pub const ovrDefaultTextureSwapChain_VRAPI_DEFAULT_TEXTURE_SWAPCHAIN_LOADING_ICON : ovrDefaultTextureSwapChain = 2 ;
-pub type ovrDefaultTextureSwapChain = ::std::os::raw::c_uint;
-pub const ovrTextureSwapChainSettings_VRAPI_TEXTURE_SWAPCHAIN_FULL_MIP_CHAIN : ovrTextureSwapChainSettings = -1 ;
-pub type ovrTextureSwapChainSettings = ::std::os::raw::c_int;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrTrackingTransform {
+    VRAPI_TRACKING_TRANSFORM_IDENTITY = 0,
+    VRAPI_TRACKING_TRANSFORM_CURRENT = 1,
+    VRAPI_TRACKING_TRANSFORM_SYSTEM_CENTER_EYE_LEVEL = 2,
+    VRAPI_TRACKING_TRANSFORM_SYSTEM_CENTER_FLOOR_LEVEL = 3,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrTextureType {
+    VRAPI_TEXTURE_TYPE_2D = 0,
+    VRAPI_TEXTURE_TYPE_2D_EXTERNAL = 1,
+    VRAPI_TEXTURE_TYPE_2D_ARRAY = 2,
+    VRAPI_TEXTURE_TYPE_CUBE = 3,
+    VRAPI_TEXTURE_TYPE_MAX = 4,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrTextureFormat {
+    VRAPI_TEXTURE_FORMAT_NONE = 0,
+    VRAPI_TEXTURE_FORMAT_565 = 1,
+    VRAPI_TEXTURE_FORMAT_5551 = 2,
+    VRAPI_TEXTURE_FORMAT_4444 = 3,
+    VRAPI_TEXTURE_FORMAT_8888 = 4,
+    VRAPI_TEXTURE_FORMAT_8888_sRGB = 5,
+    VRAPI_TEXTURE_FORMAT_RGBA16F = 6,
+    VRAPI_TEXTURE_FORMAT_DEPTH_16 = 7,
+    VRAPI_TEXTURE_FORMAT_DEPTH_24 = 8,
+    VRAPI_TEXTURE_FORMAT_DEPTH_24_STENCIL_8 = 9,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrDefaultTextureSwapChain {
+    VRAPI_DEFAULT_TEXTURE_SWAPCHAIN = 1,
+    VRAPI_DEFAULT_TEXTURE_SWAPCHAIN_LOADING_ICON = 2,
+}
+#[repr(i32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrTextureSwapChainSettings {
+    VRAPI_TEXTURE_SWAPCHAIN_FULL_MIP_CHAIN = -1,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrTextureSwapChain {
     _unused: [u8; 0],
 }
-pub const ovrFrameFlags_VRAPI_FRAME_FLAG_INHIBIT_SRGB_FRAMEBUFFER: ovrFrameFlags = 1;
-pub const ovrFrameFlags_VRAPI_FRAME_FLAG_FLUSH: ovrFrameFlags = 2;
-pub const ovrFrameFlags_VRAPI_FRAME_FLAG_FINAL: ovrFrameFlags = 4;
-pub const ovrFrameFlags_VRAPI_FRAME_FLAG_INHIBIT_VOLUME_LAYER: ovrFrameFlags = 64;
-pub type ovrFrameFlags = ::std::os::raw::c_uint;
-pub const ovrFrameLayerFlags_VRAPI_FRAME_LAYER_FLAG_WRITE_ALPHA: ovrFrameLayerFlags = 1;
-pub const ovrFrameLayerFlags_VRAPI_FRAME_LAYER_FLAG_CHROMATIC_ABERRATION_CORRECTION : ovrFrameLayerFlags = 2 ;
-pub const ovrFrameLayerFlags_VRAPI_FRAME_LAYER_FLAG_FIXED_TO_VIEW: ovrFrameLayerFlags = 4;
-pub const ovrFrameLayerFlags_VRAPI_FRAME_LAYER_FLAG_SPIN: ovrFrameLayerFlags = 8;
-pub const ovrFrameLayerFlags_VRAPI_FRAME_LAYER_FLAG_CLIP_TO_TEXTURE_RECT: ovrFrameLayerFlags = 16;
-pub type ovrFrameLayerFlags = ::std::os::raw::c_uint;
-pub const ovrFrameLayerEye_VRAPI_FRAME_LAYER_EYE_LEFT: ovrFrameLayerEye = 0;
-pub const ovrFrameLayerEye_VRAPI_FRAME_LAYER_EYE_RIGHT: ovrFrameLayerEye = 1;
-pub const ovrFrameLayerEye_VRAPI_FRAME_LAYER_EYE_MAX: ovrFrameLayerEye = 2;
-pub type ovrFrameLayerEye = ::std::os::raw::c_uint;
-pub const ovrFrameLayerBlend_VRAPI_FRAME_LAYER_BLEND_ZERO: ovrFrameLayerBlend = 0;
-pub const ovrFrameLayerBlend_VRAPI_FRAME_LAYER_BLEND_ONE: ovrFrameLayerBlend = 1;
-pub const ovrFrameLayerBlend_VRAPI_FRAME_LAYER_BLEND_SRC_ALPHA: ovrFrameLayerBlend = 2;
-pub const ovrFrameLayerBlend_VRAPI_FRAME_LAYER_BLEND_DST_ALPHA: ovrFrameLayerBlend = 3;
-pub const ovrFrameLayerBlend_VRAPI_FRAME_LAYER_BLEND_ONE_MINUS_DST_ALPHA: ovrFrameLayerBlend = 4;
-pub const ovrFrameLayerBlend_VRAPI_FRAME_LAYER_BLEND_ONE_MINUS_SRC_ALPHA: ovrFrameLayerBlend = 5;
-pub type ovrFrameLayerBlend = ::std::os::raw::c_uint;
-pub const ovrFrameLayerType_VRAPI_FRAME_LAYER_TYPE_MAX: ovrFrameLayerType = 4;
-pub type ovrFrameLayerType = ::std::os::raw::c_uint;
-pub const ovrExtraLatencyMode_VRAPI_EXTRA_LATENCY_MODE_OFF: ovrExtraLatencyMode = 0;
-pub const ovrExtraLatencyMode_VRAPI_EXTRA_LATENCY_MODE_ON: ovrExtraLatencyMode = 1;
-pub const ovrExtraLatencyMode_VRAPI_EXTRA_LATENCY_MODE_DYNAMIC: ovrExtraLatencyMode = 2;
-pub type ovrExtraLatencyMode = ::std::os::raw::c_uint;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrFrameFlags {
+    VRAPI_FRAME_FLAG_INHIBIT_SRGB_FRAMEBUFFER = 1,
+    VRAPI_FRAME_FLAG_FLUSH = 2,
+    VRAPI_FRAME_FLAG_FINAL = 4,
+    VRAPI_FRAME_FLAG_INHIBIT_VOLUME_LAYER = 64,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrFrameLayerFlags {
+    VRAPI_FRAME_LAYER_FLAG_WRITE_ALPHA = 1,
+    VRAPI_FRAME_LAYER_FLAG_CHROMATIC_ABERRATION_CORRECTION = 2,
+    VRAPI_FRAME_LAYER_FLAG_FIXED_TO_VIEW = 4,
+    VRAPI_FRAME_LAYER_FLAG_SPIN = 8,
+    VRAPI_FRAME_LAYER_FLAG_CLIP_TO_TEXTURE_RECT = 16,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrFrameLayerEye {
+    VRAPI_FRAME_LAYER_EYE_LEFT = 0,
+    VRAPI_FRAME_LAYER_EYE_RIGHT = 1,
+    VRAPI_FRAME_LAYER_EYE_MAX = 2,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrFrameLayerBlend {
+    VRAPI_FRAME_LAYER_BLEND_ZERO = 0,
+    VRAPI_FRAME_LAYER_BLEND_ONE = 1,
+    VRAPI_FRAME_LAYER_BLEND_SRC_ALPHA = 2,
+    VRAPI_FRAME_LAYER_BLEND_DST_ALPHA = 3,
+    VRAPI_FRAME_LAYER_BLEND_ONE_MINUS_DST_ALPHA = 4,
+    VRAPI_FRAME_LAYER_BLEND_ONE_MINUS_SRC_ALPHA = 5,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrFrameLayerType {
+    VRAPI_FRAME_LAYER_TYPE_MAX = 4,
+}
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrExtraLatencyMode {
+    VRAPI_EXTRA_LATENCY_MODE_OFF = 0,
+    VRAPI_EXTRA_LATENCY_MODE_ON = 1,
+    VRAPI_EXTRA_LATENCY_MODE_DYNAMIC = 2,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrFrameLayerTexture {
     pub ColorTextureSwapChain: *mut ovrTextureSwapChain,
     pub DepthTextureSwapChain: *mut ovrTextureSwapChain,
@@ -3067,86 +5341,117 @@ pub struct ovrFrameLayerTexture {
     pub HeadPose: ovrRigidBodyPosef,
     pub CompletionFence: ::std::os::raw::c_ulonglong,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrFrameLayerTexture() {
-    assert_eq!(::std::mem::size_of::<ovrFrameLayerTexture>(),
-               208usize,
-               concat!("Size of: ", stringify!(ovrFrameLayerTexture)));
-    assert_eq!(::std::mem::align_of::<ovrFrameLayerTexture>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrFrameLayerTexture)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameLayerTexture>())).ColorTextureSwapChain as
-                   *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayerTexture),
-                       "::",
-                       stringify!(ColorTextureSwapChain)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameLayerTexture>())).DepthTextureSwapChain as
-                   *const _ as usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayerTexture),
-                       "::",
-                       stringify!(DepthTextureSwapChain)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameLayerTexture>())).TextureSwapChainIndex as
-                   *const _ as usize
-               },
-               16usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayerTexture),
-                       "::",
-                       stringify!(TextureSwapChainIndex)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameLayerTexture>())).TexCoordsFromTanAngles as
-                   *const _ as usize
-               },
-               20usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayerTexture),
-                       "::",
-                       stringify!(TexCoordsFromTanAngles)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameLayerTexture>())).TextureRect as *const _ as usize
-               },
-               84usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayerTexture),
-                       "::",
-                       stringify!(TextureRect)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameLayerTexture>())).dead16 as *const _ as usize
-               },
-               100usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayerTexture),
-                       "::",
-                       stringify!(dead16)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameLayerTexture>())).HeadPose as *const _ as usize
-               },
-               104usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayerTexture),
-                       "::",
-                       stringify!(HeadPose)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameLayerTexture>())).CompletionFence as *const _ as
-                   usize
-               },
-               200usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayerTexture),
-                       "::",
-                       stringify!(CompletionFence)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrFrameLayerTexture>(),
+        208usize,
+        concat!("Size of: ", stringify!(ovrFrameLayerTexture))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrFrameLayerTexture>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrFrameLayerTexture))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrFrameLayerTexture>())).ColorTextureSwapChain as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayerTexture),
+            "::",
+            stringify!(ColorTextureSwapChain)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrFrameLayerTexture>())).DepthTextureSwapChain as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayerTexture),
+            "::",
+            stringify!(DepthTextureSwapChain)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrFrameLayerTexture>())).TextureSwapChainIndex as *const _
+                as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayerTexture),
+            "::",
+            stringify!(TextureSwapChainIndex)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrFrameLayerTexture>())).TexCoordsFromTanAngles as *const _
+                as usize
+        },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayerTexture),
+            "::",
+            stringify!(TexCoordsFromTanAngles)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrFrameLayerTexture>())).TextureRect as *const _ as usize
+        },
+        84usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayerTexture),
+            "::",
+            stringify!(TextureRect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameLayerTexture>())).dead16 as *const _ as usize },
+        100usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayerTexture),
+            "::",
+            stringify!(dead16)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameLayerTexture>())).HeadPose as *const _ as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayerTexture),
+            "::",
+            stringify!(HeadPose)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrFrameLayerTexture>())).CompletionFence as *const _ as usize
+        },
+        200usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayerTexture),
+            "::",
+            stringify!(CompletionFence)
+        )
+    );
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrFrameLayer {
     pub Textures: [ovrFrameLayerTexture; 2usize],
     pub SpinSpeed: f32,
@@ -3157,118 +5462,166 @@ pub struct ovrFrameLayer {
     pub DstBlend: ovrFrameLayerBlend,
     pub Flags: ::std::os::raw::c_int,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrFrameLayer() {
-    assert_eq!(::std::mem::size_of::<ovrFrameLayer>(),
-               448usize,
-               concat!("Size of: ", stringify!(ovrFrameLayer)));
-    assert_eq!(::std::mem::align_of::<ovrFrameLayer>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrFrameLayer)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrFrameLayer>())).Textures as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayer),
-                       "::",
-                       stringify!(Textures)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrFrameLayer>())).SpinSpeed as *const _ as usize },
-               416usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayer),
-                       "::",
-                       stringify!(SpinSpeed)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrFrameLayer>())).SpinScale as *const _ as usize },
-               420usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayer),
-                       "::",
-                       stringify!(SpinScale)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameLayer>())).ColorScale as *const _ as usize
-               },
-               424usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayer),
-                       "::",
-                       stringify!(ColorScale)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrFrameLayer>())).dead18 as *const _ as usize },
-               428usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayer),
-                       "::",
-                       stringify!(dead18)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrFrameLayer>())).SrcBlend as *const _ as usize },
-               432usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayer),
-                       "::",
-                       stringify!(SrcBlend)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrFrameLayer>())).DstBlend as *const _ as usize },
-               436usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayer),
-                       "::",
-                       stringify!(DstBlend)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrFrameLayer>())).Flags as *const _ as usize },
-               440usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameLayer),
-                       "::",
-                       stringify!(Flags)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrFrameLayer>(),
+        448usize,
+        concat!("Size of: ", stringify!(ovrFrameLayer))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrFrameLayer>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrFrameLayer))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameLayer>())).Textures as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayer),
+            "::",
+            stringify!(Textures)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameLayer>())).SpinSpeed as *const _ as usize },
+        416usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayer),
+            "::",
+            stringify!(SpinSpeed)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameLayer>())).SpinScale as *const _ as usize },
+        420usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayer),
+            "::",
+            stringify!(SpinScale)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameLayer>())).ColorScale as *const _ as usize },
+        424usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayer),
+            "::",
+            stringify!(ColorScale)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameLayer>())).dead18 as *const _ as usize },
+        428usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayer),
+            "::",
+            stringify!(dead18)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameLayer>())).SrcBlend as *const _ as usize },
+        432usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayer),
+            "::",
+            stringify!(SrcBlend)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameLayer>())).DstBlend as *const _ as usize },
+        436usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayer),
+            "::",
+            stringify!(DstBlend)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameLayer>())).Flags as *const _ as usize },
+        440usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameLayer),
+            "::",
+            stringify!(Flags)
+        )
+    );
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrPerformanceParms {
     pub CpuLevel: ::std::os::raw::c_int,
     pub GpuLevel: ::std::os::raw::c_int,
     pub MainThreadTid: ::std::os::raw::c_int,
     pub RenderThreadTid: ::std::os::raw::c_int,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrPerformanceParms() {
-    assert_eq!(::std::mem::size_of::<ovrPerformanceParms>(),
-               16usize,
-               concat!("Size of: ", stringify!(ovrPerformanceParms)));
-    assert_eq!(::std::mem::align_of::<ovrPerformanceParms>(),
-               4usize,
-               concat!("Alignment of ", stringify!(ovrPerformanceParms)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrPerformanceParms>())).CpuLevel as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrPerformanceParms),
-                       "::",
-                       stringify!(CpuLevel)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrPerformanceParms>())).GpuLevel as *const _ as usize
-               },
-               4usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrPerformanceParms),
-                       "::",
-                       stringify!(GpuLevel)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrPerformanceParms>())).MainThreadTid as *const _ as
-                   usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrPerformanceParms),
-                       "::",
-                       stringify!(MainThreadTid)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrPerformanceParms>())).RenderThreadTid as *const _ as
-                   usize
-               },
-               12usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrPerformanceParms),
-                       "::",
-                       stringify!(RenderThreadTid)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrPerformanceParms>(),
+        16usize,
+        concat!("Size of: ", stringify!(ovrPerformanceParms))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrPerformanceParms>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ovrPerformanceParms))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrPerformanceParms>())).CpuLevel as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrPerformanceParms),
+            "::",
+            stringify!(CpuLevel)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrPerformanceParms>())).GpuLevel as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrPerformanceParms),
+            "::",
+            stringify!(GpuLevel)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrPerformanceParms>())).MainThreadTid as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrPerformanceParms),
+            "::",
+            stringify!(MainThreadTid)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrPerformanceParms>())).RenderThreadTid as *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrPerformanceParms),
+            "::",
+            stringify!(RenderThreadTid)
+        )
+    );
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrFrameParms {
     pub Type: ovrStructureType,
     pub dead21: [::std::os::raw::c_uchar; 4usize],
@@ -3283,111 +5636,154 @@ pub struct ovrFrameParms {
     pub PerformanceParms: ovrPerformanceParms,
     pub Java: ovrJava,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrFrameParms() {
-    assert_eq!(::std::mem::size_of::<ovrFrameParms>(),
-               1936usize,
-               concat!("Size of: ", stringify!(ovrFrameParms)));
-    assert_eq!(::std::mem::align_of::<ovrFrameParms>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrFrameParms)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).Type as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameParms),
-                       "::",
-                       stringify!(Type)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).dead21 as *const _ as usize },
-               4usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameParms),
-                       "::",
-                       stringify!(dead21)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).Layers as *const _ as usize },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameParms),
-                       "::",
-                       stringify!(Layers)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameParms>())).LayerCount as *const _ as usize
-               },
-               1800usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameParms),
-                       "::",
-                       stringify!(LayerCount)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).Flags as *const _ as usize },
-               1804usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameParms),
-                       "::",
-                       stringify!(Flags)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameParms>())).FrameIndex as *const _ as usize
-               },
-               1808usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameParms),
-                       "::",
-                       stringify!(FrameIndex)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameParms>())).SwapInterval as *const _ as usize
-               },
-               1816usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameParms),
-                       "::",
-                       stringify!(SwapInterval)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameParms>())).ExtraLatencyMode as *const _ as usize
-               },
-               1820usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameParms),
-                       "::",
-                       stringify!(ExtraLatencyMode)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameParms>())).ExternalVelocity as *const _ as usize
-               },
-               1824usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameParms),
-                       "::",
-                       stringify!(ExternalVelocity)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameParms>())).SurfaceTextureObject as *const _ as
-                   usize
-               },
-               1888usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameParms),
-                       "::",
-                       stringify!(SurfaceTextureObject)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrFrameParms>())).PerformanceParms as *const _ as usize
-               },
-               1896usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameParms),
-                       "::",
-                       stringify!(PerformanceParms)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).Java as *const _ as usize },
-               1912usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrFrameParms),
-                       "::",
-                       stringify!(Java)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrFrameParms>(),
+        1936usize,
+        concat!("Size of: ", stringify!(ovrFrameParms))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrFrameParms>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrFrameParms))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).Type as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameParms),
+            "::",
+            stringify!(Type)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).dead21 as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameParms),
+            "::",
+            stringify!(dead21)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).Layers as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameParms),
+            "::",
+            stringify!(Layers)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).LayerCount as *const _ as usize },
+        1800usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameParms),
+            "::",
+            stringify!(LayerCount)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).Flags as *const _ as usize },
+        1804usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameParms),
+            "::",
+            stringify!(Flags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).FrameIndex as *const _ as usize },
+        1808usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameParms),
+            "::",
+            stringify!(FrameIndex)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).SwapInterval as *const _ as usize },
+        1816usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameParms),
+            "::",
+            stringify!(SwapInterval)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).ExtraLatencyMode as *const _ as usize },
+        1820usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameParms),
+            "::",
+            stringify!(ExtraLatencyMode)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).ExternalVelocity as *const _ as usize },
+        1824usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameParms),
+            "::",
+            stringify!(ExternalVelocity)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrFrameParms>())).SurfaceTextureObject as *const _ as usize
+        },
+        1888usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameParms),
+            "::",
+            stringify!(SurfaceTextureObject)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).PerformanceParms as *const _ as usize },
+        1896usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameParms),
+            "::",
+            stringify!(PerformanceParms)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrFrameParms>())).Java as *const _ as usize },
+        1912usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrFrameParms),
+            "::",
+            stringify!(Java)
+        )
+    );
 }
-pub const ovrLayerType2__VRAPI_LAYER_TYPE_PROJECTION2: ovrLayerType2_ = 1;
-pub const ovrLayerType2__VRAPI_LAYER_TYPE_CYLINDER2: ovrLayerType2_ = 3;
-pub const ovrLayerType2__VRAPI_LAYER_TYPE_CUBE2: ovrLayerType2_ = 4;
-pub const ovrLayerType2__VRAPI_LAYER_TYPE_EQUIRECT2: ovrLayerType2_ = 5;
-pub const ovrLayerType2__VRAPI_LAYER_TYPE_LOADING_ICON2: ovrLayerType2_ = 6;
-pub type ovrLayerType2_ = ::std::os::raw::c_uint;
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrLayerType2_ {
+    VRAPI_LAYER_TYPE_PROJECTION2 = 1,
+    VRAPI_LAYER_TYPE_CYLINDER2 = 3,
+    VRAPI_LAYER_TYPE_CUBE2 = 4,
+    VRAPI_LAYER_TYPE_EQUIRECT2 = 5,
+    VRAPI_LAYER_TYPE_LOADING_ICON2 = 6,
+}
 pub use self::ovrLayerType2_ as ovrLayerType2;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrLayerHeader2_ {
     pub Type: ovrLayerType2,
     pub Flags: u32,
@@ -3396,164 +5792,217 @@ pub struct ovrLayerHeader2_ {
     pub DstBlend: ovrFrameLayerBlend,
     pub SurfaceTextureObject: jobject,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrLayerHeader2_() {
-    assert_eq!(::std::mem::size_of::<ovrLayerHeader2_>(),
-               40usize,
-               concat!("Size of: ", stringify!(ovrLayerHeader2_)));
-    assert_eq!(::std::mem::align_of::<ovrLayerHeader2_>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrLayerHeader2_)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrLayerHeader2_>())).Type as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerHeader2_),
-                       "::",
-                       stringify!(Type)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrLayerHeader2_>())).Flags as *const _ as usize },
-               4usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerHeader2_),
-                       "::",
-                       stringify!(Flags)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerHeader2_>())).ColorScale as *const _ as usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerHeader2_),
-                       "::",
-                       stringify!(ColorScale)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerHeader2_>())).SrcBlend as *const _ as usize
-               },
-               24usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerHeader2_),
-                       "::",
-                       stringify!(SrcBlend)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerHeader2_>())).DstBlend as *const _ as usize
-               },
-               28usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerHeader2_),
-                       "::",
-                       stringify!(DstBlend)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerHeader2_>())).SurfaceTextureObject as *const _ as
-                   usize
-               },
-               32usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerHeader2_),
-                       "::",
-                       stringify!(SurfaceTextureObject)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrLayerHeader2_>(),
+        40usize,
+        concat!("Size of: ", stringify!(ovrLayerHeader2_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrLayerHeader2_>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrLayerHeader2_))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerHeader2_>())).Type as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerHeader2_),
+            "::",
+            stringify!(Type)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerHeader2_>())).Flags as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerHeader2_),
+            "::",
+            stringify!(Flags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerHeader2_>())).ColorScale as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerHeader2_),
+            "::",
+            stringify!(ColorScale)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerHeader2_>())).SrcBlend as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerHeader2_),
+            "::",
+            stringify!(SrcBlend)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerHeader2_>())).DstBlend as *const _ as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerHeader2_),
+            "::",
+            stringify!(DstBlend)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerHeader2_>())).SurfaceTextureObject as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerHeader2_),
+            "::",
+            stringify!(SurfaceTextureObject)
+        )
+    );
 }
 pub type ovrLayerHeader2 = ovrLayerHeader2_;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrLayerProjection2 {
     pub Header: ovrLayerHeader2,
     pub HeadPose: ovrRigidBodyPosef,
     pub Textures: [ovrLayerProjection2__bindgen_ty_1; 2usize],
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrLayerProjection2__bindgen_ty_1 {
     pub ColorSwapChain: *mut ovrTextureSwapChain,
     pub SwapChainIndex: ::std::os::raw::c_int,
     pub TexCoordsFromTanAngles: ovrMatrix4f,
     pub TextureRect: ovrRectf,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrLayerProjection2__bindgen_ty_1() {
-    assert_eq!(::std::mem::size_of::<ovrLayerProjection2__bindgen_ty_1>(),
-               96usize,
-               concat!("Size of: ", stringify!(ovrLayerProjection2__bindgen_ty_1)));
-    assert_eq!(::std::mem::align_of::<ovrLayerProjection2__bindgen_ty_1>(),
-               8usize,
-               concat!("Alignment of ",
-                       stringify!(ovrLayerProjection2__bindgen_ty_1)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerProjection2__bindgen_ty_1>()))
-                       .ColorSwapChain as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerProjection2__bindgen_ty_1),
-                       "::",
-                       stringify!(ColorSwapChain)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerProjection2__bindgen_ty_1>()))
-                       .SwapChainIndex as *const _ as usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerProjection2__bindgen_ty_1),
-                       "::",
-                       stringify!(SwapChainIndex)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerProjection2__bindgen_ty_1>()))
-                       .TexCoordsFromTanAngles as *const _ as usize
-               },
-               12usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerProjection2__bindgen_ty_1),
-                       "::",
-                       stringify!(TexCoordsFromTanAngles)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerProjection2__bindgen_ty_1>())).TextureRect as
-                   *const _ as usize
-               },
-               76usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerProjection2__bindgen_ty_1),
-                       "::",
-                       stringify!(TextureRect)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrLayerProjection2__bindgen_ty_1>(),
+        96usize,
+        concat!("Size of: ", stringify!(ovrLayerProjection2__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrLayerProjection2__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(ovrLayerProjection2__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerProjection2__bindgen_ty_1>())).ColorSwapChain as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerProjection2__bindgen_ty_1),
+            "::",
+            stringify!(ColorSwapChain)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerProjection2__bindgen_ty_1>())).SwapChainIndex as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerProjection2__bindgen_ty_1),
+            "::",
+            stringify!(SwapChainIndex)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerProjection2__bindgen_ty_1>())).TexCoordsFromTanAngles
+                as *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerProjection2__bindgen_ty_1),
+            "::",
+            stringify!(TexCoordsFromTanAngles)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerProjection2__bindgen_ty_1>())).TextureRect as *const _
+                as usize
+        },
+        76usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerProjection2__bindgen_ty_1),
+            "::",
+            stringify!(TextureRect)
+        )
+    );
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrLayerProjection2() {
-    assert_eq!(::std::mem::size_of::<ovrLayerProjection2>(),
-               328usize,
-               concat!("Size of: ", stringify!(ovrLayerProjection2)));
-    assert_eq!(::std::mem::align_of::<ovrLayerProjection2>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrLayerProjection2)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerProjection2>())).Header as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerProjection2),
-                       "::",
-                       stringify!(Header)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerProjection2>())).HeadPose as *const _ as usize
-               },
-               40usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerProjection2),
-                       "::",
-                       stringify!(HeadPose)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerProjection2>())).Textures as *const _ as usize
-               },
-               136usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerProjection2),
-                       "::",
-                       stringify!(Textures)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrLayerProjection2>(),
+        328usize,
+        concat!("Size of: ", stringify!(ovrLayerProjection2))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrLayerProjection2>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrLayerProjection2))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerProjection2>())).Header as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerProjection2),
+            "::",
+            stringify!(Header)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerProjection2>())).HeadPose as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerProjection2),
+            "::",
+            stringify!(HeadPose)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerProjection2>())).Textures as *const _ as usize },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerProjection2),
+            "::",
+            stringify!(Textures)
+        )
+    );
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrLayerCylinder2 {
     pub Header: ovrLayerHeader2,
     pub HeadPose: ovrRigidBodyPosef,
     pub Textures: [ovrLayerCylinder2__bindgen_ty_1; 2usize],
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrLayerCylinder2__bindgen_ty_1 {
     pub ColorSwapChain: *mut ovrTextureSwapChain,
     pub SwapChainIndex: ::std::os::raw::c_int,
@@ -3561,95 +6010,129 @@ pub struct ovrLayerCylinder2__bindgen_ty_1 {
     pub TextureRect: ovrRectf,
     pub TextureMatrix: ovrMatrix4f,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrLayerCylinder2__bindgen_ty_1() {
-    assert_eq!(::std::mem::size_of::<ovrLayerCylinder2__bindgen_ty_1>(),
-               160usize,
-               concat!("Size of: ", stringify!(ovrLayerCylinder2__bindgen_ty_1)));
-    assert_eq!(::std::mem::align_of::<ovrLayerCylinder2__bindgen_ty_1>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrLayerCylinder2__bindgen_ty_1)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerCylinder2__bindgen_ty_1>()))
-                       .ColorSwapChain as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerCylinder2__bindgen_ty_1),
-                       "::",
-                       stringify!(ColorSwapChain)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerCylinder2__bindgen_ty_1>()))
-                       .SwapChainIndex as *const _ as usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerCylinder2__bindgen_ty_1),
-                       "::",
-                       stringify!(SwapChainIndex)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerCylinder2__bindgen_ty_1>()))
-                       .TexCoordsFromTanAngles as *const _ as usize
-               },
-               12usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerCylinder2__bindgen_ty_1),
-                       "::",
-                       stringify!(TexCoordsFromTanAngles)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerCylinder2__bindgen_ty_1>())).TextureRect as
-                   *const _ as usize
-               },
-               76usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerCylinder2__bindgen_ty_1),
-                       "::",
-                       stringify!(TextureRect)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerCylinder2__bindgen_ty_1>())).TextureMatrix as
-                   *const _ as usize
-               },
-               92usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerCylinder2__bindgen_ty_1),
-                       "::",
-                       stringify!(TextureMatrix)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrLayerCylinder2__bindgen_ty_1>(),
+        160usize,
+        concat!("Size of: ", stringify!(ovrLayerCylinder2__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrLayerCylinder2__bindgen_ty_1>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrLayerCylinder2__bindgen_ty_1))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerCylinder2__bindgen_ty_1>())).ColorSwapChain as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerCylinder2__bindgen_ty_1),
+            "::",
+            stringify!(ColorSwapChain)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerCylinder2__bindgen_ty_1>())).SwapChainIndex as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerCylinder2__bindgen_ty_1),
+            "::",
+            stringify!(SwapChainIndex)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerCylinder2__bindgen_ty_1>())).TexCoordsFromTanAngles
+                as *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerCylinder2__bindgen_ty_1),
+            "::",
+            stringify!(TexCoordsFromTanAngles)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerCylinder2__bindgen_ty_1>())).TextureRect as *const _
+                as usize
+        },
+        76usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerCylinder2__bindgen_ty_1),
+            "::",
+            stringify!(TextureRect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerCylinder2__bindgen_ty_1>())).TextureMatrix as *const _
+                as usize
+        },
+        92usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerCylinder2__bindgen_ty_1),
+            "::",
+            stringify!(TextureMatrix)
+        )
+    );
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrLayerCylinder2() {
-    assert_eq!(::std::mem::size_of::<ovrLayerCylinder2>(),
-               456usize,
-               concat!("Size of: ", stringify!(ovrLayerCylinder2)));
-    assert_eq!(::std::mem::align_of::<ovrLayerCylinder2>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrLayerCylinder2)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerCylinder2>())).Header as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerCylinder2),
-                       "::",
-                       stringify!(Header)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerCylinder2>())).HeadPose as *const _ as usize
-               },
-               40usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerCylinder2),
-                       "::",
-                       stringify!(HeadPose)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerCylinder2>())).Textures as *const _ as usize
-               },
-               136usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerCylinder2),
-                       "::",
-                       stringify!(Textures)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrLayerCylinder2>(),
+        456usize,
+        concat!("Size of: ", stringify!(ovrLayerCylinder2))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrLayerCylinder2>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrLayerCylinder2))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerCylinder2>())).Header as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerCylinder2),
+            "::",
+            stringify!(Header)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerCylinder2>())).HeadPose as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerCylinder2),
+            "::",
+            stringify!(HeadPose)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerCylinder2>())).Textures as *const _ as usize },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerCylinder2),
+            "::",
+            stringify!(Textures)
+        )
+    );
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrLayerCube2 {
     pub Header: ovrLayerHeader2,
     pub HeadPose: ovrRigidBodyPosef,
@@ -3657,186 +6140,255 @@ pub struct ovrLayerCube2 {
     pub Offset: ovrVector3f,
     pub Textures: [ovrLayerCube2__bindgen_ty_1; 2usize],
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrLayerCube2__bindgen_ty_1 {
     pub ColorSwapChain: *mut ovrTextureSwapChain,
     pub SwapChainIndex: ::std::os::raw::c_int,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrLayerCube2__bindgen_ty_1() {
-    assert_eq!(::std::mem::size_of::<ovrLayerCube2__bindgen_ty_1>(),
-               16usize,
-               concat!("Size of: ", stringify!(ovrLayerCube2__bindgen_ty_1)));
-    assert_eq!(::std::mem::align_of::<ovrLayerCube2__bindgen_ty_1>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrLayerCube2__bindgen_ty_1)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerCube2__bindgen_ty_1>())).ColorSwapChain as
-                   *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerCube2__bindgen_ty_1),
-                       "::",
-                       stringify!(ColorSwapChain)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerCube2__bindgen_ty_1>())).SwapChainIndex as
-                   *const _ as usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerCube2__bindgen_ty_1),
-                       "::",
-                       stringify!(SwapChainIndex)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrLayerCube2__bindgen_ty_1>(),
+        16usize,
+        concat!("Size of: ", stringify!(ovrLayerCube2__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrLayerCube2__bindgen_ty_1>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrLayerCube2__bindgen_ty_1))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerCube2__bindgen_ty_1>())).ColorSwapChain as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerCube2__bindgen_ty_1),
+            "::",
+            stringify!(ColorSwapChain)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerCube2__bindgen_ty_1>())).SwapChainIndex as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerCube2__bindgen_ty_1),
+            "::",
+            stringify!(SwapChainIndex)
+        )
+    );
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrLayerCube2() {
-    assert_eq!(::std::mem::size_of::<ovrLayerCube2>(),
-               248usize,
-               concat!("Size of: ", stringify!(ovrLayerCube2)));
-    assert_eq!(::std::mem::align_of::<ovrLayerCube2>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrLayerCube2)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrLayerCube2>())).Header as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerCube2),
-                       "::",
-                       stringify!(Header)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrLayerCube2>())).HeadPose as *const _ as usize },
-               40usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerCube2),
-                       "::",
-                       stringify!(HeadPose)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerCube2>())).TexCoordsFromTanAngles as *const _ as
-                   usize
-               },
-               136usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerCube2),
-                       "::",
-                       stringify!(TexCoordsFromTanAngles)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrLayerCube2>())).Offset as *const _ as usize },
-               200usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerCube2),
-                       "::",
-                       stringify!(Offset)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrLayerCube2>())).Textures as *const _ as usize },
-               216usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerCube2),
-                       "::",
-                       stringify!(Textures)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrLayerCube2>(),
+        248usize,
+        concat!("Size of: ", stringify!(ovrLayerCube2))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrLayerCube2>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrLayerCube2))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerCube2>())).Header as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerCube2),
+            "::",
+            stringify!(Header)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerCube2>())).HeadPose as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerCube2),
+            "::",
+            stringify!(HeadPose)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerCube2>())).TexCoordsFromTanAngles as *const _ as usize
+        },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerCube2),
+            "::",
+            stringify!(TexCoordsFromTanAngles)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerCube2>())).Offset as *const _ as usize },
+        200usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerCube2),
+            "::",
+            stringify!(Offset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerCube2>())).Textures as *const _ as usize },
+        216usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerCube2),
+            "::",
+            stringify!(Textures)
+        )
+    );
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrLayerEquirect2 {
     pub Header: ovrLayerHeader2,
     pub HeadPose: ovrRigidBodyPosef,
     pub TexCoordsFromTanAngles: ovrMatrix4f,
     pub Textures: [ovrLayerEquirect2__bindgen_ty_1; 2usize],
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrLayerEquirect2__bindgen_ty_1 {
     pub ColorSwapChain: *mut ovrTextureSwapChain,
     pub SwapChainIndex: ::std::os::raw::c_int,
     pub TextureRect: ovrRectf,
     pub TextureMatrix: ovrMatrix4f,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrLayerEquirect2__bindgen_ty_1() {
-    assert_eq!(::std::mem::size_of::<ovrLayerEquirect2__bindgen_ty_1>(),
-               96usize,
-               concat!("Size of: ", stringify!(ovrLayerEquirect2__bindgen_ty_1)));
-    assert_eq!(::std::mem::align_of::<ovrLayerEquirect2__bindgen_ty_1>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrLayerEquirect2__bindgen_ty_1)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerEquirect2__bindgen_ty_1>()))
-                       .ColorSwapChain as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerEquirect2__bindgen_ty_1),
-                       "::",
-                       stringify!(ColorSwapChain)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerEquirect2__bindgen_ty_1>()))
-                       .SwapChainIndex as *const _ as usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerEquirect2__bindgen_ty_1),
-                       "::",
-                       stringify!(SwapChainIndex)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerEquirect2__bindgen_ty_1>())).TextureRect as
-                   *const _ as usize
-               },
-               12usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerEquirect2__bindgen_ty_1),
-                       "::",
-                       stringify!(TextureRect)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerEquirect2__bindgen_ty_1>())).TextureMatrix as
-                   *const _ as usize
-               },
-               28usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerEquirect2__bindgen_ty_1),
-                       "::",
-                       stringify!(TextureMatrix)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrLayerEquirect2__bindgen_ty_1>(),
+        96usize,
+        concat!("Size of: ", stringify!(ovrLayerEquirect2__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrLayerEquirect2__bindgen_ty_1>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrLayerEquirect2__bindgen_ty_1))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerEquirect2__bindgen_ty_1>())).ColorSwapChain as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerEquirect2__bindgen_ty_1),
+            "::",
+            stringify!(ColorSwapChain)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerEquirect2__bindgen_ty_1>())).SwapChainIndex as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerEquirect2__bindgen_ty_1),
+            "::",
+            stringify!(SwapChainIndex)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerEquirect2__bindgen_ty_1>())).TextureRect as *const _
+                as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerEquirect2__bindgen_ty_1),
+            "::",
+            stringify!(TextureRect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerEquirect2__bindgen_ty_1>())).TextureMatrix as *const _
+                as usize
+        },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerEquirect2__bindgen_ty_1),
+            "::",
+            stringify!(TextureMatrix)
+        )
+    );
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrLayerEquirect2() {
-    assert_eq!(::std::mem::size_of::<ovrLayerEquirect2>(),
-               392usize,
-               concat!("Size of: ", stringify!(ovrLayerEquirect2)));
-    assert_eq!(::std::mem::align_of::<ovrLayerEquirect2>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrLayerEquirect2)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerEquirect2>())).Header as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerEquirect2),
-                       "::",
-                       stringify!(Header)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerEquirect2>())).HeadPose as *const _ as usize
-               },
-               40usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerEquirect2),
-                       "::",
-                       stringify!(HeadPose)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerEquirect2>())).TexCoordsFromTanAngles as
-                   *const _ as usize
-               },
-               136usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerEquirect2),
-                       "::",
-                       stringify!(TexCoordsFromTanAngles)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerEquirect2>())).Textures as *const _ as usize
-               },
-               200usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerEquirect2),
-                       "::",
-                       stringify!(Textures)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrLayerEquirect2>(),
+        392usize,
+        concat!("Size of: ", stringify!(ovrLayerEquirect2))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrLayerEquirect2>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrLayerEquirect2))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerEquirect2>())).Header as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerEquirect2),
+            "::",
+            stringify!(Header)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerEquirect2>())).HeadPose as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerEquirect2),
+            "::",
+            stringify!(HeadPose)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerEquirect2>())).TexCoordsFromTanAngles as *const _
+                as usize
+        },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerEquirect2),
+            "::",
+            stringify!(TexCoordsFromTanAngles)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerEquirect2>())).Textures as *const _ as usize },
+        200usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerEquirect2),
+            "::",
+            stringify!(Textures)
+        )
+    );
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrLayerLoadingIcon2 {
     pub Header: ovrLayerHeader2,
     pub SpinSpeed: f32,
@@ -3844,113 +6396,159 @@ pub struct ovrLayerLoadingIcon2 {
     pub ColorSwapChain: *mut ovrTextureSwapChain,
     pub SwapChainIndex: ::std::os::raw::c_int,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrLayerLoadingIcon2() {
-    assert_eq!(::std::mem::size_of::<ovrLayerLoadingIcon2>(),
-               64usize,
-               concat!("Size of: ", stringify!(ovrLayerLoadingIcon2)));
-    assert_eq!(::std::mem::align_of::<ovrLayerLoadingIcon2>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrLayerLoadingIcon2)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerLoadingIcon2>())).Header as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerLoadingIcon2),
-                       "::",
-                       stringify!(Header)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerLoadingIcon2>())).SpinSpeed as *const _ as usize
-               },
-               40usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerLoadingIcon2),
-                       "::",
-                       stringify!(SpinSpeed)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerLoadingIcon2>())).SpinScale as *const _ as usize
-               },
-               44usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerLoadingIcon2),
-                       "::",
-                       stringify!(SpinScale)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerLoadingIcon2>())).ColorSwapChain as *const _ as
-                   usize
-               },
-               48usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerLoadingIcon2),
-                       "::",
-                       stringify!(ColorSwapChain)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayerLoadingIcon2>())).SwapChainIndex as *const _ as
-                   usize
-               },
-               56usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayerLoadingIcon2),
-                       "::",
-                       stringify!(SwapChainIndex)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrLayerLoadingIcon2>(),
+        64usize,
+        concat!("Size of: ", stringify!(ovrLayerLoadingIcon2))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrLayerLoadingIcon2>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrLayerLoadingIcon2))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerLoadingIcon2>())).Header as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerLoadingIcon2),
+            "::",
+            stringify!(Header)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerLoadingIcon2>())).SpinSpeed as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerLoadingIcon2),
+            "::",
+            stringify!(SpinSpeed)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayerLoadingIcon2>())).SpinScale as *const _ as usize },
+        44usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerLoadingIcon2),
+            "::",
+            stringify!(SpinScale)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerLoadingIcon2>())).ColorSwapChain as *const _ as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerLoadingIcon2),
+            "::",
+            stringify!(ColorSwapChain)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrLayerLoadingIcon2>())).SwapChainIndex as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayerLoadingIcon2),
+            "::",
+            stringify!(SwapChainIndex)
+        )
+    );
 }
-# [ repr ( C ) ]
-# [ derive ( Copy , Clone ) ]; 57usize ] , }# [ test ]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union ovrLayer_Union2 {
+    pub Header: ovrLayerHeader2,
+    pub Projection: ovrLayerProjection2,
+    pub Cylinder: ovrLayerCylinder2,
+    pub Cube: ovrLayerCube2,
+    pub Equirect: ovrLayerEquirect2,
+    pub LoadingIcon: ovrLayerLoadingIcon2,
+    _bindgen_union_align: [u64; 57usize],
+}
+#[test]
 fn bindgen_test_layout_ovrLayer_Union2() {
-    assert_eq!(::std::mem::size_of::<ovrLayer_Union2>(),
-               456usize,
-               concat!("Size of: ", stringify!(ovrLayer_Union2)));
-    assert_eq!(::std::mem::align_of::<ovrLayer_Union2>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrLayer_Union2)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrLayer_Union2>())).Header as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayer_Union2),
-                       "::",
-                       stringify!(Header)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayer_Union2>())).Projection as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayer_Union2),
-                       "::",
-                       stringify!(Projection)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayer_Union2>())).Cylinder as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayer_Union2),
-                       "::",
-                       stringify!(Cylinder)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<ovrLayer_Union2>())).Cube as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayer_Union2),
-                       "::",
-                       stringify!(Cube)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayer_Union2>())).Equirect as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayer_Union2),
-                       "::",
-                       stringify!(Equirect)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrLayer_Union2>())).LoadingIcon as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrLayer_Union2),
-                       "::",
-                       stringify!(LoadingIcon)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrLayer_Union2>(),
+        456usize,
+        concat!("Size of: ", stringify!(ovrLayer_Union2))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrLayer_Union2>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrLayer_Union2))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayer_Union2>())).Header as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayer_Union2),
+            "::",
+            stringify!(Header)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayer_Union2>())).Projection as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayer_Union2),
+            "::",
+            stringify!(Projection)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayer_Union2>())).Cylinder as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayer_Union2),
+            "::",
+            stringify!(Cylinder)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayer_Union2>())).Cube as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayer_Union2),
+            "::",
+            stringify!(Cube)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayer_Union2>())).Equirect as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayer_Union2),
+            "::",
+            stringify!(Equirect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrLayer_Union2>())).LoadingIcon as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrLayer_Union2),
+            "::",
+            stringify!(LoadingIcon)
+        )
+    );
 }
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrSubmitFrameDescription2_ {
     pub Flags: u32,
     pub SwapInterval: u32,
@@ -3960,82 +6558,113 @@ pub struct ovrSubmitFrameDescription2_ {
     pub LayerCount: u32,
     pub Layers: *const *const ovrLayerHeader2,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrSubmitFrameDescription2_() {
-    assert_eq!(::std::mem::size_of::<ovrSubmitFrameDescription2_>(),
-               48usize,
-               concat!("Size of: ", stringify!(ovrSubmitFrameDescription2_)));
-    assert_eq!(::std::mem::align_of::<ovrSubmitFrameDescription2_>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrSubmitFrameDescription2_)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrSubmitFrameDescription2_>())).Flags as *const _ as
-                   usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrSubmitFrameDescription2_),
-                       "::",
-                       stringify!(Flags)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrSubmitFrameDescription2_>())).SwapInterval as
-                   *const _ as usize
-               },
-               4usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrSubmitFrameDescription2_),
-                       "::",
-                       stringify!(SwapInterval)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrSubmitFrameDescription2_>())).FrameIndex as
-                   *const _ as usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrSubmitFrameDescription2_),
-                       "::",
-                       stringify!(FrameIndex)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrSubmitFrameDescription2_>())).DisplayTime as
-                   *const _ as usize
-               },
-               16usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrSubmitFrameDescription2_),
-                       "::",
-                       stringify!(DisplayTime)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrSubmitFrameDescription2_>())).CompletionFence as
-                   *const _ as usize
-               },
-               24usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrSubmitFrameDescription2_),
-                       "::",
-                       stringify!(CompletionFence)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrSubmitFrameDescription2_>())).LayerCount as
-                   *const _ as usize
-               },
-               32usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrSubmitFrameDescription2_),
-                       "::",
-                       stringify!(LayerCount)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrSubmitFrameDescription2_>())).Layers as *const _ as
-                   usize
-               },
-               40usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrSubmitFrameDescription2_),
-                       "::",
-                       stringify!(Layers)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrSubmitFrameDescription2_>(),
+        48usize,
+        concat!("Size of: ", stringify!(ovrSubmitFrameDescription2_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrSubmitFrameDescription2_>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrSubmitFrameDescription2_))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrSubmitFrameDescription2_>())).Flags as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrSubmitFrameDescription2_),
+            "::",
+            stringify!(Flags)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrSubmitFrameDescription2_>())).SwapInterval as *const _
+                as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrSubmitFrameDescription2_),
+            "::",
+            stringify!(SwapInterval)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrSubmitFrameDescription2_>())).FrameIndex as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrSubmitFrameDescription2_),
+            "::",
+            stringify!(FrameIndex)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrSubmitFrameDescription2_>())).DisplayTime as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrSubmitFrameDescription2_),
+            "::",
+            stringify!(DisplayTime)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrSubmitFrameDescription2_>())).CompletionFence as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrSubmitFrameDescription2_),
+            "::",
+            stringify!(CompletionFence)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrSubmitFrameDescription2_>())).LayerCount as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrSubmitFrameDescription2_),
+            "::",
+            stringify!(LayerCount)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrSubmitFrameDescription2_>())).Layers as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrSubmitFrameDescription2_),
+            "::",
+            stringify!(Layers)
+        )
+    );
 }
 pub type ovrSubmitFrameDescription2 = ovrSubmitFrameDescription2_;
-pub const ovrPerfThreadType_VRAPI_PERF_THREAD_TYPE_MAIN: ovrPerfThreadType = 0;
-pub const ovrPerfThreadType_VRAPI_PERF_THREAD_TYPE_RENDERER: ovrPerfThreadType = 1;
-pub type ovrPerfThreadType = ::std::os::raw::c_uint;
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrPerfThreadType {
+    VRAPI_PERF_THREAD_TYPE_MAIN = 0,
+    VRAPI_PERF_THREAD_TYPE_RENDERER = 1,
+}
 extern "C" {
     pub fn vrapi_GetVersionString() -> *const ::std::os::raw::c_char;
 }
@@ -4049,22 +6678,25 @@ extern "C" {
     pub fn vrapi_Shutdown();
 }
 extern "C" {
-    pub fn vrapi_GetSystemPropertyInt(java: *const ovrJava,
-                                      propType: ovrSystemProperty)
-                                      -> ::std::os::raw::c_int;
+    pub fn vrapi_GetSystemPropertyInt(
+        java: *const ovrJava,
+        propType: ovrSystemProperty,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn vrapi_GetSystemPropertyFloat(java: *const ovrJava, propType: ovrSystemProperty) -> f32;
 }
 extern "C" {
-    pub fn vrapi_GetSystemPropertyString(java: *const ovrJava,
-                                         propType: ovrSystemProperty)
-                                         -> *const ::std::os::raw::c_char;
+    pub fn vrapi_GetSystemPropertyString(
+        java: *const ovrJava,
+        propType: ovrSystemProperty,
+    ) -> *const ::std::os::raw::c_char;
 }
 extern "C" {
-    pub fn vrapi_GetSystemStatusInt(java: *const ovrJava,
-                                    statusType: ovrSystemStatus)
-                                    -> ::std::os::raw::c_int;
+    pub fn vrapi_GetSystemStatusInt(
+        java: *const ovrJava,
+        statusType: ovrSystemStatus,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn vrapi_GetSystemStatusFloat(java: *const ovrJava, statusType: ovrSystemStatus) -> f32;
@@ -4076,9 +6708,10 @@ extern "C" {
     pub fn vrapi_LeaveVrMode(ovr: *mut ovrMobile);
 }
 extern "C" {
-    pub fn vrapi_GetPredictedDisplayTime(ovr: *mut ovrMobile,
-                                         frameIndex: ::std::os::raw::c_longlong)
-                                         -> f64;
+    pub fn vrapi_GetPredictedDisplayTime(
+        ovr: *mut ovrMobile,
+        frameIndex: ::std::os::raw::c_longlong,
+    ) -> f64;
 }
 extern "C" {
     pub fn vrapi_GetPredictedTracking2(ovr: *mut ovrMobile, absTimeInSeconds: f64) -> ovrTracking2;
@@ -4090,141 +6723,174 @@ extern "C" {
     pub fn vrapi_RecenterPose(ovr: *mut ovrMobile);
 }
 extern "C" {
-    pub fn vrapi_GetTrackingTransform(ovr: *mut ovrMobile,
-                                      whichTransform: ovrTrackingTransform)
-                                      -> ovrPosef;
+    pub fn vrapi_GetTrackingTransform(
+        ovr: *mut ovrMobile,
+        whichTransform: ovrTrackingTransform,
+    ) -> ovrPosef;
 }
 extern "C" {
     pub fn vrapi_SetTrackingTransform(ovr: *mut ovrMobile, pose: ovrPosef);
 }
 extern "C" {
-    pub fn vrapi_CreateTextureSwapChain2(type_: ovrTextureType,
-                                         format: ovrTextureFormat,
-                                         width: ::std::os::raw::c_int,
-                                         height: ::std::os::raw::c_int,
-                                         levels: ::std::os::raw::c_int,
-                                         bufferCount: ::std::os::raw::c_int)
-                                         -> *mut ovrTextureSwapChain;
+    pub fn vrapi_CreateTextureSwapChain2(
+        type_: ovrTextureType,
+        format: ovrTextureFormat,
+        width: ::std::os::raw::c_int,
+        height: ::std::os::raw::c_int,
+        levels: ::std::os::raw::c_int,
+        bufferCount: ::std::os::raw::c_int,
+    ) -> *mut ovrTextureSwapChain;
 }
 extern "C" {
-    pub fn vrapi_CreateTextureSwapChain(type_: ovrTextureType,
-                                        format: ovrTextureFormat,
-                                        width: ::std::os::raw::c_int,
-                                        height: ::std::os::raw::c_int,
-                                        levels: ::std::os::raw::c_int,
-                                        buffered: bool)
-                                        -> *mut ovrTextureSwapChain;
+    pub fn vrapi_CreateTextureSwapChain(
+        type_: ovrTextureType,
+        format: ovrTextureFormat,
+        width: ::std::os::raw::c_int,
+        height: ::std::os::raw::c_int,
+        levels: ::std::os::raw::c_int,
+        buffered: bool,
+    ) -> *mut ovrTextureSwapChain;
 }
 extern "C" {
     pub fn vrapi_DestroyTextureSwapChain(chain: *mut ovrTextureSwapChain);
 }
 extern "C" {
-    pub fn vrapi_GetTextureSwapChainLength(chain: *mut ovrTextureSwapChain)
-                                           -> ::std::os::raw::c_int;
+    pub fn vrapi_GetTextureSwapChainLength(
+        chain: *mut ovrTextureSwapChain,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn vrapi_GetTextureSwapChainHandle(chain: *mut ovrTextureSwapChain,
-                                           index: ::std::os::raw::c_int)
-                                           -> ::std::os::raw::c_uint;
+    pub fn vrapi_GetTextureSwapChainHandle(
+        chain: *mut ovrTextureSwapChain,
+        index: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_uint;
 }
 extern "C" {
-    pub fn vrapi_SetTextureSwapChainHandle(chain: *mut ovrTextureSwapChain,
-                                           index: ::std::os::raw::c_int,
-                                           handle: ::std::os::raw::c_uint);
+    pub fn vrapi_SetTextureSwapChainHandle(
+        chain: *mut ovrTextureSwapChain,
+        index: ::std::os::raw::c_int,
+        handle: ::std::os::raw::c_uint,
+    );
 }
 extern "C" {
     pub fn vrapi_SubmitFrame(ovr: *mut ovrMobile, parms: *const ovrFrameParms);
 }
 extern "C" {
-    pub fn vrapi_SubmitFrame2(ovr: *mut ovrMobile,
-                              frameDescription: *const ovrSubmitFrameDescription2)
-                              -> ovrResult;
+    pub fn vrapi_SubmitFrame2(
+        ovr: *mut ovrMobile,
+        frameDescription: *const ovrSubmitFrameDescription2,
+    ) -> ovrResult;
 }
 extern "C" {
     pub fn vrapi_SetClockLevels(ovr: *mut ovrMobile, cpuLevel: i32, gpuLevel: i32) -> ovrResult;
 }
 extern "C" {
-    pub fn vrapi_SetPerfThread(ovr: *mut ovrMobile,
-                               type_: ovrPerfThreadType,
-                               threadId: u32)
-                               -> ovrResult;
+    pub fn vrapi_SetPerfThread(
+        ovr: *mut ovrMobile,
+        type_: ovrPerfThreadType,
+        threadId: u32,
+    ) -> ovrResult;
 }
 extern "C" {
     pub fn vrapi_SetExtraLatencyMode(ovr: *mut ovrMobile, mode: ovrExtraLatencyMode) -> ovrResult;
 }
-pub const ovrButton__ovrButton_A: ovrButton_ = 1;
-pub const ovrButton__ovrButton_B: ovrButton_ = 2;
-pub const ovrButton__ovrButton_RThumb: ovrButton_ = 4;
-pub const ovrButton__ovrButton_RShoulder: ovrButton_ = 8;
-pub const ovrButton__ovrButton_X: ovrButton_ = 256;
-pub const ovrButton__ovrButton_Y: ovrButton_ = 512;
-pub const ovrButton__ovrButton_LThumb: ovrButton_ = 1024;
-pub const ovrButton__ovrButton_LShoulder: ovrButton_ = 2048;
-pub const ovrButton__ovrButton_Up: ovrButton_ = 65536;
-pub const ovrButton__ovrButton_Down: ovrButton_ = 131072;
-pub const ovrButton__ovrButton_Left: ovrButton_ = 262144;
-pub const ovrButton__ovrButton_Right: ovrButton_ = 524288;
-pub const ovrButton__ovrButton_Enter: ovrButton_ = 1048576;
-pub const ovrButton__ovrButton_Back: ovrButton_ = 2097152;
-pub const ovrButton__ovrButton_EnumSize: ovrButton_ = 2147483647;
-pub type ovrButton_ = ::std::os::raw::c_uint;
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrButton_ {
+    ovrButton_A = 1,
+    ovrButton_B = 2,
+    ovrButton_RThumb = 4,
+    ovrButton_RShoulder = 8,
+    ovrButton_X = 256,
+    ovrButton_Y = 512,
+    ovrButton_LThumb = 1024,
+    ovrButton_LShoulder = 2048,
+    ovrButton_Up = 65536,
+    ovrButton_Down = 131072,
+    ovrButton_Left = 262144,
+    ovrButton_Right = 524288,
+    ovrButton_Enter = 1048576,
+    ovrButton_Back = 2097152,
+    ovrButton_EnumSize = 2147483647,
+}
 pub use self::ovrButton_ as ovrButton;
-pub const ovrControllerType__ovrControllerType_None: ovrControllerType_ = 0;
-pub const ovrControllerType__ovrControllerType_Reserved0: ovrControllerType_ = 1;
-pub const ovrControllerType__ovrControllerType_Reserved1: ovrControllerType_ = 2;
-pub const ovrControllerType__ovrControllerType_TrackedRemote: ovrControllerType_ = 4;
-pub const ovrControllerType__ovrControllerType_Headset: ovrControllerType_ = 8;
-pub const ovrControllerType__ovrControllerType_Reserved2: ovrControllerType_ = 16;
-pub const ovrControllerType__ovrControllerType_EnumSize: ovrControllerType_ = 2147483647;
-pub type ovrControllerType_ = ::std::os::raw::c_uint;
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrControllerType_ {
+    ovrControllerType_None = 0,
+    ovrControllerType_Reserved0 = 1,
+    ovrControllerType_Reserved1 = 2,
+    ovrControllerType_TrackedRemote = 4,
+    ovrControllerType_Headset = 8,
+    ovrControllerType_Reserved2 = 16,
+    ovrControllerType_EnumSize = 2147483647,
+}
 pub use self::ovrControllerType_ as ovrControllerType;
 pub type ovrDeviceID = u32;
-pub const ovrDeviceIdType__ovrDeviceIdType_Invalid: ovrDeviceIdType_ = 2147483647;
-pub type ovrDeviceIdType_ = ::std::os::raw::c_uint;
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrDeviceIdType_ {
+    ovrDeviceIdType_Invalid = 2147483647,
+}
 pub use self::ovrDeviceIdType_ as ovrDeviceIdType;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrInputCapabilityHeader_ {
     pub Type: ovrControllerType,
     pub DeviceID: ovrDeviceID,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrInputCapabilityHeader_() {
-    assert_eq!(::std::mem::size_of::<ovrInputCapabilityHeader_>(),
-               8usize,
-               concat!("Size of: ", stringify!(ovrInputCapabilityHeader_)));
-    assert_eq!(::std::mem::align_of::<ovrInputCapabilityHeader_>(),
-               4usize,
-               concat!("Alignment of ", stringify!(ovrInputCapabilityHeader_)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputCapabilityHeader_>())).Type as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputCapabilityHeader_),
-                       "::",
-                       stringify!(Type)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputCapabilityHeader_>())).DeviceID as *const _ as
-                   usize
-               },
-               4usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputCapabilityHeader_),
-                       "::",
-                       stringify!(DeviceID)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrInputCapabilityHeader_>(),
+        8usize,
+        concat!("Size of: ", stringify!(ovrInputCapabilityHeader_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrInputCapabilityHeader_>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ovrInputCapabilityHeader_))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrInputCapabilityHeader_>())).Type as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputCapabilityHeader_),
+            "::",
+            stringify!(Type)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputCapabilityHeader_>())).DeviceID as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputCapabilityHeader_),
+            "::",
+            stringify!(DeviceID)
+        )
+    );
 }
 pub type ovrInputCapabilityHeader = ovrInputCapabilityHeader_;
-pub const ovrControllerCapabilities__ovrControllerCaps_HasOrientationTracking : ovrControllerCapabilities_ = 1 ;
-pub const ovrControllerCapabilities__ovrControllerCaps_HasPositionTracking : ovrControllerCapabilities_ = 2 ;
-pub const ovrControllerCapabilities__ovrControllerCaps_LeftHand: ovrControllerCapabilities_ = 4;
-pub const ovrControllerCapabilities__ovrControllerCaps_RightHand: ovrControllerCapabilities_ = 8;
-pub const ovrControllerCapabilities__ovrControllerCaps_EnumSize: ovrControllerCapabilities_ =
-    2147483647;
-pub type ovrControllerCapabilities_ = ::std::os::raw::c_uint;
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrControllerCapabilities_ {
+    ovrControllerCaps_HasOrientationTracking = 1,
+    ovrControllerCaps_HasPositionTracking = 2,
+    ovrControllerCaps_LeftHand = 4,
+    ovrControllerCaps_RightHand = 8,
+    ovrControllerCaps_EnumSize = 2147483647,
+}
 pub use self::ovrControllerCapabilities_ as ovrControllerCapabilties;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrInputTrackedRemoteCapabilities_ {
     pub Header: ovrInputCapabilityHeader,
     pub ControllerCapabilities: u32,
@@ -4234,82 +6900,116 @@ pub struct ovrInputTrackedRemoteCapabilities_ {
     pub TrackpadSizeX: f32,
     pub TrackpadSizeY: f32,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrInputTrackedRemoteCapabilities_() {
-    assert_eq!(::std::mem::size_of::<ovrInputTrackedRemoteCapabilities_>(),
-               28usize,
-               concat!("Size of: ", stringify!(ovrInputTrackedRemoteCapabilities_)));
-    assert_eq!(::std::mem::align_of::<ovrInputTrackedRemoteCapabilities_>(),
-               4usize,
-               concat!("Alignment of ",
-                       stringify!(ovrInputTrackedRemoteCapabilities_)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputTrackedRemoteCapabilities_>())).Header as
-                   *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputTrackedRemoteCapabilities_),
-                       "::",
-                       stringify!(Header)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputTrackedRemoteCapabilities_>()))
-                       .ControllerCapabilities as *const _ as usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputTrackedRemoteCapabilities_),
-                       "::",
-                       stringify!(ControllerCapabilities)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputTrackedRemoteCapabilities_>()))
-                       .ButtonCapabilities as *const _ as usize
-               },
-               12usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputTrackedRemoteCapabilities_),
-                       "::",
-                       stringify!(ButtonCapabilities)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputTrackedRemoteCapabilities_>()))
-                       .TrackpadMaxX as *const _ as usize
-               },
-               16usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputTrackedRemoteCapabilities_),
-                       "::",
-                       stringify!(TrackpadMaxX)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputTrackedRemoteCapabilities_>()))
-                       .TrackpadMaxY as *const _ as usize
-               },
-               18usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputTrackedRemoteCapabilities_),
-                       "::",
-                       stringify!(TrackpadMaxY)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputTrackedRemoteCapabilities_>()))
-                       .TrackpadSizeX as *const _ as usize
-               },
-               20usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputTrackedRemoteCapabilities_),
-                       "::",
-                       stringify!(TrackpadSizeX)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputTrackedRemoteCapabilities_>()))
-                       .TrackpadSizeY as *const _ as usize
-               },
-               24usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputTrackedRemoteCapabilities_),
-                       "::",
-                       stringify!(TrackpadSizeY)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrInputTrackedRemoteCapabilities_>(),
+        28usize,
+        concat!("Size of: ", stringify!(ovrInputTrackedRemoteCapabilities_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrInputTrackedRemoteCapabilities_>(),
+        4usize,
+        concat!(
+            "Alignment of ",
+            stringify!(ovrInputTrackedRemoteCapabilities_)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputTrackedRemoteCapabilities_>())).Header as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputTrackedRemoteCapabilities_),
+            "::",
+            stringify!(Header)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputTrackedRemoteCapabilities_>())).ControllerCapabilities
+                as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputTrackedRemoteCapabilities_),
+            "::",
+            stringify!(ControllerCapabilities)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputTrackedRemoteCapabilities_>())).ButtonCapabilities
+                as *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputTrackedRemoteCapabilities_),
+            "::",
+            stringify!(ButtonCapabilities)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputTrackedRemoteCapabilities_>())).TrackpadMaxX as *const _
+                as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputTrackedRemoteCapabilities_),
+            "::",
+            stringify!(TrackpadMaxX)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputTrackedRemoteCapabilities_>())).TrackpadMaxY as *const _
+                as usize
+        },
+        18usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputTrackedRemoteCapabilities_),
+            "::",
+            stringify!(TrackpadMaxY)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputTrackedRemoteCapabilities_>())).TrackpadSizeX as *const _
+                as usize
+        },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputTrackedRemoteCapabilities_),
+            "::",
+            stringify!(TrackpadSizeX)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputTrackedRemoteCapabilities_>())).TrackpadSizeY as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputTrackedRemoteCapabilities_),
+            "::",
+            stringify!(TrackpadSizeY)
+        )
+    );
 }
 pub type ovrInputTrackedRemoteCapabilities = ovrInputTrackedRemoteCapabilities_;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrInputHeadsetCapabilities_ {
     pub Header: ovrInputCapabilityHeader,
     pub ControllerCapabilities: u32,
@@ -4319,115 +7019,156 @@ pub struct ovrInputHeadsetCapabilities_ {
     pub TrackpadSizeX: f32,
     pub TrackpadSizeY: f32,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrInputHeadsetCapabilities_() {
-    assert_eq!(::std::mem::size_of::<ovrInputHeadsetCapabilities_>(),
-               28usize,
-               concat!("Size of: ", stringify!(ovrInputHeadsetCapabilities_)));
-    assert_eq!(::std::mem::align_of::<ovrInputHeadsetCapabilities_>(),
-               4usize,
-               concat!("Alignment of ", stringify!(ovrInputHeadsetCapabilities_)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputHeadsetCapabilities_>())).Header as *const _ as
-                   usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputHeadsetCapabilities_),
-                       "::",
-                       stringify!(Header)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputHeadsetCapabilities_>()))
-                       .ControllerCapabilities as *const _ as usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputHeadsetCapabilities_),
-                       "::",
-                       stringify!(ControllerCapabilities)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputHeadsetCapabilities_>()))
-                       .ButtonCapabilities as *const _ as usize
-               },
-               12usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputHeadsetCapabilities_),
-                       "::",
-                       stringify!(ButtonCapabilities)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputHeadsetCapabilities_>())).TrackpadMaxX as
-                   *const _ as usize
-               },
-               16usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputHeadsetCapabilities_),
-                       "::",
-                       stringify!(TrackpadMaxX)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputHeadsetCapabilities_>())).TrackpadMaxY as
-                   *const _ as usize
-               },
-               18usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputHeadsetCapabilities_),
-                       "::",
-                       stringify!(TrackpadMaxY)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputHeadsetCapabilities_>())).TrackpadSizeX as
-                   *const _ as usize
-               },
-               20usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputHeadsetCapabilities_),
-                       "::",
-                       stringify!(TrackpadSizeX)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputHeadsetCapabilities_>())).TrackpadSizeY as
-                   *const _ as usize
-               },
-               24usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputHeadsetCapabilities_),
-                       "::",
-                       stringify!(TrackpadSizeY)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrInputHeadsetCapabilities_>(),
+        28usize,
+        concat!("Size of: ", stringify!(ovrInputHeadsetCapabilities_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrInputHeadsetCapabilities_>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ovrInputHeadsetCapabilities_))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputHeadsetCapabilities_>())).Header as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputHeadsetCapabilities_),
+            "::",
+            stringify!(Header)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputHeadsetCapabilities_>())).ControllerCapabilities
+                as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputHeadsetCapabilities_),
+            "::",
+            stringify!(ControllerCapabilities)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputHeadsetCapabilities_>())).ButtonCapabilities as *const _
+                as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputHeadsetCapabilities_),
+            "::",
+            stringify!(ButtonCapabilities)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputHeadsetCapabilities_>())).TrackpadMaxX as *const _
+                as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputHeadsetCapabilities_),
+            "::",
+            stringify!(TrackpadMaxX)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputHeadsetCapabilities_>())).TrackpadMaxY as *const _
+                as usize
+        },
+        18usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputHeadsetCapabilities_),
+            "::",
+            stringify!(TrackpadMaxY)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputHeadsetCapabilities_>())).TrackpadSizeX as *const _
+                as usize
+        },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputHeadsetCapabilities_),
+            "::",
+            stringify!(TrackpadSizeX)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputHeadsetCapabilities_>())).TrackpadSizeY as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputHeadsetCapabilities_),
+            "::",
+            stringify!(TrackpadSizeY)
+        )
+    );
 }
 pub type ovrInputHeadsetCapabilities = ovrInputHeadsetCapabilities_;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrInputStateHeader_ {
     pub ControllerType: ovrControllerType,
     pub TimeInSeconds: f64,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrInputStateHeader_() {
-    assert_eq!(::std::mem::size_of::<ovrInputStateHeader_>(),
-               16usize,
-               concat!("Size of: ", stringify!(ovrInputStateHeader_)));
-    assert_eq!(::std::mem::align_of::<ovrInputStateHeader_>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrInputStateHeader_)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputStateHeader_>())).ControllerType as *const _ as
-                   usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputStateHeader_),
-                       "::",
-                       stringify!(ControllerType)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputStateHeader_>())).TimeInSeconds as *const _ as
-                   usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputStateHeader_),
-                       "::",
-                       stringify!(TimeInSeconds)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrInputStateHeader_>(),
+        16usize,
+        concat!("Size of: ", stringify!(ovrInputStateHeader_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrInputStateHeader_>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrInputStateHeader_))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputStateHeader_>())).ControllerType as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputStateHeader_),
+            "::",
+            stringify!(ControllerType)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputStateHeader_>())).TimeInSeconds as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputStateHeader_),
+            "::",
+            stringify!(TimeInSeconds)
+        )
+    );
 }
 pub type ovrInputStateHeader = ovrInputStateHeader_;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrInputStateTrackedRemote_ {
     pub Header: ovrInputStateHeader,
     pub Buttons: u32,
@@ -4437,154 +7178,201 @@ pub struct ovrInputStateTrackedRemote_ {
     pub RecenterCount: u8,
     pub Reserved: u16,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrInputStateTrackedRemote_() {
-    assert_eq!(::std::mem::size_of::<ovrInputStateTrackedRemote_>(),
-               40usize,
-               concat!("Size of: ", stringify!(ovrInputStateTrackedRemote_)));
-    assert_eq!(::std::mem::align_of::<ovrInputStateTrackedRemote_>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrInputStateTrackedRemote_)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputStateTrackedRemote_>())).Header as *const _ as
-                   usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputStateTrackedRemote_),
-                       "::",
-                       stringify!(Header)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputStateTrackedRemote_>())).Buttons as *const _ as
-                   usize
-               },
-               16usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputStateTrackedRemote_),
-                       "::",
-                       stringify!(Buttons)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputStateTrackedRemote_>())).TrackpadStatus as
-                   *const _ as usize
-               },
-               20usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputStateTrackedRemote_),
-                       "::",
-                       stringify!(TrackpadStatus)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputStateTrackedRemote_>())).TrackpadPosition as
-                   *const _ as usize
-               },
-               24usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputStateTrackedRemote_),
-                       "::",
-                       stringify!(TrackpadPosition)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputStateTrackedRemote_>()))
-                       .BatteryPercentRemaining as *const _ as usize
-               },
-               32usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputStateTrackedRemote_),
-                       "::",
-                       stringify!(BatteryPercentRemaining)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputStateTrackedRemote_>())).RecenterCount as
-                   *const _ as usize
-               },
-               33usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputStateTrackedRemote_),
-                       "::",
-                       stringify!(RecenterCount)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputStateTrackedRemote_>())).Reserved as *const _ as
-                   usize
-               },
-               34usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputStateTrackedRemote_),
-                       "::",
-                       stringify!(Reserved)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrInputStateTrackedRemote_>(),
+        40usize,
+        concat!("Size of: ", stringify!(ovrInputStateTrackedRemote_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrInputStateTrackedRemote_>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrInputStateTrackedRemote_))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputStateTrackedRemote_>())).Header as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputStateTrackedRemote_),
+            "::",
+            stringify!(Header)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputStateTrackedRemote_>())).Buttons as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputStateTrackedRemote_),
+            "::",
+            stringify!(Buttons)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputStateTrackedRemote_>())).TrackpadStatus as *const _
+                as usize
+        },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputStateTrackedRemote_),
+            "::",
+            stringify!(TrackpadStatus)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputStateTrackedRemote_>())).TrackpadPosition as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputStateTrackedRemote_),
+            "::",
+            stringify!(TrackpadPosition)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputStateTrackedRemote_>())).BatteryPercentRemaining
+                as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputStateTrackedRemote_),
+            "::",
+            stringify!(BatteryPercentRemaining)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputStateTrackedRemote_>())).RecenterCount as *const _
+                as usize
+        },
+        33usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputStateTrackedRemote_),
+            "::",
+            stringify!(RecenterCount)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputStateTrackedRemote_>())).Reserved as *const _ as usize
+        },
+        34usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputStateTrackedRemote_),
+            "::",
+            stringify!(Reserved)
+        )
+    );
 }
 pub type ovrInputStateTrackedRemote = ovrInputStateTrackedRemote_;
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ovrInputStateHeadset_ {
     pub Header: ovrInputStateHeader,
     pub Buttons: u32,
     pub TrackpadStatus: u32,
     pub TrackpadPosition: ovrVector2f,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout_ovrInputStateHeadset_() {
-    assert_eq!(::std::mem::size_of::<ovrInputStateHeadset_>(),
-               32usize,
-               concat!("Size of: ", stringify!(ovrInputStateHeadset_)));
-    assert_eq!(::std::mem::align_of::<ovrInputStateHeadset_>(),
-               8usize,
-               concat!("Alignment of ", stringify!(ovrInputStateHeadset_)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputStateHeadset_>())).Header as *const _ as usize
-               },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputStateHeadset_),
-                       "::",
-                       stringify!(Header)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputStateHeadset_>())).Buttons as *const _ as usize
-               },
-               16usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputStateHeadset_),
-                       "::",
-                       stringify!(Buttons)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputStateHeadset_>())).TrackpadStatus as *const _ as
-                   usize
-               },
-               20usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputStateHeadset_),
-                       "::",
-                       stringify!(TrackpadStatus)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<ovrInputStateHeadset_>())).TrackpadPosition as
-                   *const _ as usize
-               },
-               24usize,
-               concat!("Offset of field: ",
-                       stringify!(ovrInputStateHeadset_),
-                       "::",
-                       stringify!(TrackpadPosition)));
+    assert_eq!(
+        ::std::mem::size_of::<ovrInputStateHeadset_>(),
+        32usize,
+        concat!("Size of: ", stringify!(ovrInputStateHeadset_))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ovrInputStateHeadset_>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ovrInputStateHeadset_))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrInputStateHeadset_>())).Header as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputStateHeadset_),
+            "::",
+            stringify!(Header)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ovrInputStateHeadset_>())).Buttons as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputStateHeadset_),
+            "::",
+            stringify!(Buttons)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputStateHeadset_>())).TrackpadStatus as *const _ as usize
+        },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputStateHeadset_),
+            "::",
+            stringify!(TrackpadStatus)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ovrInputStateHeadset_>())).TrackpadPosition as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ovrInputStateHeadset_),
+            "::",
+            stringify!(TrackpadPosition)
+        )
+    );
 }
 pub type ovrInputStateHeadset = ovrInputStateHeadset_;
 extern "C" {
-    pub fn vrapi_EnumerateInputDevices(ovr: *mut ovrMobile,
-                                       index: u32,
-                                       capsHeader: *mut ovrInputCapabilityHeader)
-                                       -> ovrResult;
+    pub fn vrapi_EnumerateInputDevices(
+        ovr: *mut ovrMobile,
+        index: u32,
+        capsHeader: *mut ovrInputCapabilityHeader,
+    ) -> ovrResult;
 }
 extern "C" {
-    pub fn vrapi_GetInputDeviceCapabilities(ovr: *mut ovrMobile,
-                                            capsHeader: *mut ovrInputCapabilityHeader)
-                                            -> ovrResult;
+    pub fn vrapi_GetInputDeviceCapabilities(
+        ovr: *mut ovrMobile,
+        capsHeader: *mut ovrInputCapabilityHeader,
+    ) -> ovrResult;
 }
 extern "C" {
-    pub fn vrapi_GetCurrentInputState(ovr: *mut ovrMobile,
-                                      deviceID: ovrDeviceID,
-                                      inputState: *mut ovrInputStateHeader)
-                                      -> ovrResult;
+    pub fn vrapi_GetCurrentInputState(
+        ovr: *mut ovrMobile,
+        deviceID: ovrDeviceID,
+        inputState: *mut ovrInputStateHeader,
+    ) -> ovrResult;
 }
 extern "C" {
-    pub fn vrapi_GetInputTrackingState(ovr: *mut ovrMobile,
-                                       deviceID: ovrDeviceID,
-                                       absTimeInSeconds: f64,
-                                       tracking: *mut ovrTracking)
-                                       -> ovrResult;
+    pub fn vrapi_GetInputTrackingState(
+        ovr: *mut ovrMobile,
+        deviceID: ovrDeviceID,
+        absTimeInSeconds: f64,
+        tracking: *mut ovrTracking,
+    ) -> ovrResult;
 }
 extern "C" {
     pub fn vrapi_RecenterInputPose(ovr: *mut ovrMobile, deviceID: ovrDeviceID);
@@ -4592,56 +7380,76 @@ extern "C" {
 extern "C" {
     pub fn vrapi_SetRemoteEmulation(ovr: *mut ovrMobile, emulationOn: bool) -> ovrResult;
 }
-pub const ovrFrameInit_VRAPI_FRAME_INIT_DEFAULT: ovrFrameInit = 0;
-pub const ovrFrameInit_VRAPI_FRAME_INIT_BLACK: ovrFrameInit = 1;
-pub const ovrFrameInit_VRAPI_FRAME_INIT_BLACK_FLUSH: ovrFrameInit = 2;
-pub const ovrFrameInit_VRAPI_FRAME_INIT_BLACK_FINAL: ovrFrameInit = 3;
-pub const ovrFrameInit_VRAPI_FRAME_INIT_LOADING_ICON: ovrFrameInit = 4;
-pub const ovrFrameInit_VRAPI_FRAME_INIT_LOADING_ICON_FLUSH: ovrFrameInit = 5;
-pub type ovrFrameInit = ::std::os::raw::c_uint;
+#[repr(u32)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum ovrFrameInit {
+    VRAPI_FRAME_INIT_DEFAULT = 0,
+    VRAPI_FRAME_INIT_BLACK = 1,
+    VRAPI_FRAME_INIT_BLACK_FLUSH = 2,
+    VRAPI_FRAME_INIT_BLACK_FINAL = 3,
+    VRAPI_FRAME_INIT_LOADING_ICON = 4,
+    VRAPI_FRAME_INIT_LOADING_ICON_FLUSH = 5,
+}
 pub type __builtin_va_list = [__va_list_tag; 1usize];
-# [ repr ( C ) ]
-# [ derive ( Debug , Copy , Clone ) ]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct __va_list_tag {
     pub gp_offset: ::std::os::raw::c_uint,
     pub fp_offset: ::std::os::raw::c_uint,
     pub overflow_arg_area: *mut ::std::os::raw::c_void,
     pub reg_save_area: *mut ::std::os::raw::c_void,
 }
-# [ test ]
+#[test]
 fn bindgen_test_layout___va_list_tag() {
-    assert_eq!(::std::mem::size_of::<__va_list_tag>(),
-               24usize,
-               concat!("Size of: ", stringify!(__va_list_tag)));
-    assert_eq!(::std::mem::align_of::<__va_list_tag>(),
-               8usize,
-               concat!("Alignment of ", stringify!(__va_list_tag)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<__va_list_tag>())).gp_offset as *const _ as usize },
-               0usize,
-               concat!("Offset of field: ",
-                       stringify!(__va_list_tag),
-                       "::",
-                       stringify!(gp_offset)));
-    assert_eq!(unsafe { &(*(::std::ptr::null::<__va_list_tag>())).fp_offset as *const _ as usize },
-               4usize,
-               concat!("Offset of field: ",
-                       stringify!(__va_list_tag),
-                       "::",
-                       stringify!(fp_offset)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<__va_list_tag>())).overflow_arg_area as *const _ as usize
-               },
-               8usize,
-               concat!("Offset of field: ",
-                       stringify!(__va_list_tag),
-                       "::",
-                       stringify!(overflow_arg_area)));
-    assert_eq!(unsafe {
-                   &(*(::std::ptr::null::<__va_list_tag>())).reg_save_area as *const _ as usize
-               },
-               16usize,
-               concat!("Offset of field: ",
-                       stringify!(__va_list_tag),
-                       "::",
-                       stringify!(reg_save_area)));
+    assert_eq!(
+        ::std::mem::size_of::<__va_list_tag>(),
+        24usize,
+        concat!("Size of: ", stringify!(__va_list_tag))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__va_list_tag>(),
+        8usize,
+        concat!("Alignment of ", stringify!(__va_list_tag))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<__va_list_tag>())).gp_offset as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__va_list_tag),
+            "::",
+            stringify!(gp_offset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<__va_list_tag>())).fp_offset as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__va_list_tag),
+            "::",
+            stringify!(fp_offset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<__va_list_tag>())).overflow_arg_area as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__va_list_tag),
+            "::",
+            stringify!(overflow_arg_area)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<__va_list_tag>())).reg_save_area as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__va_list_tag),
+            "::",
+            stringify!(reg_save_area)
+        )
+    );
 }

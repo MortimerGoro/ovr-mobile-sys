@@ -12,7 +12,7 @@ fn main() {
             "armeabi-v7a"
         };
         
-        println!("cargo:rustc-link-search={}/VrApi/Libs/Android/{}", env!("CARGO_MANIFEST_DIR"), abi);
+        println!("cargo:rustc-link-search={}/VrApi/Libs/Android/{}/Release", env!("CARGO_MANIFEST_DIR"), abi);
         println!("cargo:rustc-link-lib=vrapi");
     }
 }

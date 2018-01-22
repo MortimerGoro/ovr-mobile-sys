@@ -3,6 +3,9 @@ use super::*;
 use super::ovrFrameInit::*;
 use super::ovrGraphicsAPI::*;
 use super::ovrStructureType::*;
+use super::ovrLayerType2::*;
+use super::ovrFrameLayerEye::*;
+use super::ovrFrameLayerBlend::*;
 
 //-----------------------------------------------------------------
 // Matrix helper functions.
@@ -449,18 +452,6 @@ pub fn vrapi_DefaultPerformanceParms() -> ovrPerformanceParms {
     parms
 }
 
-// Utility function to default initialize the ovrHeadModelParms.
-pub fn vrapi_DefaultHeadModelParms() -> ovrHeadModelParms {
-    let mut parms: ovrHeadModelParms = unsafe { mem::zeroed() };
-
-    parms.InterpupillaryDistance    = 0.0640;    // average interpupillary distance
-    parms.EyeHeight                 = 1.6750;    // average eye height above the ground when standing
-    parms.HeadModelDepth            = 0.0805;
-    parms.HeadModelHeight           = 0.0750;
-
-    return parms;
-}
-
 // Utility function to default initialize the ovrFrameParms.
 pub fn vrapi_DefaultFrameParms(java: *const ovrJava,
                                init: ovrFrameInit,
@@ -485,7 +476,7 @@ pub fn vrapi_DefaultFrameParms(java: *const ovrJava,
         }
     }
     parms.LayerCount = 1;
-    parms.MinimumVsyncs = 1;
+    parms.SwapInterval = 1;
     parms.ExtraLatencyMode = ovrExtraLatencyMode::VRAPI_EXTRA_LATENCY_MODE_OFF;
     parms.ExternalVelocity.M[0][0] = 1.0;
     parms.ExternalVelocity.M[1][1] = 1.0;
@@ -513,9 +504,11 @@ pub fn vrapi_DefaultFrameParms(java: *const ovrJava,
         VRAPI_FRAME_INIT_BLACK_FINAL =>
         {
             parms.Flags = ovrFrameFlags::VRAPI_FRAME_FLAG_INHIBIT_SRGB_FRAMEBUFFER as i32;
+            // NOTE: When requesting a solid black frame, set ColorScale to 0.0f 
+            parms.Layers[0].ColorScale = 0.0; 
             for eye in 0..ovrFrameLayerEye::VRAPI_FRAME_LAYER_EYE_MAX as usize
             {
-                parms.Layers[0].Textures[eye].ColorTextureSwapChain = unsafe { mem::transmute(ovrDefaultTextureSwapChain::VRAPI_DEFAULT_TEXTURE_SWAPCHAIN_BLACK as usize) };
+                parms.Layers[0].Textures[eye].ColorTextureSwapChain = unsafe { mem::transmute(ovrDefaultTextureSwapChain::VRAPI_DEFAULT_TEXTURE_SWAPCHAIN as usize) };
             }
         },
         VRAPI_FRAME_INIT_LOADING_ICON |
@@ -528,24 +521,7 @@ pub fn vrapi_DefaultFrameParms(java: *const ovrJava,
             parms.Layers[1].SpinScale = 16.0;        // icon size factor smaller than fullscreen
             for eye in 0..ovrFrameLayerEye::VRAPI_FRAME_LAYER_EYE_MAX as usize
             {
-                parms.Layers[0].Textures[eye].ColorTextureSwapChain = unsafe { mem::transmute(ovrDefaultTextureSwapChain::VRAPI_DEFAULT_TEXTURE_SWAPCHAIN_BLACK as usize) };
-				parms.Layers[1].Textures[eye].ColorTextureSwapChain = if !textureSwapChain.is_null() {
-					textureSwapChain
-				} else {
-					unsafe { mem::transmute(ovrDefaultTextureSwapChain::VRAPI_DEFAULT_TEXTURE_SWAPCHAIN_LOADING_ICON as usize) }
-				};
-            }
-        },
-        VRAPI_FRAME_INIT_MESSAGE |
-        VRAPI_FRAME_INIT_MESSAGE_FLUSH =>
-        {
-            parms.LayerCount = 2;
-            parms.Flags = ovrFrameFlags::VRAPI_FRAME_FLAG_INHIBIT_SRGB_FRAMEBUFFER as i32;
-            parms.Layers[1].SpinSpeed = 0.0;        // rotation in radians per second
-            parms.Layers[1].SpinScale = 2.0;        // message size factor smaller than fullscreen
-            for eye in 0..ovrFrameLayerEye::VRAPI_FRAME_LAYER_EYE_MAX as usize
-            {
-                parms.Layers[0].Textures[eye].ColorTextureSwapChain = unsafe { mem::transmute(ovrDefaultTextureSwapChain::VRAPI_DEFAULT_TEXTURE_SWAPCHAIN_BLACK as usize) };
+                parms.Layers[0].Textures[eye].ColorTextureSwapChain = unsafe { mem::transmute(ovrDefaultTextureSwapChain::VRAPI_DEFAULT_TEXTURE_SWAPCHAIN as usize) };
 				parms.Layers[1].Textures[eye].ColorTextureSwapChain = if !textureSwapChain.is_null() {
 					textureSwapChain
 				} else {
@@ -555,7 +531,7 @@ pub fn vrapi_DefaultFrameParms(java: *const ovrJava,
         }
     }
 
-    if init == VRAPI_FRAME_INIT_BLACK_FLUSH || init == VRAPI_FRAME_INIT_LOADING_ICON_FLUSH || init == VRAPI_FRAME_INIT_MESSAGE_FLUSH
+    if init == VRAPI_FRAME_INIT_BLACK_FLUSH || init == VRAPI_FRAME_INIT_LOADING_ICON_FLUSH
     {
         parms.Flags |= ovrFrameFlags::VRAPI_FRAME_FLAG_FLUSH as i32;
     }
@@ -571,62 +547,99 @@ pub fn vrapi_DefaultFrameParms(java: *const ovrJava,
 // Eye view matrix helper functions.
 //-----------------------------------------------------------------
 
-// Apply the head-on-a-stick model if head tracking is not available.
-pub fn vrapi_ApplyHeadModel(head_model_params: &ovrHeadModelParms, tracking: &ovrTracking) -> ovrTracking {
-    if (tracking.Status & ovrTrackingStatus::VRAPI_TRACKING_STATUS_POSITION_TRACKED as u32) == 0 {
-        // Calculate the head position based on the head orientation using a head-on-a-stick model.
-        let p = head_model_params;
-        let m = ovrMatrix4f_CreateFromQuaternion( &tracking.HeadPose.Pose.Orientation );
-        let mut new_tracking  = *tracking;
-        new_tracking.HeadPose.Pose.Position.x = m.M[0][1] * p.HeadModelHeight - m.M[0][2] * p.HeadModelDepth;
-        new_tracking.HeadPose.Pose.Position.y = m.M[1][1] * p.HeadModelHeight - m.M[1][2] * p.HeadModelDepth - p.HeadModelHeight;
-        new_tracking.HeadPose.Pose.Position.z = m.M[2][1] * p.HeadModelHeight - m.M[2][2] * p.HeadModelDepth;
-        return new_tracking;
-    }
 
-    *tracking
+// Utility function to get the eye view matrix based on the center eye view matrix and the IPD.
+
+pub fn vrapi_GetInterpupillaryDistance(tracking2: &ovrTracking2) -> f32 {
+	let leftView = tracking2.Eye[0].ViewMatrix;
+	let rightView = tracking2.Eye[1].ViewMatrix;
+	let delta = ovrVector3f { 
+        x: rightView.M[0][3] - leftView.M[0][3],
+        y: rightView.M[1][3] - leftView.M[1][3],
+        z: rightView.M[2][3] - leftView.M[2][3]
+    };
+	(delta.x * delta.x + delta.y * delta.y + delta.z * delta.z).sqrt()
 }
 
-// Utility function to get the center eye transform.
-pub fn vrapi_GetCenterEyeTransform(_head_model_params: &ovrHeadModelParms,
-                                   tracking: &ovrTracking,
-                                   input: Option<&ovrMatrix4f>)
-                                   -> ovrMatrix4f
-{
-    //VRAPI_UNUSED( headModelParms );
-
-    // Controller input is expected to be applied relative to the head in neutral position, which means
-    // ovrTracking::HeadPose.Pose.Translation should be relative to the center of the head in neutral position.
-    let center_eye_rotation = ovrMatrix4f_CreateFromQuaternion(&tracking.HeadPose.Pose.Orientation);
-    let center_eye_offset = tracking.HeadPose.Pose.Position;
-    let center_eye_translation = ovrMatrix4f_CreateTranslation(center_eye_offset.x, center_eye_offset.y, center_eye_offset.z);
-    let center_eye_transform = ovrMatrix4f_Multiply(&center_eye_translation, &center_eye_rotation);
-
-    match input {
-        Some(input) => ovrMatrix4f_Multiply(input, &center_eye_transform),
-        None => center_eye_transform
-    }
+pub fn vrapi_GetEyeHeight(eyeLevelTrackingPose: &ovrPosef, currentTrackingPose: &ovrPosef) -> f32 {
+	eyeLevelTrackingPose.Position.y - currentTrackingPose.Position.y
 }
 
-// Utility function to get the center eye view matrix.
-// Pass in NULL for 'input' if there is no additional controller input.
-pub fn vrapi_GetCenterEyeViewMatrix(head_model_params: &ovrHeadModelParms,
-                                    tracking: &ovrTracking,
-                                    input: Option<&ovrMatrix4f>)
-                                    -> ovrMatrix4f
-{
-    let center_eye_transform = vrapi_GetCenterEyeTransform(head_model_params, tracking, input);
-    ovrMatrix4f_Inverse(&center_eye_transform)
+pub fn vrapi_GetTransformFromPose(pose: &ovrPosef) -> ovrMatrix4f {
+	let rotation = ovrMatrix4f_CreateFromQuaternion( &pose.Orientation );
+	let translation = ovrMatrix4f_CreateTranslation( pose.Position.x, pose.Position.y, pose.Position.z );
+	return ovrMatrix4f_Multiply( &translation, &rotation );
+}
+
+pub fn vrapi_GetViewMatrixFromPose(pose: &ovrPosef) -> ovrMatrix4f {
+	let transform = vrapi_GetTransformFromPose(pose);
+	return ovrMatrix4f_Inverse( &transform );
 }
 
 // Utility function to get the eye view matrix based on the center eye view matrix and the IPD.
-pub fn vrapi_GetEyeViewMatrix(head_model_params: &ovrHeadModelParms,
-                              center_eye_view_matrix: &ovrMatrix4f,
-                              eye: i32)
-                              -> ovrMatrix4f
+pub fn vrapi_GetEyeViewMatrix(
+    centerEyeViewMatrix: &ovrMatrix4f,
+	interpupillaryDistance: f32,
+	eye: i32)
+    -> ovrMatrix4f
 {
-    let eye_offset = ( if eye > 0 { -0.5 } else { 0.5 } ) * head_model_params.InterpupillaryDistance;
-    let eye_offset_matrix = ovrMatrix4f_CreateTranslation(eye_offset, 0.0, 0.0);
+	let eyeOffset = (if eye > 0 { -0.5f32 } else { 0.5f32 }) * interpupillaryDistance;
+	let eyeOffsetMatrix = ovrMatrix4f_CreateTranslation( eyeOffset, 0.0, 0.0 );
+	return ovrMatrix4f_Multiply( &eyeOffsetMatrix, centerEyeViewMatrix );
+}
 
-    ovrMatrix4f_Multiply(&eye_offset_matrix, center_eye_view_matrix)
+
+//-----------------------------------------------------------------
+// Layer Types - default initialization.
+//-----------------------------------------------------------------
+
+pub fn vrapi_DefaultLayerProjection2() -> ovrLayerProjection2 {
+	let mut layer: ovrLayerProjection2 = unsafe { mem::zeroed() };
+
+	let projectionMatrix = ovrMatrix4f_CreateProjectionFov( 90.0, 90.0, 0.0, 0.0, 0.1, 0.0 );
+	let texCoordsFromTanAngles	= ovrMatrix4f_TanAngleMatrixFromProjection( &projectionMatrix );
+
+	layer.Header.Type	= VRAPI_LAYER_TYPE_PROJECTION2;
+	layer.Header.Flags  = 0;
+	layer.Header.ColorScale.x	= 1.0;
+	layer.Header.ColorScale.y	= 1.0;
+	layer.Header.ColorScale.z	= 1.0;
+	layer.Header.ColorScale.w	= 1.0;
+	layer.Header.SrcBlend		= VRAPI_FRAME_LAYER_BLEND_ONE;
+	layer.Header.DstBlend		= VRAPI_FRAME_LAYER_BLEND_ZERO;
+	layer.Header.SurfaceTextureObject = ::std::ptr::null_mut();
+
+	layer.HeadPose.Pose.Orientation.w = 1.0;
+
+	for i in 0..VRAPI_FRAME_LAYER_EYE_MAX as usize {
+		layer.Textures[i].TexCoordsFromTanAngles		= texCoordsFromTanAngles;
+		layer.Textures[i].TextureRect.x					= 0.0;
+		layer.Textures[i].TextureRect.y					= 0.0;
+		layer.Textures[i].TextureRect.width				= 1.0;
+		layer.Textures[i].TextureRect.height			= 1.0;
+	}
+
+	layer
+}
+
+pub fn vrapi_DefaultLayerLoadingIcon2() -> ovrLayerLoadingIcon2 {
+	let mut layer: ovrLayerLoadingIcon2 = unsafe { mem::zeroed() };
+
+	layer.Header.Type	= VRAPI_LAYER_TYPE_LOADING_ICON2;
+	layer.Header.Flags  = 0;
+	layer.Header.ColorScale.x	= 1.0;
+	layer.Header.ColorScale.y	= 1.0;
+	layer.Header.ColorScale.z	= 1.0;
+	layer.Header.ColorScale.w	= 1.0;
+	layer.Header.SrcBlend		= VRAPI_FRAME_LAYER_BLEND_SRC_ALPHA;
+	layer.Header.DstBlend		= VRAPI_FRAME_LAYER_BLEND_ONE_MINUS_SRC_ALPHA;
+	layer.Header.SurfaceTextureObject = ::std::ptr::null_mut();;
+
+	layer.SpinSpeed			= 1.0;
+	layer.SpinScale			= 16.0;
+
+	layer.ColorSwapChain	= unsafe { mem::transmute(ovrDefaultTextureSwapChain::VRAPI_DEFAULT_TEXTURE_SWAPCHAIN_LOADING_ICON as usize) };
+	layer.SwapChainIndex	= 0;
+
+	return layer;
 }
